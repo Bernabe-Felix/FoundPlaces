@@ -49,6 +49,10 @@ ATTCK.Utils.loadComponents = function () {
 
 		$.each(componentNames, function (i, el) {
 			let componentName = el;
+
+			if(!ATTCK.Components[componentName])
+				return
+
 			let params = $this.data('component-options') || {};
 			let instance = new ATTCK.Components[componentName]($this, params);
 
@@ -203,7 +207,7 @@ ATTCK.Utils.initGlobalEvents = function () {
 
 	// Init Analytics
 	// TODO: (DP) User event tracking goes here
-	var instance = new ATTCK.Components['Analytics']($('body'), {});
+	// var instance = new ATTCK.Components['Analytics']($('body'), {});
 };
 
 // Declares ATTCK.Utils.xsOnly(), smOnly(), etc for running
