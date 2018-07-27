@@ -1,0 +1,261 @@
+// TODO: (DP) A lot of these aren't related to typography. Move them elsewhere.
+.close {
+	cursor: pointer;
+	display: block;
+	height: 23px;
+	position: absolute;
+	right: $gap;
+	top:11px;
+	width: 11px;
+	z-index: 100;
+
+	&:after, &:before {
+		background-color: color('global', 'black');
+		content: '';
+		display: block;
+		height: 1px;
+		left: 0;
+		position: absolute;
+		top: 12px;
+		width: 100%;
+		@include transform-rotate(45deg);
+	}
+
+	&:before {
+		left: auto;
+		right: 0;
+		@include transform-rotate(-45deg);
+	}
+}
+
+.hamburger {
+	background-color: transparent;
+	border-top: 3px solid color('global', 'gold');
+	cursor: pointer;
+	display: block;
+	height: 23px;
+	position: relative;
+	transform: scale(.55);
+	width: 34px;
+	z-index: 10;
+	@include transition(all .1s ease-in);
+
+	@include mediaquery(desktop) {
+		display: none;
+	}
+
+	&:after, &:before {
+		background-color: color('global', 'gold');
+		content: '';
+		height: 3px;
+		left: 0;
+		position: absolute;
+		top: 9px;
+		width: 100%;
+		@include transition(all .1s ease-in);
+	}
+
+	&:after {
+		top: 21px;
+	}
+
+	.navOpen & {
+		border-top: 3px solid transparent;
+
+		&:after {
+			background-color: color('global', 'gold');
+			top: 9px;
+			@include transform-rotate(45deg);
+		}
+
+		&:before {
+			background-color: color('global', 'gold');
+			@include transform-rotate(-45deg);
+		}
+
+	}
+
+	// iPhone X
+	@media only screen
+		and (device-width: 375px)
+		and (device-height: 812px)
+		and (-webkit-device-pixel-ratio: 3)
+		and (orientation: landscape) {
+		right: 40px;
+
+		.navOpen & {
+			right: 40px;
+		}
+	}
+}
+
+.nav-arrow {
+	background: url('../images/icon-arrow.png') no-repeat center center;
+	display: inline-block;
+	height: 8px;
+	position:relative;
+	top: -1px;
+	width: 8px;
+	@include transform-rotate(-90deg);
+
+	&.prev {
+		@include transform-rotate(90deg);
+	}
+}
+
+.play-button {
+	background-color: color('accent','yellow');
+	border-radius:50%;
+	cursor: pointer;
+	height: 80px;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	right: 0;
+	top: calc(50% - 40px);
+	width: 80px;
+	z-index: 10;
+
+	&:after {
+		border-color: transparent transparent transparent #ffffff;
+		border-style: solid;
+		border-width:  20px 0 20px 34.6px;
+		content: '';
+		height: 0;
+		left: 9px;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: 19px;
+		width: 0;
+	}
+}
+
+.scroller {
+	bottom: -30px;
+	cursor: pointer;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+.icon-scroller {
+	cursor: pointer;
+	display: block;
+	height: 60px;
+	margin: 0 auto;
+	width: 50px;
+}
+
+
+#icon-scroller path {
+	fill: white;
+}
+
+.icon-scroller:hover #icon-scroller path {
+	fill: rgba(255, 255, 255, .5);
+}
+
+
+.icon-grid, .icon-list, .icon-map {
+	cursor: pointer;
+	display: block;
+	fill: color('global', 'dark-border');
+	height: 21px;
+	margin-left: $gap*.5;
+	width: 16px;
+
+	&:hover {
+		fill: #000;
+	}
+
+	&.activeView{
+		fill: #000;
+		display: none;
+
+		@include mediaquery(desktop) {
+			display: inline-block;
+		}
+	}
+}
+
+.icon-grid {
+	width: 20px;
+}
+
+.icon-list {
+	width: 18px;
+}
+
+.follow {
+	margin-bottom: $gap*1.25;
+
+	.fa {
+		color: white;
+		font-size: 21px;
+	}
+
+	.social {
+		display: inline-block;
+		margin-right: $gap*.5;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.component-source .follow {
+	margin-bottom: 0;
+}
+
+.share-icon {
+	background-color:color('ground', 'blue');
+	border-radius:50%;
+	color: color('ground', 'blue');
+	display: inline-block;
+	height: 50px;
+	line-height:1;
+	padding-top: 15px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align:middle;
+	width: 50px;
+
+	.fa {
+		color: white;
+		font-size: 21px;
+
+		&.fa-envelope {
+			font-size: 18px;
+		}
+
+		@include mediaquery(desktop) {
+			&:hover {
+				opacity: .5;
+			}
+		}
+	}
+}
+
+.quotation-mark {
+	font-size: 54px;
+	display: block;
+	line-height: 1.2;
+	@include serif;
+}
+
+// Accessibility trick to hide span nearby with aria values
+.sr-only {
+		border: 0;
+		clip: rect(0, 0, 0, 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+	position: absolute;
+		width: 1px;
+}

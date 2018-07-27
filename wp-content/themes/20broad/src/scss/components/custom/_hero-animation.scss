@@ -1,0 +1,118 @@
+.component-hero-animation {
+	opacity: 1;
+/*	top: 10vh;*/
+	@include transition(opacity 1s);
+
+	> div {
+		position: relative;
+		z-index: 2;
+	}
+	.showContactModal & {
+		opacity: 0;
+		@include transition(opacity .5s);
+	}
+}
+.site-title-hidden {
+	margin-left: -99999em; 
+	overflow: hidden;
+}
+.sub-header {
+	line-height: 1;
+	text-align: center;
+
+	.site-title {
+		color: $white;
+		font-size: 1.6rem;
+		letter-spacing: 0.8rem;
+		margin-bottom: 15px;
+
+		@include mediaquery(tablet-portrait) {
+			font-size: 3.6rem;
+			letter-spacing: 0.8rem;
+			margin-bottom: 30px;
+			margin-left: 2%;
+			@include sans-serif;
+		}
+	}
+	.site-description {
+		color: $white;
+		display: block;
+		font-size: 1rem;
+		letter-spacing: 0.4rem;
+		margin-left: 2%;
+		@include sans-serif;
+
+		@include mediaquery(tablet-portrait) {
+			font-size: 1.5rem;
+			letter-spacing: 0.6rem;
+		}
+
+		@include mediaquery(desktop) {
+			font-size: 1.8rem;
+			letter-spacing: 0.75rem;
+		}
+	}
+
+	&.thank-you {
+		.thank-you-message {
+			font-size: 1.2rem;
+		    letter-spacing: 0.15rem;
+		    line-height: 2.5;
+		    text-align: center;
+    	}
+		.site-title {
+			font-size: 2.3rem;
+			letter-spacing: 0.8rem;
+
+    		@include mediaquery(tablet-portrait) {
+				font-size: 3.1rem;
+				letter-spacing: 0.13rem;
+			}
+		}
+	}
+}
+
+// SVG animation
+
+#lottie {
+	display: block;
+	height: 289px;
+	margin-bottom: 5vh;
+	margin-top: 5vh;
+	width: 213px;
+	opacity: 1;
+	overflow: hidden;
+	transform: translate3d(0,0,0);
+	text-align: center;
+
+	@include mediaquery(tablet-portrait) {
+		height: 60vh;
+		margin-bottom: 10vh;
+		margin-top: 8vh;
+		min-height: 400px;
+		width: auto;
+	}
+
+	@include mediaquery-min-device-height(iPhone6) {
+		margin-top: 10vh;
+	}
+}
+
+// Video converted using ffmpeg
+// https://gist.github.com/Vestride/278e13915894821e1d6f
+.water-video-component {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: -1;
+
+	.video-landscape & {
+		width: 100%;
+	}
+
+	.video-portrait & {
+		height: 100%;
+	}
+}

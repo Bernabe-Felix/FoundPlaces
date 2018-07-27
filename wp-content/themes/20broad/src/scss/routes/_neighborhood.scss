@@ -1,0 +1,138 @@
+body.page-neighborhood {
+	#row-hero {
+		height: 86vw;
+
+		@include mediaquery(tablet-portrait) {
+			height: 81vw;
+		}
+
+		@include mediaquery(desktop) {
+			height: calc(100vh - #{$nav-height});
+
+			.column {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 41.6667%;
+				background: white;
+			}
+		}
+
+		.column-text {
+			display: none;
+
+			@include mediaquery(desktop) {
+				display: block;
+			}
+		}
+
+		.component-text {
+			max-width: 500px;
+		}
+	}
+
+	#row-description {
+		@include mediaquery(desktop) {
+			display: none;
+		}
+	}
+
+	#row-dining1,
+	#row-cocktails {
+		.headline2 {
+			color: color('global', 'black');
+		}
+	}
+
+	#row-dining1 {
+		.column-text {
+			@include decorative-text('DINING') {
+				@include mediaquery(desktop) {
+					left: 60%;
+				}
+			}
+
+			@include mediaquery(tablet-portrait) {
+				padding-left: 235px;
+			}
+
+			@include mediaquery(desktop) {
+				padding-top: $gap * 12;
+				padding-left: $gap * 4;
+				padding-bottom: $gap*2;
+			}
+		}
+	}
+
+	#row-dining2 {
+		.column-text {
+			@include decorative-stripes {
+				display: none;
+				height: 200px;
+				right: 80px;
+				top: -100px;
+
+				@include mediaquery(tablet-portrait) {
+					display: block;
+				}
+			}
+
+			@include mediaquery(desktop) {
+				padding-top: $gap * 12;
+				padding-left: $gap * 4;
+				padding-bottom: $gap*2;
+			}
+		}
+	}
+
+	#row-cocktails {
+		.column-text {
+			@include decorative-text('COCKTAIL') {
+				@include mediaquery(desktop) {
+					left: 80%;
+				}
+			}
+
+			@include mediaquery(tablet-portrait) {
+				padding-left: 235px;
+			}
+
+			@include mediaquery(desktop) {
+				padding-top: $gap * 12;
+				padding-left: $gap * 4;
+				padding-bottom: $gap*2;			}
+		}
+	}
+
+	#row-contact {
+		@include decorative-stripes {
+			display: none;
+			height: 75%;
+			left: 66px;
+			top: -25%;
+
+			@include mediaquery(desktop) {
+				display: block;
+				top: -37.5%;
+			}
+		}
+
+		.component-image {
+			@include mediaquery(desktop) {
+				min-height: 450px;
+			}
+		}
+
+		.component-text {
+			@include mediaquery(desktop) {
+				height: auto;
+				position: absolute;
+				top: 50%;
+
+				h2 {
+					margin-bottom: $gap;
+				}
+			}
+		}
+	}
+}

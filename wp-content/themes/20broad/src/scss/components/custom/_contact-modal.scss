@@ -1,0 +1,375 @@
+// NOTE: (DP) Couple more related micro-components 
+// at the bottom of the file
+.component-contact-modal {
+	display: none;
+	min-height: 533px;
+	opacity: 0;
+	padding: $gap;
+	position: relative;
+	z-index: 2;
+	@include transition(opacity .5s);
+	@include mediaquery(tablet-portrait) {
+		padding-top: $gap*2;
+	}
+	&.visible {
+		display: block;
+	}
+
+	.showContactModal & {
+		opacity: 1;
+		@include transition(opacity .5s);
+	}
+	.contact-description {
+		margin-bottom: $gap*2;
+	}
+	.component-text-copy {
+		p {
+			font-size: 1.2rem;
+			letter-spacing: 0.15rem;
+			line-height: 2.5;
+			padding: 0;
+		}
+	}
+
+	.component-text-header {
+		h3 {
+			font-size: 9px;
+
+			@include mediaquery-min-device-height(iPhone6) {
+				font-size: inherit;
+			}
+		}
+	}
+
+	.contact-header {
+		.component-text-header {
+			padding-top: $gap/2;
+			padding-bottom: $gap/2;
+
+			h2 {
+				bottom: -4px;
+				position: relative;
+			}
+			.page-title {
+				font-size: 1.9rem;
+				letter-spacing: 0.319rem;
+			}
+		}
+	}
+
+	.contact-form-element {
+		height: auto;
+		padding: 0;
+	}
+
+	.close {
+		color: $white;
+		height: 23px;
+		opacity: 0.7;
+		position: absolute;
+		right: 0;
+		top: 16px;
+		width: 30px;
+
+		&:after, &:before {
+			background-color: color('global', 'white');
+		}
+
+		&:hover {
+			opacity: 1;
+			@include transition(all .3s ease-in);
+		}
+
+		@include mediaquery(tablet-portrait) {
+			right: 23px;
+			top: 18px;
+		}
+	}
+
+	.wpcf7 {
+		select, input, textarea {
+			background-color: transparent;
+			color: $white;
+			font-size: 1.2rem;
+			height: auto;
+			letter-spacing: 0.312rem;
+			padding: 0;
+			text-transform: uppercase;
+
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: color('global', 'dark-grey');
+			}
+
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: color('global', 'dark-grey');
+			}
+
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: color('global', 'dark-grey');
+			}
+
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: color('global', 'dark-grey');
+			}
+		}
+
+		select {
+			border: 0;
+			left: -4px;
+			margin-top: -5px;
+			outline: 0;
+			position: relative;
+
+			@include mediaquery(tablet-portrait) {
+				left: -9px;
+			}
+			
+			/* Remove the gloss effect, which also removes the dropdown arrow */
+			-moz-appearance: none;
+			-webkit-appearance: none; 
+			appearance: none;
+
+			/* Add an arrow */
+			background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=) no-repeat right center; 
+
+			@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+			   background: none;
+			}
+
+			height: 30px; 
+			padding: 0;
+
+			option {
+				color: color('global','navy');
+			}
+		}
+
+		input[type="submit"] {
+			display: block;
+			letter-spacing: 0.455rem;
+			margin: 60px auto $gap auto;
+			padding: 14px $gap*1.5 13px $gap*1.5;
+			@include sans-serif;
+
+			&.button {
+				&:hover {
+					background-color: color('global', 'gold');
+
+					&.mousedown {
+						border-color: color('global', 'gold');
+
+					}
+				}
+			}
+		}
+
+		.wpcf7-form {
+			margin-top: 0;
+
+			label {
+				margin: 0;
+			}
+		}
+
+		.wpcf7-form-control-wrap {
+			border-bottom: 1px solid $white;
+			margin-left: 0;
+			padding: 15px 0;
+
+			&.first-name, &.last-name, &.email {
+				margin-bottom: 35px;
+			}
+			&.phone {
+				margin-bottom: 65px;
+			}
+			&.residence-type, &.ideal-move-in, &.price-range, &.referral {
+				border: 1px solid $white;
+				height: 32px;
+				margin-bottom: 60px;
+				padding: 5px 0 5px 8px;
+				.residence-type, .ideal-move-in, .price-range, .referral {
+					padding-left: 10px;
+					width: 100%;
+				}
+			}
+			&.agent {
+				border: none;
+				color: $white;
+				font-size: 1.2rem;
+				height: auto;
+				padding-top: 10px;
+				text-transform: uppercase;
+				input {
+					display: inline;
+					width: auto;
+					margin-right: 10px;
+				}
+				.wpcf7-checkbox {
+					.wpcf7-list-item-label {
+						letter-spacing: 0.312rem;
+					}
+				}
+			}
+
+			&.message {
+				padding-top: 0;
+				padding-bottom: 10px;
+				textarea {
+					line-height: 2;
+				}
+			}
+
+			@include sans-serif;
+			@include mediaquery(tablet-portrait) {
+				&.first-name, &.last-name {
+					margin-bottom: 25px;
+				}
+				&.email, &.phone {
+					margin-bottom: 55px;
+				}
+				&.residence-type, &.ideal-move-in, &.price-range, &.referral {
+					margin-bottom: 42px;
+				}
+			}
+			@include mediaquery(desktop) {
+				&.first-name, &.last-name {
+					margin-bottom: 35px;
+				}
+				&.email, &.phone {
+					margin-bottom: 65px;
+				}
+				&.residence-type, &.ideal-move-in, &.price-range, &.referral {
+					margin-bottom: 60px;
+				}
+			}
+		}
+
+		.contact-fields {
+			.component-text-header {
+				padding: 0;
+			}
+		}
+	}
+
+	.wpcf7-not-valid-tip {
+		color: color('global','gold');
+		font-size: 1.2rem;
+		font-style: normal;
+		letter-spacing: 0.1rem;
+		line-height: 1.5;
+		margin-left: 0;
+		opacity: 1;
+		@include sans-serif;
+	}
+}
+
+.page-contact .wpcf7 p, 
+.page-lease-space .wpcf7 p {
+	margin: 0;
+
+	label {
+		margin: 0;
+	}
+}
+
+// NOTE: (DP) Applied in the WPFL 
+// (WordPress Flex Layout) advanced tab class attribute
+.component-contact-modal-row {
+	left: 10px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: auto;
+
+	.component-row-inner.pure-g.component-row-standard {
+		padding: 0;
+
+		textarea {
+			height: 50px;
+
+			@include mediaquery(tablet-portrait) {
+				height: auto;
+			}
+		}
+	}
+}
+
+.component-contact-modal-cta {
+	text-align: center;
+
+	.button {
+		letter-spacing: 0.455rem;
+		margin-bottom: $gap;
+		display: inline-block;
+
+		&.fade-me-in {
+			.window-has-been-loaded-for-five-seconds & {
+				transition-delay: 0s;
+				@include transition(all .2s);
+			}
+		}
+
+		&:hover {
+			background-color: color('global', 'gold');
+			@include transition(all .2s);
+
+			&.mousedown {
+				border-color: color('global', 'gold');
+				@include transition(all, 0s);
+			}
+		}
+	}
+}
+
+.component-contact-modal-overlay {
+	bottom: 0;
+	display: none;
+	height: 100vh;
+	left: 0;
+	opacity: 0;
+	overflow: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	@include transition(opacity .5s);
+
+	&.visible {
+		display: block;
+	}
+
+	.showContactModal & {
+		opacity: 1;
+		@include transition(opacity .5s);
+	}
+}
+
+.shine-gradient-component {
+	background-image: linear-gradient(135deg,
+	rgba(168,126,68,0) 0%,
+	rgba(168,126,68,1) 39%,
+	rgba(186,130,46,1) 49%,
+	rgba(168,126,68,1) 59%,
+	rgba(168,126,68,0) 100%);
+	-webkit-mask-image: url(https://attckcom-production.s3.amazonaws.com/uploads/2018/05/20Broad-Logo_1@2x.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center top;
+	-webkit-mask-size: contain;
+	-webkit-mask-clip: border-box;
+	height: 100%;
+	left: 0;
+	margin: 0 auto;
+	max-width: 641px;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 9px;
+	transform: scale(0.94);
+	transition: opacity 1s;
+	width: 100%;
+	z-index: 99999;
+
+	&.active {
+		opacity: 1;
+	}
+}

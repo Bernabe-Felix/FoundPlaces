@@ -1,0 +1,39 @@
+// For lists of partners, sponsors, and other entities
+
+.component-partner-list {
+	h2, h3 {
+		line-height: 1.6;
+		margin-bottom: 2px;
+		text-transform: uppercase;
+
+		a {
+			letter-spacing: inherit;
+		}
+	}
+
+	h3 {
+		letter-spacing: 1.59px;
+		line-height: 2.4;
+	}
+
+	.text-subhead{
+		font-style: normal;
+		margin-bottom: 0;
+	}
+
+	.body-text {
+		font-size: 1.6rem;
+
+		p {
+			font-size: 1.2rem;
+			letter-spacing: 1.59px;
+			line-height: 3;
+		}
+	}
+
+	.partner-role {
+		letter-spacing: 1.59px;
+		margin-bottom: 32px;
+		text-transform: uppercase;
+	}
+}

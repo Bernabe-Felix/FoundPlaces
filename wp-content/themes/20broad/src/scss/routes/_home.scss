@@ -1,0 +1,182 @@
+body.home {
+	#row-hero {
+		height: 100vw;
+
+		@include mediaquery(tablet-portrait) {
+			height: 90vw;
+		}
+
+		@include mediaquery(desktop) {
+			height: calc(100vh - #{$nav-height});
+
+			.column {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 41.6667%;
+				background: white;
+				padding-bottom: $gap;
+				padding-top: $gap;
+			}
+		}
+
+		.component-text {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			@include mediaquery(desktop) {
+				justify-content: left;
+			}
+		}
+
+		h1 {
+			color: color('global', 'white');
+			margin: 0;
+
+			@include mediaquery(desktop) {
+				color: color('global', 'gold');
+				text-align: left;
+			}
+		}
+	}
+
+	#row-welcome {
+		.column-text-left {
+			@include decorative-stripes {
+				display: none;
+				height: 100%;
+				right: 63px;
+				top: 0;
+
+				@include mediaquery(tablet-portrait) {
+					display: block;
+				}
+
+				@include mediaquery(desktop) {
+					display: none;
+				}
+			}
+		}
+
+		.column-text-right {
+			.address {
+				display: none;
+				margin-top: $gap * 4;
+
+				@include mediaquery(desktop) {
+					display: block;
+				}
+
+				p {
+					margin-bottom: $gap * 0.5;
+				}
+			}
+
+			@include mediaquery(desktop) {
+				padding-top: $gap * 1.5;
+				padding-left: $gap * 1.5;
+			}
+
+			@include decorative-stripes {
+				display: none;
+				height: 50%;
+				right: 86px;
+				bottom: -$gap * 2;
+
+				@include mediaquery(desktop) {
+					display: block;
+				}
+			}
+		}
+	}
+
+	#row-residences {
+		.column-image {
+			@include decorative-stripes {
+				display: none;
+				height: 66%;
+				right: 63px;
+				top: 0;
+
+				@include mediaquery(tablet-portrait) {
+					display: block;
+				}
+
+				@include mediaquery(desktop) {
+					display: none;
+				}
+			};
+		}
+
+		.column-text {
+			@include mediaquery(desktop) {
+				border-top: $gap * 2 solid color('global', 'white');
+			}
+
+			@include decorative-stripes {
+				height: 48px;
+				left: 50%;
+				top: -24px;
+				transform: translateX(-50%);
+
+				@include mediaquery(tablet-portrait) {
+					display: none;
+				}
+
+				@include mediaquery(desktop) {
+					display: block;
+					right: 46px;
+					left: auto;
+					top: -$gap * 2;
+					height: 25%;
+				}
+
+				@include mediaquery(2xl) {
+					height: 35%;
+				}
+			};
+		}
+	}
+
+	#row-amenities {
+		.column-text {
+			@include decorative-twenty;
+		}
+	}
+
+	#row-contact {
+		@include decorative-stripes {
+			display: none;
+			height: 75%;
+			left: 66px;
+			top: -25%;
+
+			@include mediaquery(tablet-portrait) {
+				display: block;
+			}
+
+			@include mediaquery(desktop) {
+				top: -37.5%;
+			}
+		}
+
+		.component-image {
+			@include mediaquery(desktop) {
+				min-height: 450px;
+			}
+		}
+
+		.component-text {
+			@include mediaquery(desktop) {
+				height: auto;
+				position: absolute;
+				top: 50%;
+
+				h2 {
+					margin-bottom: $gap;
+				}
+			}
+		}
+	}
+}

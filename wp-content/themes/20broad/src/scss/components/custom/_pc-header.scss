@@ -1,0 +1,24 @@
+//pc header
+.component-pc-header {
+	.italic50 {
+		margin-bottom: $gap*2;
+
+		@include mediaquery(tablet-portrait) {
+			margin-bottom: $gap;
+		}
+	}
+
+	p {
+		@include mediaquery(tablet-portrait) {
+			width: 50%;
+			float: left;
+		}
+	}
+
+	.component-share {
+		@include mediaquery(tablet-portrait) {
+			width: 50%;
+			float: left;
+		}		
+	}
+}

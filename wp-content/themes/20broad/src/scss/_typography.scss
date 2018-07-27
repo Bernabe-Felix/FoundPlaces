@@ -1,0 +1,819 @@
+.headline1 {
+	@include sans-serif;
+	@include font-size($font-size-headline1);
+	color: color('global', 'gold');
+	letter-spacing: 0.17em;
+	margin-bottom: 2.2em;
+	text-transform: uppercase;
+}
+
+.headline2 {
+	@include serif;
+	@include font-size($font-size-headline2)
+}
+
+.headline3 {
+	@include sans-serif-bold;
+	@include font-size($font-size-headline3);
+	letter-spacing: 0.17em;
+	text-transform: uppercase;
+	margin-bottom: 2.2em;
+}
+
+.headline4 {
+	@include sans-serif;
+	@include font-size($font-size-headline4)
+}
+
+.text-left-desktop {
+	.align-center {
+		@include mediaquery(desktop) {
+			text-align: left;
+		}
+	}
+
+	.body-text.align-center {
+		@include mediaquery(desktop) {
+			margin-right: 0;
+			margin-left: 0;
+
+			p {
+				text-align: left;
+			}
+		}
+	}
+}
+
+.text-left-tablet {
+	.align-center {
+		@include mediaquery(tablet-portrait) {
+			text-align: left;
+		}
+	}
+
+	.body-text.align-center {
+		@include mediaquery(tablet-portrait) {
+			margin-right: 0;
+			margin-left: 0;
+
+			p {
+				text-align: left;
+			}
+		}
+	}
+}
+
+.text-right-desktop {
+	.align-center {
+		@include mediaquery(desktop) {
+			text-align: right;
+		}
+	}
+
+	.body-text.align-center {
+		@include mediaquery(desktop) {
+			margin-right: 0;
+			margin-left: auto;
+
+			p {
+				text-align: right;
+			}
+		}
+	}
+}
+
+address {
+	font-style: normal;
+}
+
+a {
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	pointer-events: all;
+
+	@include mediaquery(desktop) {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+blockquote {
+	clear: both;
+	margin: $gap*3 0;
+	@include font-size($font-size-p);
+	@include sans-serif;
+
+	p {
+		@extend blockquote;
+		margin:0;
+	}
+}
+
+em, i {
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	font-style: italic;
+}
+
+hr {
+	background: color('global', 'black');
+	border: 0;
+	height: 3px;
+	margin: 25px auto;
+	width: 80px;
+}
+
+p {
+	@include serif;
+	@include font-size($font-size-p);
+}
+
+.paragraph_sans_serif {
+	@include sans-serif;
+	@include font-size($font-size-p-sans-serif);
+}
+
+p, .paragraph_sans_serif {
+	letter-spacing: 0.15em;
+	line-height: 1.78;
+	text-align: left;
+
+	a {
+		text-decoration: underline;
+
+		@include mediaquery(desktop) {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	span {
+		color: inherit;
+		font: inherit;
+	}
+}
+
+small {
+	color: inherit;
+	display: block;
+	font-size: 15px;
+	@include sans-serif;
+}
+
+span {
+	font: inherit;
+	color: inherit;
+}
+
+strong, b {
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	font-weight: 700;
+	letter-spacing: inherit;
+}
+
+th, tr, td {
+	color: inherit;
+}
+
+.arrow {
+	@extend .sans-serif14;
+	cursor: pointer;
+	display: inline-block;
+	height: 21px;
+	margin-top: 2px;
+	padding-right: $gap;
+	position: relative;
+	text-align: left;
+
+	span {
+		font:inherit;
+	}
+
+	&:after {
+		background: url('../images/icon-arrow.png') no-repeat center center;
+		content: '';
+		display: block;
+		height: 8px;
+		position: absolute;
+		right: 0;
+		top: 4px;
+		width: 14px;
+		@include transition(all .3s ease-in);
+		@include transform-rotate(0);
+	}
+
+	&.arrow-right:after {
+		@include transform-rotate(-90deg);
+	}
+
+	&.arrow-left:after {
+		@include transform-rotate(90deg);
+	}
+}
+
+.body-text {
+	letter-spacing: 0.055em;
+	line-height: 1.78;
+	margin: 0 auto;
+	@include serif;
+	@include font-size($font-size-p);
+
+	img, .post-img {
+		margin-left: 0;
+		margin-right: 0;
+		max-width: 100%;
+		width: auto;
+
+		&.alignleft, &.post-img-left {
+			display: block;
+			margin: 0 auto $gap;
+			max-width: 100%;
+			width: auto;
+
+			@include mediaquery(tablet-portrait) {
+				clear: left;
+				float: left;
+				margin: 0 $gap*.5 $gap*.5 0;
+			}
+		}
+
+		&.alignright, &.post-img-right {
+			display: block;
+			margin: 0 auto $gap;
+			max-width: 100%;
+			width: auto;
+
+			@include mediaquery(tablet-portrait) {
+				clear: right;
+				float: right;
+				margin: 0 0 $gap*.5 $gap*.5;
+
+				&.single {
+					margin: 0 -10% $gap*.5 $gap*.5;
+				}
+			}
+		}
+	}
+
+	&.align-left, &.align-right {
+		margin: 0;
+	}
+
+	&.align-center {
+		text-align: center;
+		max-width: 420px;
+		margin: 0 auto;
+
+		p {
+			text-align: center;
+		}
+
+		.body-text-wide & {
+			max-width: 900px;
+		}
+
+		// Default is always align left, the wysiwyg
+		// should override the text alignmeb
+		text-align: left;
+	}
+
+	.body-text-wide & {
+		max-width: 900px
+	}
+
+	& + a {
+		margin-top: $gap*1.5;
+	}
+
+	+ .ctas {
+		// Add margin to ctas if it's next to a .body-text div
+		margin-top: $gap*1.5;
+	}
+
+	.row-text-white & {
+		color: $white;
+	}
+
+	.row-text-black & {
+		color: color('global', 'black');
+	}
+
+	.button a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	ul, ol {
+		margin-left: $gap*2;
+		margin-bottom: $gap*1.5;
+
+		li {
+			@extend .paragraph_sans_serif;
+			font-weight: inherit;
+			line-height: 1.4;
+			margin-bottom: $gap;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	ul {
+		li {
+			list-style-type:disc;
+		}
+	}
+
+	ol {
+		li {
+			list-style-type:decimal;
+		}
+	}
+
+	p {
+		margin-bottom: $gap;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	p, li {
+		a {
+			font-weight: inherit;
+			text-decoration: underline;
+
+			@include mediaquery(desktop) {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			.row-text-white & {
+				color: white;
+			}
+		}
+	}
+
+	a.button {
+		text-decoration: none;
+		display: inline-block;
+	}
+}
+
+.breadcrumb {
+	display: block;
+	font-size: 14px;
+	letter-spacing: 0.16px;
+	margin-bottom: $gap*1.15;
+	text-align: left;
+	text-transform: uppercase;
+	@include sans-serif;
+}
+
+.button {
+	background-color: transparent;
+	border: 1px $white solid;
+	color: $white;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 1.2rem;
+	min-height: 35px;
+	min-width: 150px;
+	padding: 14px $gap*1.5 13px $gap*1.5;
+	text-align: center;
+	text-decoration: none;
+	@include sans-serif;
+	@include transition(all .3s ease-in);
+	@include mediaquery(desktop) {
+		&:hover {
+			background-color: color('global', 'gold');
+			color: $black;
+			@include transition(all .3s ease-in);
+		}
+	}
+
+	&:active {
+		background-color: color('global', 'dark-grey');
+		color: $white;
+	}
+
+	&.button-hidden {
+		opacity: 0;
+	}
+
+	&.button-inactive {
+		opacity: .3;
+		pointer-events: none;
+
+		&:hover {
+			background-color: inherit;
+			border: inherit;
+			color: inherit;
+			cursor: not-allowed;
+		}
+	}
+
+	.button-black {
+		background-color: $white;
+		border: 1px solid color('global', 'black');
+		color: color('global', 'black');
+	}
+
+	&.button-white {
+		background-color: $white;
+		border: none;
+		color: color('global', 'deep-purple');
+		@include sans-serif-bold;
+
+		@include mediaquery(desktop) {
+			&:hover {
+				background-color: #ebeaff;
+			}
+		}
+	}
+
+	&.button-purple {
+		background-color: color('global', 'deep-purple');;
+		border: none;
+		color: $white;
+		text-transform: uppercase;
+		border-radius: 30px;
+		@include sans-serif-bold;
+	}
+
+	&.button-fancy {
+		background-size: contain;
+		border: 0;
+		color: $white;
+		height: 71px;
+		padding-top: 28px;
+		width: 187px;
+		@include transition(background .3s ease-in);
+
+		@include mediaquery(desktop) {
+			&:hover {
+				background-size: contain;
+				border: 0;
+			}
+		}
+	}
+
+	&::-moz-selection { /* Code for Firefox */
+		background: transparent;
+	}
+
+	&::selection {
+		background: transparent;
+	}
+}
+
+.ctas {
+	@include clearRow;
+	margin-top: $gap*1;
+}
+
+.error {
+	color:red;
+	font-size: 1.3rem;
+	font-style: italic;
+	text-transform: none;
+	@include sans-serif;
+}
+
+.hover-underline {
+	&.sans-serif12,
+	&.sans-serif14,
+	&.sans-serif19,
+	&.sans-serif36,
+	&.sans-serif45,
+	&.sans-serif78 {
+		margin-bottom: $gap;
+
+		a {
+			@include mediaquery(desktop) {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+.pagination {
+	font-size: 1.3rem;
+	font-weight: 500;
+	margin-right: $gap*.75;
+	padding: 4px;
+	text-align: right;
+
+	.page-number {
+		color: color('global', 'black');
+		margin:0 $gap*.25;
+		padding: 3px;
+
+		&.activePage, &:hover {
+			background-color: color('global', 'black');
+			color: $white;
+		}
+	}
+}
+
+.sans-serif12,
+.sans-serif14,
+.sans-serif19,
+.sans-serif36,
+.sans-serif45,
+.sans-serif78 {
+	margin-bottom: $gap;
+
+	a {
+		@include mediaquery(desktop) {
+			&:hover {
+				text-decoration: underline;
+
+				// NOTE: (DP) Double class hack.
+				.hover-underline & &.hover-underline {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+// Page titles
+.row-text-white .page-title {
+	color: color('global', 'gold');
+	margin-bottom: $gap;
+	text-align: center;
+	text-transform: uppercase;
+	@include mediaquery(xl) {
+		padding-top: $gap*2;
+	}
+}
+
+.home .row-text-white .page-title {
+	@include mediaquery(xl) {
+		padding-top: 0;
+	}
+}
+
+// Social icons
+.fa.circle {
+	background-color: color('global', 'magenta');
+	border-radius: 50%;
+	color: $white;
+	font-size:20px;
+	height: 32px;
+	padding: 6px;
+	text-align: center;
+	vertical-align:middle;
+	width: 32px;
+
+	@include mediaquery(desktop) {
+		cursor: pointer;
+		@include transition(background-color .3s ease-in);
+
+		&:hover {
+			background-color: color('global', 'black');
+		}
+	}
+
+	&.circle-black {
+		background-color: color('global', 'black');
+		color: $white;
+
+		@include mediaquery(desktop) {
+
+			&:hover {
+				background-color: color('global', 'magenta');
+			}
+		}
+	}
+
+	&.fa-envelope, &.fa-youtube-play {
+		font-size: 17px;
+	}
+
+	&::-moz-selection { /* Code for Firefox */
+		background: transparent;
+	}
+
+	&::selection {
+		background: transparent;
+	}
+}
+
+// override & helper classes
+.align-center {
+	text-align: center;
+
+	@include mediaquery(tablet-portrait) {
+		text-align: center;
+	}
+
+	&.border-top-center {
+		text-align: center;
+	}
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.black-text {
+	color: color('global', 'black');
+}
+
+.grey-text {
+	color: color('global', 'grey');
+}
+
+.dark-grey-text {
+	color: color('global', 'dark-grey');
+}
+
+.gold-text {
+	color: color('global', 'gold');
+}
+
+.navy-text {
+	color: color('global', 'navy');
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.row-text-white {
+	color: $white;
+}
+
+.row-text-black {
+	color: color('global', 'black');
+}
+
+.row-text-dark-grey {
+	color: color('global', 'dark-grey');
+}
+
+.row-text-gold {
+	color: color('global', 'gold');
+}
+
+.row-text-navy {
+	color: color('global', 'navy');
+}
+
+.underline {
+	// for use in WYSIWYG as <u></u> was deprecated in 4.7+
+	color:inherit;
+	display: inline;
+	font-family: inherit;
+	font-size:inherit;
+	font-style:inherit;
+	font-weight:inherit;
+	line-height: inherit;
+	text-decoration:underline;
+}
+
+.white-text {
+	color: $white;
+}
+
+.border-top-center {
+	position:relative;
+	padding-top: $gap*1.25;
+
+	&:before {
+		background-color: color('global', 'black');
+		content: '';
+		height: 4px;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: 5px;
+		width: 67px;
+	}
+}
+
+.border-top-left {
+	position: relative;
+	padding-top: $gap*1.25;
+
+	&:before {
+		background-color: color('global', 'black');
+		content: '';
+		height: 4px;
+		left: 0;
+		position: absolute;
+		top: 5px;
+		width: 67px;
+	}
+}
+
+.border-right {
+	border: 1px solid $white;
+	margin-right: $gap*.75;
+	padding-right: $gap*.75;
+
+	&:last-child {
+		border: 0;
+		margin-right: 0;
+		padding-right: 0;
+	}
+}
+
+.graphic-header {
+	background-attachment: fixed;
+	margin: $gap 0;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.nocase {
+	text-transform: none;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.weight-bold {
+	font-weight: bold;
+}
+
+.weight-light {
+	font-weight: light;
+}
+
+.weight-medium {
+	font-weight: medium;
+}
+
+.component-footer-cta {
+	.align-center {
+		text-align: center;
+	}
+
+	&.padding-top {
+		padding-top: $gap*4;
+	}
+
+	&.padding-bottom {
+		padding-bottom: $gap*4;
+	}
+}
+
+//override
+.page-news-alerts {
+	p {
+		opacity: 1;
+	}
+}
+
+// Text Headline
+.bottom-divider {
+	position: relative;
+	margin-bottom: 1em;
+
+	&::after {
+		content: "";
+		display: block;
+		width: 200px;
+		height: 7px;
+		background-color: white;
+		position: absolute;
+		left: 0;
+		bottom: -1em;
+	}
+
+	&.align-right::after {
+			left: auto;
+		right: 0;
+	}
+}
