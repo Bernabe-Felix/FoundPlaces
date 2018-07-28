@@ -30,6 +30,6 @@
 	<div class="breakpoint xl"></div>
 
 	<?php include_once(get_template_directory() . "/inc/config/svg-sprite.php"); ?>
-	<?php include_once 'inc/templates/nav.php'; ?>
+	<?php include_once 'inc/templates/found/nav.php'; ?>
 		<div class="content-container component" data-component-name="FadeInElements">
 			<main class="content">

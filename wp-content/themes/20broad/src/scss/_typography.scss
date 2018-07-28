@@ -1,28 +1,53 @@
 .headline1 {
-	@include sans-serif;
-	@include font-size($font-size-headline1);
-	color: color('global', 'gold');
-	letter-spacing: 0.17em;
-	margin-bottom: 2.2em;
-	text-transform: uppercase;
+	font-size: 40px;
+	letter-spacing: 0.5px;
+	color: color('timber-green');
+
+	@include mediaquery(desktop){
+		font-size: 48px;
+	}
 }
 
 .headline2 {
-	@include serif;
-	@include font-size($font-size-headline2)
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: 0.16px;
+	color: color('timber-green');
+
+	@include mediaquery(desktop){
+		font-size: 36px;
+		letter-spacing: 0;
+	}
 }
 
 .headline3 {
-	@include sans-serif-bold;
-	@include font-size($font-size-headline3);
-	letter-spacing: 0.17em;
-	text-transform: uppercase;
-	margin-bottom: 2.2em;
+	font-size: 18px;
+	letter-spacing: 0.13px;
+	color: color('desert');
+
+	@include mediaquery(desktop){
+		font-size: 24px;
+	}
 }
 
 .headline4 {
-	@include sans-serif;
-	@include font-size($font-size-headline4)
+	font-size: 12px;
+	letter-spacing: 0.25px;
+	color: color('limued-spruce');
+
+	@include mediaquery(desktop){
+		font-size: 34px;
+	}
+}
+
+.paragraph {
+	font-size: 12px;
+	letter-spacing: 0.5px;
+	color: color('limued-spruce');
+
+	@include mediaquery(desktop){
+		font-size: 16px;
+	}
 }
 
 .text-left-desktop {
@@ -124,17 +149,17 @@ em, i {
 }
 
 hr {
-	background: color('global', 'black');
+	background: color('black');
 	border: 0;
 	height: 3px;
 	margin: 25px auto;
 	width: 80px;
 }
 
-p {
-	@include serif;
-	@include font-size($font-size-p);
-}
+//p {
+//	@include serif;
+//	@include font-size($font-size-p);
+//}
 
 .paragraph_sans_serif {
 	@include sans-serif;
@@ -231,7 +256,7 @@ th, tr, td {
 	letter-spacing: 0.055em;
 	line-height: 1.78;
 	margin: 0 auto;
-	@include serif;
+	//@include serif;
 	@include font-size($font-size-p);
 
 	img, .post-img {
@@ -311,7 +336,7 @@ th, tr, td {
 	}
 
 	.row-text-black & {
-		color: color('global', 'black');
+		color: color('black');
 	}
 
 	.button a {
@@ -388,102 +413,102 @@ th, tr, td {
 	@include sans-serif;
 }
 
-.button {
-	background-color: transparent;
-	border: 1px $white solid;
-	color: $white;
-	text-transform: uppercase;
-	cursor: pointer;
-	font-size: 1.2rem;
-	min-height: 35px;
-	min-width: 150px;
-	padding: 14px $gap*1.5 13px $gap*1.5;
-	text-align: center;
-	text-decoration: none;
-	@include sans-serif;
-	@include transition(all .3s ease-in);
-	@include mediaquery(desktop) {
-		&:hover {
-			background-color: color('global', 'gold');
-			color: $black;
-			@include transition(all .3s ease-in);
-		}
-	}
-
-	&:active {
-		background-color: color('global', 'dark-grey');
-		color: $white;
-	}
-
-	&.button-hidden {
-		opacity: 0;
-	}
-
-	&.button-inactive {
-		opacity: .3;
-		pointer-events: none;
-
-		&:hover {
-			background-color: inherit;
-			border: inherit;
-			color: inherit;
-			cursor: not-allowed;
-		}
-	}
-
-	.button-black {
-		background-color: $white;
-		border: 1px solid color('global', 'black');
-		color: color('global', 'black');
-	}
-
-	&.button-white {
-		background-color: $white;
-		border: none;
-		color: color('global', 'deep-purple');
-		@include sans-serif-bold;
-
-		@include mediaquery(desktop) {
-			&:hover {
-				background-color: #ebeaff;
-			}
-		}
-	}
-
-	&.button-purple {
-		background-color: color('global', 'deep-purple');;
-		border: none;
-		color: $white;
-		text-transform: uppercase;
-		border-radius: 30px;
-		@include sans-serif-bold;
-	}
-
-	&.button-fancy {
-		background-size: contain;
-		border: 0;
-		color: $white;
-		height: 71px;
-		padding-top: 28px;
-		width: 187px;
-		@include transition(background .3s ease-in);
-
-		@include mediaquery(desktop) {
-			&:hover {
-				background-size: contain;
-				border: 0;
-			}
-		}
-	}
-
-	&::-moz-selection { /* Code for Firefox */
-		background: transparent;
-	}
-
-	&::selection {
-		background: transparent;
-	}
-}
+//.button {
+//	background-color: transparent;
+//	border: 1px $white solid;
+//	color: $white;
+//	text-transform: uppercase;
+//	cursor: pointer;
+//	font-size: 1.2rem;
+//	min-height: 35px;
+//	min-width: 150px;
+//	padding: 14px $gap*1.5 13px $gap*1.5;
+//	text-align: center;
+//	text-decoration: none;
+//	@include sans-serif;
+//	@include transition(all .3s ease-in);
+//	@include mediaquery(desktop) {
+//		&:hover {
+//			background-color: color('gold');
+//			color: $black;
+//			@include transition(all .3s ease-in);
+//		}
+//	}
+//
+//	&:active {
+//		background-color: color('global', 'dark-grey');
+//		color: $white;
+//	}
+//
+//	&.button-hidden {
+//		opacity: 0;
+//	}
+//
+//	&.button-inactive {
+//		opacity: .3;
+//		pointer-events: none;
+//
+//		&:hover {
+//			background-color: inherit;
+//			border: inherit;
+//			color: inherit;
+//			cursor: not-allowed;
+//		}
+//	}
+//
+//	.button-black {
+//		background-color: $white;
+//		border: 1px solid color('global', 'black');
+//		color: color('global', 'black');
+//	}
+//
+//	&.button-white {
+//		background-color: $white;
+//		border: none;
+//		color: color('global', 'deep-purple');
+//		@include sans-serif-bold;
+//
+//		@include mediaquery(desktop) {
+//			&:hover {
+//				background-color: #ebeaff;
+//			}
+//		}
+//	}
+//
+//	&.button-purple {
+//		background-color: color('global', 'deep-purple');;
+//		border: none;
+//		color: $white;
+//		text-transform: uppercase;
+//		border-radius: 30px;
+//		@include sans-serif-bold;
+//	}
+//
+//	&.button-fancy {
+//		background-size: contain;
+//		border: 0;
+//		color: $white;
+//		height: 71px;
+//		padding-top: 28px;
+//		width: 187px;
+//		@include transition(background .3s ease-in);
+//
+//		@include mediaquery(desktop) {
+//			&:hover {
+//				background-size: contain;
+//				border: 0;
+//			}
+//		}
+//	}
+//
+//	&::-moz-selection { /* Code for Firefox */
+//		background: transparent;
+//	}
+//
+//	&::selection {
+//		background: transparent;
+//	}
+//}
 
 .ctas {
 	@include clearRow;
@@ -525,12 +550,12 @@ th, tr, td {
 	text-align: right;
 
 	.page-number {
-		color: color('global', 'black');
+		color: color('black');
 		margin:0 $gap*.25;
 		padding: 3px;
 
 		&.activePage, &:hover {
-			background-color: color('global', 'black');
+			background-color: color('black');
 			color: $white;
 		}
 	}
@@ -559,67 +584,67 @@ th, tr, td {
 }
 
 // Page titles
-.row-text-white .page-title {
-	color: color('global', 'gold');
-	margin-bottom: $gap;
-	text-align: center;
-	text-transform: uppercase;
-	@include mediaquery(xl) {
-		padding-top: $gap*2;
-	}
-}
+//.row-text-white .page-title {
+//	color: color('global', 'gold');
+//	margin-bottom: $gap;
+//	text-align: center;
+//	text-transform: uppercase;
+//	@include mediaquery(xl) {
+//		padding-top: $gap*2;
+//	}
+//}
 
-.home .row-text-white .page-title {
-	@include mediaquery(xl) {
-		padding-top: 0;
-	}
-}
+//.home .row-text-white .page-title {
+//	@include mediaquery(xl) {
+//		padding-top: 0;
+//	}
+//}
 
 // Social icons
-.fa.circle {
-	background-color: color('global', 'magenta');
-	border-radius: 50%;
-	color: $white;
-	font-size:20px;
-	height: 32px;
-	padding: 6px;
-	text-align: center;
-	vertical-align:middle;
-	width: 32px;
-
-	@include mediaquery(desktop) {
-		cursor: pointer;
-		@include transition(background-color .3s ease-in);
-
-		&:hover {
-			background-color: color('global', 'black');
-		}
-	}
-
-	&.circle-black {
-		background-color: color('global', 'black');
-		color: $white;
-
-		@include mediaquery(desktop) {
-
-			&:hover {
-				background-color: color('global', 'magenta');
-			}
-		}
-	}
-
-	&.fa-envelope, &.fa-youtube-play {
-		font-size: 17px;
-	}
-
-	&::-moz-selection { /* Code for Firefox */
-		background: transparent;
-	}
-
-	&::selection {
-		background: transparent;
-	}
-}
+//.fa.circle {
+//	background-color: color('magenta');
+//	border-radius: 50%;
+//	color: $white;
+//	font-size:20px;
+//	height: 32px;
+//	padding: 6px;
+//	text-align: center;
+//	vertical-align:middle;
+//	width: 32px;
+//
+//	@include mediaquery(desktop) {
+//		cursor: pointer;
+//		@include transition(background-color .3s ease-in);
+//
+//		&:hover {
+//			background-color: color('global', 'black');
+//		}
+//	}
+//
+//	&.circle-black {
+//		background-color: color('global', 'black');
+//		color: $white;
+//
+//		@include mediaquery(desktop) {
+//
+//			&:hover {
+//				background-color: color('global', 'magenta');
+//			}
+//		}
+//	}
+//
+//	&.fa-envelope, &.fa-youtube-play {
+//		font-size: 17px;
+//	}
+//
+//	&::-moz-selection { /* Code for Firefox */
+//		background: transparent;
+//	}
+//
+//	&::selection {
+//		background: transparent;
+//	}
+//}
 
 // override & helper classes
 .align-center {
@@ -642,49 +667,49 @@ th, tr, td {
 	text-align: right;
 }
 
-.black-text {
-	color: color('global', 'black');
-}
-
-.grey-text {
-	color: color('global', 'grey');
-}
-
-.dark-grey-text {
-	color: color('global', 'dark-grey');
-}
-
-.gold-text {
-	color: color('global', 'gold');
-}
-
-.navy-text {
-	color: color('global', 'navy');
-}
+//.black-text {
+//	color: color('global', 'black');
+//}
+//
+//.grey-text {
+//	color: color('global', 'grey');
+//}
+//
+//.dark-grey-text {
+//	color: color('global', 'dark-grey');
+//}
+//
+//.gold-text {
+//	color: color('global', 'gold');
+//}
+//
+//.navy-text {
+//	color: color('global', 'navy');
+//}
 
 .no-margin {
 	margin: 0;
 }
 
-.row-text-white {
-	color: $white;
-}
-
-.row-text-black {
-	color: color('global', 'black');
-}
-
-.row-text-dark-grey {
-	color: color('global', 'dark-grey');
-}
-
-.row-text-gold {
-	color: color('global', 'gold');
-}
-
-.row-text-navy {
-	color: color('global', 'navy');
-}
+//.row-text-white {
+//	color: $white;
+//}
+//
+//.row-text-black {
+//	color: color('global', 'black');
+//}
+//
+//.row-text-dark-grey {
+//	color: color('global', 'dark-grey');
+//}
+//
+//.row-text-gold {
+//	color: color('global', 'gold');
+//}
+//
+//.row-text-navy {
+//	color: color('global', 'navy');
+//}
 
 .underline {
 	// for use in WYSIWYG as <u></u> was deprecated in 4.7+
@@ -707,7 +732,7 @@ th, tr, td {
 	padding-top: $gap*1.25;
 
 	&:before {
-		background-color: color('global', 'black');
+		background-color: color('black');
 		content: '';
 		height: 4px;
 		left: 0;
@@ -724,7 +749,7 @@ th, tr, td {
 	padding-top: $gap*1.25;
 
 	&:before {
-		background-color: color('global', 'black');
+		background-color: color('black');
 		content: '';
 		height: 4px;
 		left: 0;
@@ -813,7 +838,7 @@ th, tr, td {
 	}
 
 	&.align-right::after {
-			left: auto;
+		left: auto;
 		right: 0;
 	}
 }

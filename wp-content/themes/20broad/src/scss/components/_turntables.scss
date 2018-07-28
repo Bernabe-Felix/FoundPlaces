@@ -5,7 +5,7 @@
 	position: fixed;
 	top: 0;
 	width: 50%;
-	@include transform(rotate(90deg))
+	@include transform(rotate(90deg));
 	@include transition(all .5s ease-in-out);
 
 	&.clone {

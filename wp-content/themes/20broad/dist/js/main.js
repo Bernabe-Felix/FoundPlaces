@@ -254,7 +254,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Make sure to import them above first.
 _attck2.default.Components = {
 	// 'Analytics': Analytics,
-	// 'FadeInElements': FadeInElements,
+	'FadeInElements': _fadeInElements2.default
 	// 'Map': Map,
 	// 'Nav': Nav,
 	// 'Parallax': Parallax,

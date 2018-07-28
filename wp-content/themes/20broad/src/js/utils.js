@@ -16,7 +16,7 @@ import QBTwentyBroadNeighborhoodCarousel from './components/QB-twenty-broad-neig
 // Make sure to import them above first.
 ATTCK.Components = {
 	// 'Analytics': Analytics,
-	// 'FadeInElements': FadeInElements,
+	'FadeInElements': FadeInElements,
 	// 'Map': Map,
 	// 'Nav': Nav,
 	// 'Parallax': Parallax,
