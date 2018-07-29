@@ -34,6 +34,22 @@
                 <li class="headline4">San Diego</li>
             </ul>
         </div>
+
+        <div class="locations-list-wrapper">
+            <h4 class="headline4 title">Opening in 2019:</h4>
+            <ul class="locations-list">
+                <li class="headline4">San Francisco</li>
+                <li class="headline4">Los Angeles</li>
+            </ul>
+        </div>
+
+        <div class="locations-list-wrapper">
+            <h4 class="headline4 title">Opening in 2020:</h4>
+            <ul class="locations-list">
+                <li class="headline4">Waikiki</li>
+                <li class="headline4">New York</li>
+            </ul>
+        </div>
     </div>
     <div class="link-wrapper">
         <a href="" class="found-link desert">Learn more about FOUND Study</a>
