@@ -40,10 +40,12 @@
 
     .locations-list-item {
       max-width: 100%;
+    }
+  }
 
-      .text {
-        display: inline-block;
-      }
+  @include mediaquery(tablet-portrait){
+    .locations-list-item .text {
+      display: inline-block;
     }
   }
 }
