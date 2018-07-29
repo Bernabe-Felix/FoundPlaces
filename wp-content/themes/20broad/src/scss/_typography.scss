@@ -1,5 +1,6 @@
 .headline1 {
 	font-size: 40px;
+	line-height: 1.3;
 	letter-spacing: 0.5px;
 
 	@include mediaquery(desktop){
