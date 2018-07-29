@@ -1,182 +1,35 @@
-body.home {
-	#row-hero {
-		height: 100vw;
+#found-hero {
+  padding-bottom: 100px;
 
-		@include mediaquery(tablet-portrait) {
-			height: 90vw;
-		}
+  @include mediaquery(desktop){
+    padding-bottom: 100px;
+  }
 
-		@include mediaquery(desktop) {
-			height: calc(100vh - #{$nav-height});
+  .hero-logo {
+    display: flex;
+    padding-top: 4%;
+    justify-content: center;
 
-			.column {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				width: 41.6667%;
-				background: white;
-				padding-bottom: $gap;
-				padding-top: $gap;
-			}
-		}
+    @include mediaquery(desktop){
+      padding-top: 160px;
 
-		.component-text {
-			display: flex;
-			align-items: center;
-			justify-content: center;
+      img {
+        max-width: 325px;
+      }
+    }
+  }
 
-			@include mediaquery(desktop) {
-				justify-content: left;
-			}
-		}
+  .hero-text {
+    padding-top: 75px;
+    color: color('merino');
+    // there is not way to center like this with pureCss
+    left: 25%;
+    max-width: 50%;
 
-		h1 {
-			color: color('global', 'white');
-			margin: 0;
-
-			@include mediaquery(desktop) {
-				color: color('global', 'gold');
-				text-align: left;
-			}
-		}
-	}
-
-	#row-welcome {
-		.column-text-left {
-			@include decorative-stripes {
-				display: none;
-				height: 100%;
-				right: 63px;
-				top: 0;
-
-				@include mediaquery(tablet-portrait) {
-					display: block;
-				}
-
-				@include mediaquery(desktop) {
-					display: none;
-				}
-			}
-		}
-
-		.column-text-right {
-			.address {
-				display: none;
-				margin-top: $gap * 4;
-
-				@include mediaquery(desktop) {
-					display: block;
-				}
-
-				p {
-					margin-bottom: $gap * 0.5;
-				}
-			}
-
-			@include mediaquery(desktop) {
-				padding-top: $gap * 1.5;
-				padding-left: $gap * 1.5;
-			}
-
-			@include decorative-stripes {
-				display: none;
-				height: 50%;
-				right: 86px;
-				bottom: -$gap * 2;
-
-				@include mediaquery(desktop) {
-					display: block;
-				}
-			}
-		}
-	}
-
-	#row-residences {
-		.column-image {
-			@include decorative-stripes {
-				display: none;
-				height: 66%;
-				right: 63px;
-				top: 0;
-
-				@include mediaquery(tablet-portrait) {
-					display: block;
-				}
-
-				@include mediaquery(desktop) {
-					display: none;
-				}
-			};
-		}
-
-		.column-text {
-			@include mediaquery(desktop) {
-				border-top: $gap * 2 solid color('global', 'white');
-			}
-
-			@include decorative-stripes {
-				height: 48px;
-				left: 50%;
-				top: -24px;
-				transform: translateX(-50%);
-
-				@include mediaquery(tablet-portrait) {
-					display: none;
-				}
-
-				@include mediaquery(desktop) {
-					display: block;
-					right: 46px;
-					left: auto;
-					top: -$gap * 2;
-					height: 25%;
-				}
-
-				@include mediaquery(2xl) {
-					height: 35%;
-				}
-			};
-		}
-	}
-
-	#row-amenities {
-		.column-text {
-			@include decorative-twenty;
-		}
-	}
-
-	#row-contact {
-		@include decorative-stripes {
-			display: none;
-			height: 75%;
-			left: 66px;
-			top: -25%;
-
-			@include mediaquery(tablet-portrait) {
-				display: block;
-			}
-
-			@include mediaquery(desktop) {
-				top: -37.5%;
-			}
-		}
-
-		.component-image {
-			@include mediaquery(desktop) {
-				min-height: 450px;
-			}
-		}
-
-		.component-text {
-			@include mediaquery(desktop) {
-				height: auto;
-				position: absolute;
-				top: 50%;
-
-				h2 {
-					margin-bottom: $gap;
-				}
-			}
-		}
-	}
+    @include mediaquery(desktop){
+      left: 0;
+      max-width: 100%;
+      padding-top: 115px;
+    }
+  }
 }
