@@ -1,3 +1,11 @@
+.headline1,
+.headline2,
+.headline3,
+.headline4,
+.paragraph {
+	font-family: 'Buenard';
+}
+
 .headline1 {
 	font-size: 40px;
 	line-height: 1.3;
@@ -9,15 +17,7 @@
 }
 
 .headline2 {
-	font-size: 28px;
-	line-height: 1.3;
-	font-weight: bold;
-	letter-spacing: 0.16px;
-
-	@include mediaquery(desktop){
-		font-size: 36px;
-		letter-spacing: 0;
-	}
+	@include headLine2;
 }
 
 .headline3 {

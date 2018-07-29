@@ -459,3 +459,16 @@ body {
 		}
 	}
 }
+
+// Headlines
+@mixin headLine2 {
+	font-size: 28px;
+	line-height: 1.6;
+	letter-spacing: 0.16px;
+
+	@include mediaquery(desktop){
+		font-size: 36px;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+}
