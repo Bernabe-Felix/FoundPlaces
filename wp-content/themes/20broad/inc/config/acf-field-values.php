@@ -35,10 +35,13 @@ function acf_load_cta_choices( $field ) {
 function acf_load_theme_choices( $field ) {
 	// Reset choices
 	$field['choices'] = array(
+		'ebb' => 'Ebb',
         'white' => 'White',
 		'swirl' => 'Swirl',
+        'merino' => 'Merino',
 		'default' => 'Default',
         'clam-shell' => 'Clam Shell',
+		'pearl-bush' => 'Pearl Bush',
 		'granny-smith' => 'Granny Smith'
 	);
 
