@@ -73,6 +73,10 @@
     margin-top: 20px;
   }
 
+  @include mediaquery-max(desktop){
+    background-color: $white;
+  }
+
   @include mediaquery(desktop){
     padding: 0 50px 60px 80px;
 
