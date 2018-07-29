@@ -36,8 +36,8 @@ function acf_load_theme_choices( $field ) {
 	// Reset choices
 	$field['choices'] = array(
         'white' => 'White',
+		'swirl' => 'Swirl',
 		'default' => 'Default',
-		'background' => 'Background',
 		'granny-smith' => 'Granny Smith'
 	);
 
