@@ -10,6 +10,7 @@
 
 .headline2 {
 	font-size: 28px;
+	line-height: 1.3;
 	font-weight: bold;
 	letter-spacing: 0.16px;
 
@@ -21,10 +22,12 @@
 
 .headline3 {
 	font-size: 18px;
+	line-height: 1.4;
 	letter-spacing: 0.13px;
 
 	@include mediaquery(desktop){
 		font-size: 24px;
+		line-height: 1.9;
 	}
 }
 
@@ -162,30 +165,30 @@ hr {
 	@include font-size($font-size-p-sans-serif);
 }
 
-p, .paragraph_sans_serif {
-	letter-spacing: 0.15em;
-	line-height: 1.78;
-	text-align: left;
-
-	a {
-		text-decoration: underline;
-
-		@include mediaquery(desktop) {
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	span {
-		color: inherit;
-		font: inherit;
-	}
-}
+//p, .paragraph_sans_serif {
+//	letter-spacing: 0.15em;
+//	line-height: 1.78;
+//	text-align: left;
+//
+//	a {
+//		text-decoration: underline;
+//
+//		@include mediaquery(desktop) {
+//			&:hover {
+//				text-decoration: none;
+//			}
+//		}
+//	}
+//
+//	&:last-child {
+//		margin-bottom: 0;
+//	}
+//
+//	span {
+//		color: inherit;
+//		font: inherit;
+//	}
+//}
 
 small {
 	color: inherit;
@@ -689,6 +692,10 @@ th, tr, td {
 
 .row-text-merino {
 	color: color('merino');
+}
+
+.row-text-desert {
+	color: color('desert');
 }
 //
 //.row-text-black {
