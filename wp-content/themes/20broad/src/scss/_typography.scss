@@ -59,9 +59,11 @@
 
 	&.desert {
 		color: color('desert');
+		border-bottom: 1px solid color('desert');
 
 		&:hover {
 			color: color('timber-green');
+			border-color: color('timber-green');
 		}
 	}
 }
