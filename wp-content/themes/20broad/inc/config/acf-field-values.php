@@ -38,6 +38,7 @@ function acf_load_theme_choices( $field ) {
         'white' => 'White',
 		'swirl' => 'Swirl',
 		'default' => 'Default',
+        'clam-shell' => 'Clam Shell',
 		'granny-smith' => 'Granny Smith'
 	);
 
