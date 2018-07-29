@@ -24,7 +24,7 @@
 			$textCopy = $globalColumn['text_copy'];
 		?>
 		<?php if ($textIcon) { ?><img src="<?= $textIcon['url']; ?>" class="text-icon align-<?= $textAlignment; ?> <?php if ($smallIcon) { echo ' small-icon'; } ?>" alt="<?= $textIcon['title']; ?>" title="<?= $textIcon['title']; ?>" /><?php } ?>
-		<?php if ($textEyebrow) { ?><h4 class="sans-serif24 align-<?= $textAlignment; ?>"><?= $textEyebrow; ?></h4><?php } ?>
+		<?php if ($textEyebrow) { ?><h4 class="sans-serif24 headline4 align-<?= $textAlignment; ?>"><?= $textEyebrow; ?></h4><?php } ?>
 
 		<?php if ($textHeadline or $textSubhead) { ?>
 		<div class="component-text-header fade-me-in">
@@ -32,13 +32,13 @@
 				if ($pageHeader) {
 					if ($textHeadline) {
 						?>
-						<h1 class="page-title <?= $textStyle;?> align-<?= $textAlignment; ?>" <?= $textInlineCSS; ?>><?= $textHeadline; ?></h1>
+						<h1 class="page-title headline1 <?= $textStyle;?> align-<?= $textAlignment; ?>" <?= $textInlineCSS; ?>><?= $textHeadline; ?></h1>
 						<?php
 					}
 				} else {
 					if ($textHeadline) {
 						?>
-						<h2 class="<?= $textStyle;?> align-<?= $textAlignment; ?>" <?= $textInlineCSS; ?>><?= $textHeadline; ?></h2>
+						<h2 class="headline2 <?= $textStyle;?> align-<?= $textAlignment; ?>" <?= $textInlineCSS; ?>><?= $textHeadline; ?></h2>
 						<?php
 					}
 				}
