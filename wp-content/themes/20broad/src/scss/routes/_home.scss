@@ -65,3 +65,19 @@
     }
   }
 }
+
+#found-categories-detail {
+  padding: 0 15px 25px 20px;
+
+  .found-category-detail {
+    padding-top: 20px;
+  }
+
+  @include mediaquery(desktop){
+    padding: 0 50px 60px 80px;
+
+    .found-category-detail {
+      padding-top: 35px;
+    }
+  }
+}
