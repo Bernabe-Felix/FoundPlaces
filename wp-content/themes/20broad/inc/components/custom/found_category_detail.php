@@ -33,7 +33,7 @@
         </div>
 
         <div class="locations-lists pure-g">
-            <div class="pure-u-lg-4-12 locations-list-wrapper">
+            <div class="pure-u-sm-12-12 pure-u-lg-4-12 locations-list-wrapper">
                 <h4 class="headline4 title">Current Locations:</h4>
                 <ul class="locations-list">
                     <li class="headline4">Chicago</li>
@@ -43,7 +43,7 @@
                 </ul>
             </div>
 
-            <div class="pure-u-lg-4-12 locations-list-wrapper">
+            <div class="pure-u-sm-12-12 pure-u-lg-4-12 locations-list-wrapper">
                 <h4 class="headline4 title">Opening in 2019:</h4>
                 <ul class="locations-list">
                     <li class="headline4">San Francisco</li>
@@ -51,7 +51,7 @@
                 </ul>
             </div>
 
-            <div class="pure-u-lg-4-12 locations-list-wrapper">
+            <div class="pure-u-sm-12-12 pure-u-lg-4-12 locations-list-wrapper">
                 <h4 class="headline4 title">Opening in 2020:</h4>
                 <ul class="locations-list">
                     <li class="headline4">Waikiki</li>
