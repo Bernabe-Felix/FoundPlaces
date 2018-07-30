@@ -3,16 +3,16 @@
 <footer class="component-footer component-theme-merino fade-me-in">
 	<div class="pure-g footer-content">
         <!--    Offset    -->
-        <div class="pure-u-sm-1-12"> </div>
-		<div class="pure-u-sm-10-12 text">
+        <div class="pure-u-sm-1-12  "> </div>
+		<div class="pure-u-sm-10-12 pure-u-lg-3-12 text">
             We’re working on adding more information to this site. Please check back soon.
 		</div>
 
         <!--    Offset    -->
-        <div class="pure-u-sm-2-12"> </div>
-        <div class="pure-u-sm-8-12 text">
+        <div class="pure-u-sm-2-12 pure-u-lg-3-12"> </div>
+        <div class="pure-u-sm-8-12 pure-u-lg-4-12 text">
             If you’d like to learn more about us, please email
-            <div>
+            <div class="contact-link">
                 <a class="found-link desert" href="mailto:info@foundresidences.com">info@foundresidences.com</a>
             </div>
         </div>

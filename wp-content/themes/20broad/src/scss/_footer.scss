@@ -39,4 +39,34 @@
       font: 8px normal Buenard;
     }
   }
+
+  @include mediaquery(desktop){
+    .footer-content {
+      text-align: left;
+
+      .found-link,
+      .text {
+        font-size: 20px;
+      }
+
+      .text:last-of-type {
+        margin-top: 0;
+      }
+    }
+
+    .contact-link {
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      margin: 125px 9% 0;
+      justify-content: space-between;
+    }
+
+    .copyright,
+    .menu-item a {
+      font-size: 14px;
+      line-height: 1.28;
+    }
+  }
 }
