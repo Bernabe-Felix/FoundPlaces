@@ -1,0 +1,32 @@
+#found-partners {
+  padding-bottom: 70px;
+
+  .partners-heading .headline2 {
+    margin-top: 40px;
+    line-height: 1.3;
+    color: color('timber-green');
+  }
+
+  .partners-image {
+    margin-top: 20px;
+  }
+
+  .partners-body {
+    margin-top: 25px;
+
+    //  title
+    h2 {
+      line-height: 1;
+      text-align: center;
+      letter-spacing: 0.22px;
+      font: 20px normal Buenard;
+      color: color('timber-green');
+    }
+
+    //  body
+    p span {
+      @include paragraph;
+      color: color('timber-green');
+    }
+  }
+}
