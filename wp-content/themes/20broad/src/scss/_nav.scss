@@ -43,11 +43,6 @@
 			margin-top: 15px;
 		}
 
-		.menu-navigation-primary-container {
-			height: 100%;
-			text-align: center;
-		}
-
 		.menu-item {
 			@include headLine2;
 			line-height: 1.3;
@@ -68,6 +63,28 @@
 		.hamburger-container {
 			display: none;
 		}
+
+		.menu-navigation-primary-container {
+			margin-top: 40px;
+			text-align: center;
+		}
+
+		.menu-item {
+			line-height: 1 !important;
+			display: inline-block;
+			text-transform: uppercase;
+			color: color('timber-green');
+			font: bold 16px "Crimson Text";
+
+			&:hover {
+				text-decoration: none;
+				border-bottom: 1px solid color('timber-green');
+			}
+
+			&:nth-of-type(n + 1) {
+				margin-left: 55px;
+			}
+		}
 	}
 
 	@include mediaquery-max(desktop){
@@ -83,6 +100,11 @@
 			.mobile-menu {
 				display: flex;
 			}
+		}
+
+		.menu-navigation-primary-container {
+			height: 100%;
+			text-align: center;
 		}
 
 		.desktop-menu {

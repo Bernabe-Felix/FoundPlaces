@@ -138,12 +138,6 @@ a {
 	font-weight: inherit;
 	line-height: inherit;
 	pointer-events: all;
-
-	@include mediaquery(desktop) {
-		&:hover {
-			text-decoration: underline;
-		}
-	}
 }
 
 blockquote {
