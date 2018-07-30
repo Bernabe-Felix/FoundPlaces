@@ -1,11 +1,7 @@
 .main-header {
-	top: 0;
-	bottom: 0;
 	z-index: 10;
 	height: auto;
 	position: fixed;
-	min-height: 100vh;
-	overflow-y: scroll;
 
 	.menu-icon {
 		width: 100%;
@@ -30,8 +26,11 @@
 	}
 
 	.mobile-menu {
-		height: 100%;
+		top: 0;
+		bottom: 0;
+		height: auto;
 		display: none;
+		min-height: 100vh;
 		overflow-y: scroll;
 		align-items: center;
 		padding-bottom: 100px;
