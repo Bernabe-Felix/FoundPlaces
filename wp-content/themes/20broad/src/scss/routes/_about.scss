@@ -7,6 +7,13 @@
 
   .about-body {
     margin-top: 15px;
+    text-align: center;
+
+    // override  typography styles
+    .body-text.align-center {
+      margin: 0;
+      max-width: 100%;
+    }
 
     span {
       font-size: 20px;
@@ -17,5 +24,25 @@
 
   .about-location-image {
     margin: 30px auto;
+  }
+
+  @include mediaquery(desktop) {
+    .about-heading .headline2 {
+      line-height: 1;
+      font-size: 48px;
+      margin-top: 70px;
+    }
+
+    .about-body {
+      margin-top: 70px;
+
+      span {
+        font-size: 36px;
+      }
+    }
+
+    .about-location-image {
+      margin: 55px auto 50px;
+    }
   }
 }
