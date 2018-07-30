@@ -335,6 +335,14 @@ main.content {
 .component-theme-pearl-bush {
 	background-color: color('pearl-bush');
 }
+
+.component-theme-half-clam-shell-half-white {
+	background-color: color('clam-shell');
+
+	@include mediaquery(desktop) {
+		background: linear-gradient(color('clam-shell') 50%, white 50%);
+	}
+}
 //.component-theme-grey {
 //	background-color: color('global', 'grey');
 //}

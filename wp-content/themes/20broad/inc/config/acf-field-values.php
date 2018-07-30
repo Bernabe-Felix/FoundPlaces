@@ -42,7 +42,8 @@ function acf_load_theme_choices( $field ) {
 		'default' => 'Default',
         'clam-shell' => 'Clam Shell',
 		'pearl-bush' => 'Pearl Bush',
-		'granny-smith' => 'Granny Smith'
+		'granny-smith' => 'Granny Smith',
+        'half-clam-shell-half-white' => 'Half Clam Shell - Half White',
 	);
 
 	return $field;
