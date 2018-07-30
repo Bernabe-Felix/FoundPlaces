@@ -1,10 +1,13 @@
 #found-partners {
   padding-bottom: 70px;
 
-  .partners-heading .headline2 {
+  .partners-heading {
     margin-top: 40px;
-    line-height: 1.3;
-    color: color('timber-green');
+
+    .headline2 {
+      line-height: 1.3;
+      color: color('timber-green');
+    }
   }
 
   .partners-image {
@@ -18,6 +21,7 @@
     h2 {
       line-height: 1;
       text-align: center;
+      margin-bottom: 15px;
       letter-spacing: 0.22px;
       font: 20px normal Buenard;
       color: color('timber-green');
@@ -27,6 +31,27 @@
     p span {
       @include paragraph;
       color: color('timber-green');
+    }
+  }
+
+  @include mediaquery(desktop) {
+    padding-bottom: 140px;
+
+    .partners-heading {
+      margin-top: 95px;
+    }
+
+    .partners-image {
+      max-width: 53%;
+      margin-top: 40px;
+    }
+
+    .partners-body {
+      margin-top: 50px;
+
+      h2 {
+        margin-bottom: 10px;
+      }
     }
   }
 }
