@@ -18,7 +18,7 @@ ATTCK.Components = {
 	// 'Analytics': Analytics,
 	'FadeInElements': FadeInElements,
 	// 'Map': Map,
-	// 'Nav': Nav,
+	'Nav': Nav,
 	// 'Parallax': Parallax,
 	// 'QBTwentyBroadCarousel': QBTwentyBroadCarousel,
 	// 'QBTwentyBroadNeighborhoodCarousel': QBTwentyBroadNeighborhoodCarousel,

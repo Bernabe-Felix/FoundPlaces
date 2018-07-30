@@ -1,4 +1,4 @@
-<header class="main-header component open" data-component-name="Nav">
+<header class="main-header component" data-component-name="Nav">
     <div class="hamburger-container">
         <img class="menu-icon" src="<?php bloginfo('template_directory')?>/src/images/hamburguer.png" alt="">
     </div>
