@@ -1,6 +1,47 @@
 .found-category-detail {
+
+  &.reverse {
+    .title-wrapper {
+      margin-left: 55px;
+    }
+  }
+
+  .grid {
+    height: 100%;
+  }
+
   .image-side {
-    display: none;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    .title-wrapper {
+      margin-right: 55px;
+      text-align: right;
+      color: color('timber-green');
+
+      .number {
+        height: 75px;
+        font-size: 144px;
+        line-height: 0.15;
+        font-family: Buenard;
+      }
+
+      .title {
+        font-weight: bold;
+      }
+    }
+
+    .image-wrapper {
+      width: 75%;
+      left: 12.5%;
+      bottom: 20%;
+      position: absolute;
+    }
+
+    @include mediaquery-max(desktop){
+      display: none;
+    }
   }
 
   .content-side {
@@ -53,6 +94,8 @@
     }
 
     @include mediaquery(desktop){
+      margin-top: 0;
+
       .number {
         display: none;
       }
@@ -73,5 +116,9 @@
         text-align: right;
       }
     }
+  }
+
+  @include mediaquery(desktop){
+    padding-top: 50px;
   }
 }

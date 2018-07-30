@@ -3,7 +3,8 @@
 .headline3,
 .headline4,
 .paragraph,
-.found-link {
+.found-link,
+.found-underline-link {
 	font-family: 'Buenard';
 }
 
@@ -54,16 +55,15 @@
 	}
 }
 
-.found-link {
+.found-underline-link {
 	font-size: 14px;
 
 	&.desert {
 		color: color('desert');
-		border-bottom: 1px solid color('desert');
+		text-decoration: underline;
 
 		&:hover {
 			color: color('timber-green');
-			border-color: color('timber-green');
 		}
 	}
 }
