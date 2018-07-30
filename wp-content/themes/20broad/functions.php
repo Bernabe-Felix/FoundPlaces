@@ -62,11 +62,8 @@ if (!function_exists('_theme_setup')) {
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(array(
-			'primary-left' => __('Primary Navigation Left', '_attck'),
-			'primary-right' => __('Primary Navigation Right', '_attck'),
-			'mobile-nav' => __('Primary Navigation Mobile', '_attck'),
+			'primary' => __('Primary Navigation', '_attck'),
 			'footer-primary' => __('Primary Footer Navigation', '_attck'),
-			'footer-secondary' => __('Secondary Footer Navigation', '_attck'),
 		));
 	}
 }
