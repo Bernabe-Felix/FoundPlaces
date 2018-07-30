@@ -19,7 +19,7 @@
 }
 
 .headline2 {
-	@include headLine2;
+	@include hea-line-2;
 }
 
 .headline3 {
@@ -66,6 +66,10 @@
 			color: color('timber-green');
 		}
 	}
+}
+
+.found-link {
+	@include found-link;
 }
 
 .text-left-desktop {
