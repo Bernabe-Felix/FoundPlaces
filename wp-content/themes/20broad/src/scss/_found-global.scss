@@ -1,0 +1,13 @@
+.found-hero-logo {
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+
+  @include mediaquery(desktop){
+    padding-top: 160px;
+
+    img {
+      max-width: 325px;
+    }
+  }
+}

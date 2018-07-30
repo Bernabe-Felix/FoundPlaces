@@ -5,20 +5,6 @@
     padding-bottom: 100px;
   }
 
-  .hero-logo {
-    display: flex;
-    margin-top: 15px;
-    justify-content: center;
-
-    @include mediaquery(desktop){
-      padding-top: 160px;
-
-      img {
-        max-width: 325px;
-      }
-    }
-  }
-
   .hero-text {
     padding-top: 75px;
     color: color('merino');
@@ -49,7 +35,7 @@
   }
 
   .text-eyebrow {
-    @include hea-line-2;
+    @include head-line-2;
     margin-right: 8px;
   }
 
