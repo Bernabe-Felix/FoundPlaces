@@ -7,7 +7,6 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri() . "/dist/css/style.css"; ?>" type="text/css" media="screen" />
-	<?php include_once 'inc/templates/favicons.php'; ?>
 	<?php include_once 'inc/templates/google-tag-manager.php'; ?>
 	<?php include_once 'inc/templates/call-rail.php'; ?>
 	<?php wp_head(); ?>
@@ -29,7 +28,6 @@
 	<div class="breakpoint desktop"></div>
 	<div class="breakpoint xl"></div>
 
-	<?php include_once(get_template_directory() . "/inc/config/svg-sprite.php"); ?>
 	<?php include_once 'inc/templates/found/nav.php'; ?>
 		<div class="content-container component" data-component-name="FadeInElements">
 			<main class="content">
