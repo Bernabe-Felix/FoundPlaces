@@ -71,7 +71,7 @@
   }
 
   .found-contact-form {
-    padding: 0 18px 25px;
+    padding: 0 5.5% 25px;
 
     span[role="alert"], // errors by field
     div[role="alert"] { // errors by form
@@ -92,11 +92,13 @@
       width: 100%;
       background: none;
       padding-bottom: 15px;
+      color: color('timber-green');
       border-bottom: 1px solid color('timber-green');
     }
 
     .submit {
       width: auto;
+      font-size: 20px;
       background: none;
       padding-bottom: 10px;
       border-bottom: 1px solid color('desert');
@@ -122,6 +124,7 @@
   }
 
   @include mediaquery(desktop){
+
     .text-headline {
       line-height: 1;
       font-size: 48px;
@@ -130,6 +133,14 @@
     .text-subhead {
       font-size: 40px;
       line-height: 1.25;
+    }
+
+    .found-contact-help-text {
+      margin: auto 0;
+    }
+
+    .found-contact-form {
+      padding: 85px 13.5% 125px;
     }
   }
 }
