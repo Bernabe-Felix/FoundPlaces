@@ -90,7 +90,7 @@ $site-width					: 1440px;
 //$tablet-landscape-breakpoint: 1024px;
 //$desktop-breakpoint			: 1100px;
 //$large-desktop-breakpoint	: 1440px;
-$nav-breakpoint				: 1150px;
+$nav-breakpoint				: 1440px;
 
 // Standard colors
 // ===============
@@ -99,25 +99,19 @@ $black: #000000;
 
 // Colors
 // ======
-$brand-color-key: 'merino' !default;
-$found-colors: (
-	'ebb':				#EAE5E5,
-	'black': 			$black,
-	'white': 			$white,
-	'swirl': 			#DCD3CB,
-	'merino':   		#F2EADF,
-	'desert': 			#B36A20,
-	'tundora':			#4C4B4B,
-	'clam-shell':		#D9C2B6,
-	'pearl-bush': 		#DFD5C5,
-	'timber-green': 	#172A30,
-	'granny-smith': 	#8E9C9C,
-	'limued-spruce': 	#323E48,
+$brand-color-key: 'white' !default;
+$brand-colors: (
+				'bone': 			#E4D5C5,
+				'black': 			$black,
+				'white': 			$white,
+				'tan-hide': 		#F8905E,
+				'solitaire': 		#FEF4E4,
+				'cutty-sark': 		#436966
 );
 
 //
 @function color($variant: $brand-color-key) {
-	$color: map-get($found-colors, $variant);
+	$color: map-get($brand-colors, $variant);
 
 	@return $color;
 }
@@ -134,17 +128,17 @@ $found-colors: (
 // 		.bg-green-base
 // 		.text-color-high-textDull
 //
-//@each $key, $map in $brand-colors {
-//	@each $variant, $color in $map {
-//		.bg-#{$key}-#{$variant} {
-//			background-color: #{$color};
-//		}
-//
-//		.text-color-#{$key}-#{$variant} {
-//			color: #{$color};
-//		}
-//	}
-//}
+@each $key, $map in $brand-colors {
+	@each $color in $map {
+		.component-theme-#{$key} {
+			background-color: #{$color};
+		}
+
+		.row-text-#{$key} {
+			color: #{$color};
+		}
+	}
+}
 
 // Responsive Font Size Map
 // ========================

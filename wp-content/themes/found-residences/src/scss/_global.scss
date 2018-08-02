@@ -309,53 +309,9 @@ main.content {
 	}
 }
 
-.component-theme-granny-smith {
-	background-color: color('granny-smith');
-}
-
 .component-theme-white {
 	background-color: color('white');
 }
-
-.component-theme-swirl {
-	background-color: color('swirl');
-}
-
-.component-theme-clam-shell {
-	background-color: color('clam-shell');
-}
-
-.component-theme-ebb {
-	background-color: color('ebb');
-}
-
-.component-theme-merino {
-	background-color: color('merino');
-}
-
-.component-theme-pearl-bush {
-	background-color: color('pearl-bush');
-}
-
-.component-theme-half-clam-shell-half-white {
-	background-color: color('clam-shell');
-
-	@include mediaquery(desktop) {
-		background: linear-gradient(color('clam-shell') 50%, white 50%);
-	}
-}
-//.component-theme-grey {
-//	background-color: color('global', 'grey');
-//}
-//
-//
-//.component-theme-navy {
-//	background-color: color('global', 'navy');
-//}
-//
-//.component-theme-default {
-//	background-color: transparent;
-//}
 
 .content-wrapper {
 	position: relative;
@@ -675,16 +631,16 @@ main.content {
 //}
 
 //.overlay {
-	// TODO: (DP) This likely was incorrectly placed in global,
-	// Moving it to the contact modal overlay component for now.
-	// bottom: 0;
-	// height: 100vh;
-	// left: 0;
-	// overflow: auto;
-	// position: fixed;
-	// right: 0;
-	// top: 0;
-	// z-index: 100;
+// TODO: (DP) This likely was incorrectly placed in global,
+// Moving it to the contact modal overlay component for now.
+// bottom: 0;
+// height: 100vh;
+// left: 0;
+// overflow: auto;
+// position: fixed;
+// right: 0;
+// top: 0;
+// z-index: 100;
 //}
 
 .padding-bottom {
@@ -1159,10 +1115,10 @@ div[class*="logo-container-"] {
 		font-size: 1.2rem;
 		letter-spacing: 0.312rem;
 		line-height: 2;
-			width: 100%;
-			a {
-				display: block;
-			}
+		width: 100%;
+		a {
+			display: block;
+		}
 	}
 	img {
 		margin-bottom: 10px;
