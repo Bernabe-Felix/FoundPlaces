@@ -35,7 +35,7 @@ function acf_load_cta_choices( $field ) {
 function acf_load_theme_choices( $field ) {
     // Reset choices
     $field['choices'] = array(
-        'image-background' => 'Background Image',
+        'background' => 'Background Image', // DO NOT DELETE THIS
         'bone' => 'Bone',
         'black' => 'Black',
         'white' => 'White',
