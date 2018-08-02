@@ -1,0 +1,72 @@
+.component-footer {
+  padding: 26px 0;
+  
+  .footer-content {
+    text-align: center;
+
+    .text {
+      line-height: 1.3;
+      color: color('timber-green');
+      font: 14px normal Buenard;
+    }
+
+    .text:last-of-type {
+      margin-top: 25px;
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-around;
+  }
+
+  .copyright {
+    line-height: 1.25;
+    font: 8px normal Buenard;
+  }
+
+  .menu-item {
+    display: inline-block;
+
+    &:nth-of-type(n + 2) {
+      margin-left: 10px;
+    }
+
+    a {
+      @include timber-green-link;
+      line-height: 1.25;
+      font: 8px normal Buenard;
+    }
+  }
+
+  @include mediaquery(desktop){
+    .footer-content {
+      text-align: left;
+
+      .found-link,
+      .text {
+        font-size: 20px;
+      }
+
+      .text:last-of-type {
+        margin-top: 0;
+      }
+    }
+
+    .contact-link {
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      margin: 125px 9% 0;
+      justify-content: space-between;
+    }
+
+    .copyright,
+    .menu-item a {
+      font-size: 14px;
+      line-height: 1.28;
+    }
+  }
+}

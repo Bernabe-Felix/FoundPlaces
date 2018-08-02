@@ -1,0 +1,16 @@
+.component-image {
+	height: 100%;
+
+	.content-wrapper {
+		height: 100%;
+	}
+
+	img {
+		display: block;
+		object-fit: cover;
+
+		@include mediaquery(desktop) {
+			height: 100%;
+		}
+	}
+}

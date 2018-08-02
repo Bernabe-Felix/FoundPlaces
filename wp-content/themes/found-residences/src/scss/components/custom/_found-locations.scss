@@ -1,0 +1,51 @@
+#locations {
+  padding: 15px 25px;
+
+  .locations-body {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .locations-list {
+    list-style: none;
+    padding-left: 25px;
+  }
+
+  .locations-list-item {
+    display: flex;
+    padding-top: 30px;
+
+    .item-icon {
+      width: 30px;
+      margin-right: 15px;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @include mediaquery(desktop){
+    padding: 100px 40px 70px 70px;
+
+    .locations-body {
+      padding: 0;
+      text-align: left;
+    }
+
+    .locations-list {
+      padding-left: 0;
+    }
+
+    .locations-list-item {
+      max-width: 100%;
+    }
+  }
+
+  @include mediaquery(tablet-portrait){
+    .locations-list-item .text {
+      display: inline-block;
+    }
+  }
+}

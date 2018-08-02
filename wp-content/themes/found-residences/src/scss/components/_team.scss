@@ -1,0 +1,98 @@
+// team component
+.component-team {
+	
+	p:nth-child(2) {
+		margin-bottom: $gap;
+	}
+
+	.team-items {
+		@include clearRow;
+
+		.post-type-archive-people & {
+			padding-top: 10px;
+		}
+	}
+
+	.team-item {
+		margin-bottom: $gap*2;
+
+		@include mediaquery(tablet-portrait) {
+			float: left;
+			margin-right: 4%;
+			width: 48%;
+
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+
+			&:nth-child(2n+1) {
+				clear: left;
+			}
+		}
+
+		@include mediaquery(tablet-landscape) {
+			float: left;
+			width: 22%;
+			margin-right: 4%;
+
+			&:nth-child(2n) {
+				margin-right: 4%;
+			}
+
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+
+			&:nth-child(2n+1) {
+				clear: none;
+			}
+
+			&:nth-child(4n+1) {
+				clear: left;
+			}
+
+		}
+	}
+
+	.author-photo {
+		width: 100%;
+		height: auto;
+		max-height: 293px;
+		margin-bottom: $gap;
+		overflow: hidden;
+
+		a {
+			display: block;
+
+			img {
+				@include transition(opacity .2s);
+			}
+
+			&:hover {
+				img {
+					opacity: .9;
+				}
+			}
+		}
+	}
+
+	.ctas {
+		margin-top: 0;
+	}
+
+}
+
+.post-type-archive-people, .single-people {
+	.last-row {
+		padding-bottom: $gap*4;
+	}
+
+	.italic58, .serif28 {
+		margin-top: $gap*.75;
+	}
+
+	header a {
+		display: block;
+	}
+}
+

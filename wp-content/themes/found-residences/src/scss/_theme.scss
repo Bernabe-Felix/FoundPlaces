@@ -1,0 +1,142 @@
+@mixin decorative-stripes {
+	&:before {
+		background: repeating-linear-gradient(
+			90deg,
+			color('global', 'gold'),
+			color('global', 'gold') 1px,
+			transparent 2px,
+			transparent 7px
+		);
+		content: '';
+		position: absolute;
+		width: 44px;
+		z-index: 1;
+
+		@include mediaquery(tablet-portrait) {
+			background: repeating-linear-gradient(
+				90deg,
+				color('global', 'gold'),
+				color('global', 'gold') 1px,
+				transparent 1px,
+				transparent 13px
+			);
+			width: 80px;
+		}
+
+		@content;
+	}
+}
+
+@mixin decorative-twenty {
+	&:before {
+		@include sans-serif;
+		background: none;
+		content: '20';
+		color: color('global', 'gold');
+		display: none;
+		position: absolute;
+		font-size: 1rem;
+		left: 110px;
+		letter-spacing: 0.1em;
+		top: 20px;
+
+		@include mediaquery(tablet-portrait) {
+			display: block;
+		}
+
+		@include mediaquery(desktop) {
+			font-size: 1.8rem;
+			left: 79px;
+			top: 55px;
+		}
+
+		@content;
+	}
+
+	&:after {
+		background: linear-gradient(
+			color('global', 'gold'),
+			color('global', 'gold') 70px,
+			transparent 70px,
+			transparent 100px,
+			color('global', 'gold') 100px
+		);
+		content: '';
+		display: none;
+		height: 170px;
+		left: 116px;
+		position: absolute;
+		top: -60px;
+		width: 1px;
+		z-index: 1;
+
+		@include mediaquery(tablet-portrait) {
+			display: block;
+		}
+
+		@include mediaquery(desktop) {
+			background: linear-gradient(
+				color('global', 'gold'),
+				color('global', 'gold') 100px,
+				transparent 100px,
+				transparent 150px,
+				color('global', 'gold') 150px
+			);
+			height: 250px;
+			left: 88px;
+		}
+
+		@content;
+	}
+}
+
+@mixin decorative-text($content) {
+	&:before {
+		@include sans-serif;
+		background: none;
+		content: $content;
+		color: color('global', 'gold');
+		display: none;
+		letter-spacing: 0.1em;
+		position: absolute;
+		font-size: 1.4rem;
+		left: 88px;
+		top: 58px;
+		transform: translateX(-50%);
+
+		@include mediaquery(tablet-portrait) {
+			display: block;
+		}
+
+		@include mediaquery(desktop) {
+			font-size: 1.8rem;
+			top: 55px;
+		}
+
+		@content;
+	}
+
+	&:after {
+		background: linear-gradient(
+			color('global', 'gold'),
+			color('global', 'gold') 100px,
+			transparent 100px,
+			transparent 150px,
+			color('global', 'gold') 150px
+		);
+		content: '';
+		display: none;
+		height: 250px;
+		left: 88px;
+		position: absolute;
+		top: -60px;
+		width: 1px;
+		z-index: 1;
+
+		@include mediaquery(tablet-portrait) {
+			display: block;
+		}
+
+		@content;
+	}
+}

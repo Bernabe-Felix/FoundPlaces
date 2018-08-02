@@ -1,0 +1,187 @@
+// Buenard
+// =====
+
+@font-face {
+	font-family: 'Buenard';
+	src: url('../fonts/Buenard/Buenard-Regular.ttf')  format('truetype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Buenard';
+	src: url('../fonts/Buenard/Buenard-Bold.ttf')  format('truetype');
+	font-weight: bold;
+}
+
+// Crimson Text
+// ==========
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('../fonts/Crimson_Text/CrimsonText-Bold.ttf')  format('truetype');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('../fonts/Crimson_Text/CrimsonText-BoldItalic.ttf')  format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('../fonts/Crimson_Text/CrimsonText-Italic.ttf')  format('truetype');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('../fonts/Crimson_Text/CrimsonText-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('../fonts/Crimson_Text/CrimsonText-SemiBold.ttf')  format('truetype');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('../fonts/Crimson_Text/CrimsonText-SemiBoldItalic.ttf')  format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+// Mixins
+// ======
+//@mixin serif {
+//	font-family: 'HoeflerTextItalic', Georgia, Times, serif;
+//	font-style: normal;
+//}
+//
+//@mixin serif-bold {
+//	font-family: 'HoeflerTextBlackItalic', Georgia, Times, serif;
+//	font-style: normal;
+//	font-weight: 300;
+//	letter-spacing: 15px;
+//}
+//
+// required by reset.scss
+@mixin sans-serif {
+	font-family: "CenturyGothic";
+	font-style: normal;
+	font-weight: 400;
+}
+//
+//@mixin sans-serif-bold {
+//	font-family: "CenturyGothic";
+//	font-style: normal;
+//	font-weight: 700;
+//}
+
+// Grid and Responsive
+// ===================
+$gap: 25px;
+$site-width					: 1440px;
+//$nav-height					: 72px;
+//
+//$tablet-portrait-breakpoint	: 768px;
+//$tablet-landscape-breakpoint: 1024px;
+//$desktop-breakpoint			: 1100px;
+//$large-desktop-breakpoint	: 1440px;
+$nav-breakpoint				: 1150px;
+
+// Standard colors
+// ===============
+$white: #FFFFFF;
+$black: #000000;
+
+// Colors
+// ======
+$brand-color-key: 'merino' !default;
+$found-colors: (
+	'ebb':				#EAE5E5,
+	'black': 			$black,
+	'white': 			$white,
+	'swirl': 			#DCD3CB,
+	'merino':   		#F2EADF,
+	'desert': 			#B36A20,
+	'tundora':			#4C4B4B,
+	'clam-shell':		#D9C2B6,
+	'pearl-bush': 		#DFD5C5,
+	'timber-green': 	#172A30,
+	'granny-smith': 	#8E9C9C,
+	'limued-spruce': 	#323E48,
+);
+
+//
+@function color($variant: $brand-color-key) {
+	$color: map-get($found-colors, $variant);
+
+	@return $color;
+}
+
+// Generate background and text color classes based on the color map.
+//
+// Classes are named as follows:
+//
+// 		.bg-key-variant
+// 		.text-color-key-variant
+//
+// For example:
+//
+// 		.bg-green-base
+// 		.text-color-high-textDull
+//
+//@each $key, $map in $brand-colors {
+//	@each $variant, $color in $map {
+//		.bg-#{$key}-#{$variant} {
+//			background-color: #{$color};
+//		}
+//
+//		.text-color-#{$key}-#{$variant} {
+//			color: #{$color};
+//		}
+//	}
+//}
+
+// Responsive Font Size Map
+// ========================
+//$font-size-headline1: (
+//	null  : 1.4rem,
+//	768px : 3.0rem,
+//	1024px: 3.0rem,
+//	1025px: 3.0rem
+//);
+//
+//$font-size-headline2: (
+//	null  : 2.2rem,
+//	768px : 2.2rem,
+//	1024px: 2.2rem,
+//	1025px: 2.8rem
+//);
+//
+//$font-size-headline3: (
+//	null  : 1.1rem,
+//	768px : 1.4rem,
+//	1024px: 1.4rem,
+//	1025px: 1.4rem
+//);
+//
+//$font-size-headline4: (
+//	null  : 0.9rem,
+//	768px : 1.2rem,
+//	1024px: 1.0rem,
+//	1025px: 1.0rem
+//);
+//
+$font-size-p: (
+	null  : 12px,
+	1025px: 16px
+);
+
+$font-size-p-sans-serif: (
+	null  : 12px,
+	1025px: 16px
+);

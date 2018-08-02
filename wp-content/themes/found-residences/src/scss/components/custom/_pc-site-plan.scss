@@ -1,0 +1,225 @@
+//pc site plan
+.component-pc-site-plan {
+	.site-plans {
+		max-width: 640px;
+		margin-bottom: $gap*2;
+
+		@include mediaquery(tablet-landscape) {
+			float: left;
+			width: 56%;
+		}
+
+		.levels {
+			margin-bottom: $gap*2;
+			text-align: left;
+
+			.level {
+				border-right: 1px solid color('global', 'dark-border');
+				cursor: pointer;
+				display: inline-block;
+				padding:$gap*.75 $gap;
+
+				&:last-child {
+					border-right: 0;
+				}
+
+				&.activeLevel, &:hover {
+					background-color: color('global', 'black');
+					color: $white;
+				}
+			}
+		}
+
+		legend {
+			padding-left: $gap;
+			position: relative;
+			margin-bottom: $gap;
+
+			&:before {
+				background-color: #FFCCCC;
+				content: '';
+				display: block;
+				height: 14px;
+				left: 0;
+				position: absolute;
+				top: -2px;
+				width: 14px;
+			}
+		}
+
+		.expandMap {
+			background-color: $white;
+			cursor: pointer;
+			padding: $gap*.5;
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			z-index: 100;
+			@include shadow(0 1px 12px 0 rgba(29, 29, 29, 0.5));
+
+			.icon-expand {
+				width: 26px;
+				height: 26px;
+			}
+		}
+
+		.level-maps-wrapper {
+			position: relative;
+			overflow: hidden;
+
+			.level-map {
+				opacity: 0;
+				height: 0;
+				@include transition(opacity .3s ease-in);
+
+				&.activeLevel {
+					opacity: 1;
+					height: auto;
+				}
+			}
+		}
+
+		.level-popup {
+			.showLevelMap & {
+				@include flexbox(flex);
+				@include flexbox-align-items(flex-start);
+				@include flexbox-justify-content(center);
+
+				@include mediaquery(tablet-landscape) {
+					
+					@include flexbox-align-items(center);
+				}
+				
+				@media only screen and (max-height: 850px) {
+					@include flexbox-align-items(flex-start);
+				}
+			}
+
+			.level-popup-wrapper {
+				.popup-img {
+					display: none;
+
+					&.activeLevel {
+						display: block;
+					}
+				}
+			}
+		}
+	}	
+
+	.site-list {
+		height: 400px;
+		margin:0 auto;
+		max-width: 400px;
+		overflow: scroll;
+
+		@include mediaquery(tablet-landscape) {
+			float: left;
+			max-width: 330px;
+			width: 33%;
+			margin:0 5.5%;
+		}
+
+		.site {
+			cursor: pointer;
+			padding: $gap;
+			opacity: 1;
+			@include transition(opacity .3s ease-in);
+
+			@include mediaquery(desktop) {
+				&:hover {
+					opacity: .7;
+				}
+			}
+
+			&:nth-child(odd) {
+				background-color: color('global', 'grey');
+			}
+
+			&.available {
+				background-color: #FFCCCC;
+			}
+
+			span {
+				display: inline-block;
+			}
+
+			.site-number {
+				width: 11%;
+			}
+
+			.site-name {
+				width: 62%;
+			}
+		}
+	}
+	.site-popup {
+		.showSiteDetails & {
+			@include flexbox(flex);
+			@include flexbox-align-items(flex-start);
+			@include flexbox-justify-content(center);
+
+			@include mediaquery(tablet-landscape) {
+				
+				@include flexbox-align-items(center);
+			}
+
+			@media only screen and (max-height: 850px) {
+				@include flexbox-align-items(flex-start);
+			}
+		}
+
+		.site-popup-wrapper {
+			max-height: none;
+			@include clearRow;
+		}
+
+		.site-info {
+			margin-bottom: $gap*2;
+
+			@include mediaquery(tablet-portrait) {
+				float: left;
+				margin-bottom: 0;
+				margin-right: 8%;
+				max-width: 260px;
+				width: 26%;
+			}
+
+			.store-info {
+				border-bottom: 1px solid color('global', 'grey');
+				margin-bottom: $gap;
+			}
+
+			.italic22 {
+				margin-bottom: $gap*.5;
+			}
+
+			.sans-serif14 {
+				display: block;
+				margin-bottom: $gap;
+			}
+
+			.serif22 {
+				margin-bottom: $gap*.5;
+			}
+
+			.sans-serif113, address {
+				display: block;
+				line-height: 2;
+			}
+
+			img {
+				max-width: 400px;
+			}
+		}
+
+		.site-floorplan {
+			@include mediaquery(tablet-portrait) {
+				float: left;
+				width: 66%;
+			}
+		}
+
+	}
+
+}
