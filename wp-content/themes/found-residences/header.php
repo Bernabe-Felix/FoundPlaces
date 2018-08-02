@@ -28,6 +28,6 @@
 	<div class="breakpoint desktop"></div>
 	<div class="breakpoint xl"></div>
 
-	<?php include_once 'inc/templates/found/nav.php'; ?>
+	<?php include_once 'inc/templates/found-residences/nav.php'; ?>
 		<div class="content-container component" data-component-name="FadeInElements">
 			<main class="content">
