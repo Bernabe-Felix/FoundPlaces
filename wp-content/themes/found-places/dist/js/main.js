@@ -1363,8 +1363,30 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 function CustomMap($el) {
-    this.positionAndStyleMarker = function (marker) {
-        console.log(marker.dataset);
+    this.getImage = function (type) {
+        switch (type) {
+            case 'hotel':
+                return 'http://placebear.com/15/15';
+            case 'residence':
+                return 'http://placebear.com/20/15';
+            case 'study':
+                return 'http://placebear.com/15/10';
+            default:
+                return 'http://placebear.com/10/15';
+        }
+    };
+
+    this.positionAndStyleMarker = function (marker, mapDataset) {
+        var _marker$dataset = marker.dataset,
+            x = _marker$dataset.x,
+            y = _marker$dataset.y,
+            type = _marker$dataset.type;
+
+
+        marker.style.left = x + 'px';
+        marker.style.bottom = y + 'px';
+        marker.style['background-image'] = 'url(\'' + this.getImage(type) + '\')';
+        marker.style.display = 'block';
     };
 
     this.init = function ($el) {
