@@ -201,7 +201,7 @@ exports.default = $$;
 /* WEBPACK VAR INJECTION */(function($) {
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _attck = __webpack_require__(1);
@@ -253,13 +253,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Add your components here so they get loaded.
 // Make sure to import them above first.
 _attck2.default.Components = {
-	// 'Analytics': Analytics,
-	'FadeInElements': _fadeInElements2.default,
-	// 'Map': Map,
-	'Nav': _nav2.default
-	// 'Parallax': Parallax,
-	// 'QBTwentyBroadCarousel': QBTwentyBroadCarousel,
-	// 'QBTwentyBroadNeighborhoodCarousel': QBTwentyBroadNeighborhoodCarousel,
+    // 'Analytics': Analytics,
+    'FadeInElements': _fadeInElements2.default
+    // 'Map': Map,
+    // 'Nav': Nav,
+    // 'Parallax': Parallax,
+    // 'QBTwentyBroadCarousel': QBTwentyBroadCarousel,
+    // 'QBTwentyBroadNeighborhoodCarousel': QBTwentyBroadNeighborhoodCarousel,
 };
 
 // Import all JS components explicitly.
@@ -268,223 +268,223 @@ _attck2.default.Components = {
 _attck2.default.Utils = {};
 
 _attck2.default.Utils.loadComponents = function () {
-	_attck2.default.Utils.loadedComponents = [];
+    _attck2.default.Utils.loadedComponents = [];
 
-	var self = this;
+    var self = this;
 
-	$('.component').each(function () {
-		// Gracefully fail if no component name has been defined
-		if (!$(this).attr('data-component-name')) {
-			return;
-		}
+    $('.component').each(function () {
+        // Gracefully fail if no component name has been defined
+        if (!$(this).attr('data-component-name')) {
+            return;
+        }
 
-		var $this = $(this);
-		var componentNames = $this.attr('data-component-name').split(',');
+        var $this = $(this);
+        var componentNames = $this.attr('data-component-name').split(',');
 
-		// A stack of JS components associated with this DOM element.
-		var instances = $this.data('component-instances');
+        // A stack of JS components associated with this DOM element.
+        var instances = $this.data('component-instances');
 
-		if (!instances) {
-			instances = [];
-		}
+        if (!instances) {
+            instances = [];
+        }
 
-		$.each(componentNames, function (i, el) {
-			var componentName = el;
+        $.each(componentNames, function (i, el) {
+            var componentName = el;
 
-			if (!_attck2.default.Components[componentName]) return;
+            if (!_attck2.default.Components[componentName]) return;
 
-			var params = $this.data('component-options') || {};
-			var instance = new _attck2.default.Components[componentName]($this, params);
+            var params = $this.data('component-options') || {};
+            var instance = new _attck2.default.Components[componentName]($this, params);
 
-			// Save component instance references in a global manifest.
-			if (typeof _attck2.default.Components[componentName] !== 'undefined') {
-				self.loadedComponents.push({
-					'instance': instance
-				});
+            // Save component instance references in a global manifest.
+            if (typeof _attck2.default.Components[componentName] !== 'undefined') {
+                self.loadedComponents.push({
+                    'instance': instance
+                });
 
-				instances.push(instance);
-			}
-		});
+                instances.push(instance);
+            }
+        });
 
-		// Save component instances to the DOM element.
-		$this.data('component-instances', instances);
-	});
+        // Save component instances to the DOM element.
+        $this.data('component-instances', instances);
+    });
 };
 
 _attck2.default.Utils.initGlobalEvents = function () {
-	var G = _attck2.default.Globals;
-	var $window = $(window);
-	var self = this;
+    var G = _attck2.default.Globals;
+    var $window = $(window);
+    var self = this;
 
-	G.currentScrollTop = $window.scrollTop();
-	G.lastScrollTop = $window.scrollTop();
-	G.viewportHeight = $window.outerHeight();
-	G.viewportWidth = $window.outerWidth();
-	G.scrollInProgress = false;
+    G.currentScrollTop = $window.scrollTop();
+    G.lastScrollTop = $window.scrollTop();
+    G.viewportHeight = $window.outerHeight();
+    G.viewportWidth = $window.outerWidth();
+    G.scrollInProgress = false;
 
-	// Trigger a custom event when scrolling.
-	$window.on('scroll', function (e) {
-		G.currentScrollTop = $window.scrollTop();
+    // Trigger a custom event when scrolling.
+    $window.on('scroll', function (e) {
+        G.currentScrollTop = $window.scrollTop();
 
-		// Limit how often this fires, so we don't have the JS double-firing.
-		if (Math.abs(G.currentScrollTop - G.lastScrollTop) < 10) {
-			return;
-		}
+        // Limit how often this fires, so we don't have the JS double-firing.
+        if (Math.abs(G.currentScrollTop - G.lastScrollTop) < 10) {
+            return;
+        }
 
-		$(document.body).trigger('ATTCK.scroll', {
-			'e': e,
-			'currentScrollTop': G.currentScrollTop,
-			'viewportHeight': G.viewportHeight,
-			'scrollDirection': G.currentScrollTop > G.lastScrollTop ? 'down' : 'up'
-		});
+        $(document.body).trigger('ATTCK.scroll', {
+            'e': e,
+            'currentScrollTop': G.currentScrollTop,
+            'viewportHeight': G.viewportHeight,
+            'scrollDirection': G.currentScrollTop > G.lastScrollTop ? 'down' : 'up'
+        });
 
-		G.lastScrollTop = G.currentScrollTop;
-	});
+        G.lastScrollTop = G.currentScrollTop;
+    });
 
-	// Detect screen orientation
-	function detectOrientation() {
+    // Detect screen orientation
+    function detectOrientation() {
 
-		// Default is portrait
-		var orientation = 'orientation-portrait';
-		var videoOrientation = 'video-portrait';
+        // Default is portrait
+        var orientation = 'orientation-portrait';
+        var videoOrientation = 'video-portrait';
 
-		// Landscape
-		if (G.viewportWidth > G.viewportHeight) {
-			orientation = 'orientation-landscape';
-		}
+        // Landscape
+        if (G.viewportWidth > G.viewportHeight) {
+            orientation = 'orientation-landscape';
+        }
 
-		// Adding QB-OBS specific BG video aspect ratio detection
-		if (G.viewportWidth / G.viewportHeight > 1.77) {
-			videoOrientation = 'video-landscape';
-		}
+        // Adding QB-OBS specific BG video aspect ratio detection
+        if (G.viewportWidth / G.viewportHeight > 1.77) {
+            videoOrientation = 'video-landscape';
+        }
 
-		// Remove previous detections
-		$(document.body).removeClass('orientation-portrait orientation-landscape video-portrait video-landscape');
+        // Remove previous detections
+        $(document.body).removeClass('orientation-portrait orientation-landscape video-portrait video-landscape');
 
-		// Set new detection values
-		$(document.body).addClass(orientation + ' ' + videoOrientation);
-	}
+        // Set new detection values
+        $(document.body).addClass(orientation + ' ' + videoOrientation);
+    }
 
-	// ...on load
-	detectOrientation();
+    // ...on load
+    detectOrientation();
 
-	// ...and screen resize
-	$(document.body).on('ATTCK.resize', detectOrientation);
+    // ...and screen resize
+    $(document.body).on('ATTCK.resize', detectOrientation);
 
-	// Detect whether body content is taller than viewport
-	function detectContentVsViewportHeightRatio() {
-		// Tab body if content height is taller than viewport
-		// TODO: (DP) Change this to be agnostic to QB_OBS
-		var totalComponentHeight = 0;
+    // Detect whether body content is taller than viewport
+    function detectContentVsViewportHeightRatio() {
+        // Tab body if content height is taller than viewport
+        // TODO: (DP) Change this to be agnostic to QB_OBS
+        var totalComponentHeight = 0;
 
-		$('.component').each(function (index, value) {
-			// Exclude the hidden modal which doesn't take up any height
-			if (!$(this).hasClass('component-contact-modal')) {
-				totalComponentHeight += $(this).outerHeight(true);
-			}
-		});
+        $('.component').each(function (index, value) {
+            // Exclude the hidden modal which doesn't take up any height
+            if (!$(this).hasClass('component-contact-modal')) {
+                totalComponentHeight += $(this).outerHeight(true);
+            }
+        });
 
-		if (totalComponentHeight > G.viewportHeight) {
-			// Set new detection
-			$(document.body).addClass('body-content-height-is-taller-than-viewport');
-		} else {
-			// Remove previous detection
-			$(document.body).removeClass('body-content-height-is-taller-than-viewport');
-		}
-	}
+        if (totalComponentHeight > G.viewportHeight) {
+            // Set new detection
+            $(document.body).addClass('body-content-height-is-taller-than-viewport');
+        } else {
+            // Remove previous detection
+            $(document.body).removeClass('body-content-height-is-taller-than-viewport');
+        }
+    }
 
-	// ...on load
-	detectContentVsViewportHeightRatio();
+    // ...on load
+    detectContentVsViewportHeightRatio();
 
-	// ...and screen resize
-	$(document.body).on('ATTCK.resize', detectContentVsViewportHeightRatio);
+    // ...and screen resize
+    $(document.body).on('ATTCK.resize', detectContentVsViewportHeightRatio);
 
-	// Tag body once page has loaded for one-time page load functions
-	$(window).on('load', function () {
-		$(document.body).addClass('window-loaded');
+    // Tag body once page has loaded for one-time page load functions
+    $(window).on('load', function () {
+        $(document.body).addClass('window-loaded');
 
-		// Adding for QB-OBS blackout modal fade out on load animation (2sec)
-		setTimeout(function () {
-			$(document.body).addClass('window-has-been-loaded-for-two-seconds');
-		}, 2000);
+        // Adding for QB-OBS blackout modal fade out on load animation (2sec)
+        setTimeout(function () {
+            $(document.body).addClass('window-has-been-loaded-for-two-seconds');
+        }, 2000);
 
-		// Adding for QB-OBS hero page load animation (5sec)
-		setTimeout(function () {
-			$(document.body).addClass('window-has-been-loaded-for-five-seconds');
-		}, 5000);
-	});
+        // Adding for QB-OBS hero page load animation (5sec)
+        setTimeout(function () {
+            $(document.body).addClass('window-has-been-loaded-for-five-seconds');
+        }, 5000);
+    });
 
-	// Tag body once page has loaded for one-time page load functions
-	$(function () {
-		$(document.body).addClass('dom-loaded');
+    // Tag body once page has loaded for one-time page load functions
+    $(function () {
+        $(document.body).addClass('dom-loaded');
 
-		// Adding for QB-OBS blackout modal fade out on load animation (2sec)
-		setTimeout(function () {
-			$(document.body).addClass('dom-has-been-loaded-for-two-seconds');
-		}, 2000);
+        // Adding for QB-OBS blackout modal fade out on load animation (2sec)
+        setTimeout(function () {
+            $(document.body).addClass('dom-has-been-loaded-for-two-seconds');
+        }, 2000);
 
-		// Adding for QB-OBS hero page load animation (5sec)
-		setTimeout(function () {
-			$(document.body).addClass('dom-has-been-loaded-for-five-seconds');
-		}, 5000);
-	});
+        // Adding for QB-OBS hero page load animation (5sec)
+        setTimeout(function () {
+            $(document.body).addClass('dom-has-been-loaded-for-five-seconds');
+        }, 5000);
+    });
 
-	// Save the viewport height only as neccessary when it changes.
-	$window.resize(function (e) {
-		G.viewportHeight = $window.outerHeight();
-		G.viewportWidth = $window.outerWidth();
+    // Save the viewport height only as neccessary when it changes.
+    $window.resize(function (e) {
+        G.viewportHeight = $window.outerHeight();
+        G.viewportWidth = $window.outerWidth();
 
-		$(document.body).trigger('ATTCK.resize', {
-			'e': e,
-			'viewportHeight': G.viewportHeight,
-			'viewportWidth': G.viewportWidth
-		});
-	});
+        $(document.body).trigger('ATTCK.resize', {
+            'e': e,
+            'viewportHeight': G.viewportHeight,
+            'viewportWidth': G.viewportWidth
+        });
+    });
 
-	// Listen to WPCF7 Events.
-	// TODO: (DP) Probably move this to its own component file
-	(0, _formEvents2.default)();
+    // Listen to WPCF7 Events.
+    // TODO: (DP) Probably move this to its own component file
+    (0, _formEvents2.default)();
 
-	// Init Analytics
-	// TODO: (DP) User event tracking goes here
-	// var instance = new ATTCK.Components['Analytics']($('body'), {});
+    // Init Analytics
+    // TODO: (DP) User event tracking goes here
+    // var instance = new ATTCK.Components['Analytics']($('body'), {});
 };
 
 // Declares ATTCK.Utils.xsOnly(), smOnly(), etc for running
 // breakpoint-specific functionality.
 $.each(_config2.default.breakpoints, function (i, val) {
-	_attck2.default.Utils[val + 'Only'] = function (f) {
-		if (!(0, _cachedDomElements2.default)('.breakpoint.' + val).is(':visible')) {
-			return;
-		}
+    _attck2.default.Utils[val + 'Only'] = function (f) {
+        if (!(0, _cachedDomElements2.default)('.breakpoint.' + val).is(':visible')) {
+            return;
+        }
 
-		f();
-	};
+        f();
+    };
 });
 
 // Add debug utilities to the page when Config.debug is true.
 if (_config2.default.debug === true) {
-	$(document.body).addClass("debug").on("ATTCK.resize", function () {
-		_attck2.default.Utils.xsOnly(function () {
-			$(".breakpoint-current").show().text("Breakpoint is XS");
-		});
+    $(document.body).addClass("debug").on("ATTCK.resize", function () {
+        _attck2.default.Utils.xsOnly(function () {
+            $(".breakpoint-current").show().text("Breakpoint is XS");
+        });
 
-		_attck2.default.Utils.smOnly(function () {
-			$(".breakpoint-current").show().text("Breakpoint is SM");
-		});
+        _attck2.default.Utils.smOnly(function () {
+            $(".breakpoint-current").show().text("Breakpoint is SM");
+        });
 
-		_attck2.default.Utils.mdOnly(function () {
-			$(".breakpoint-current").show().text("Breakpoint is MD");
-		});
+        _attck2.default.Utils.mdOnly(function () {
+            $(".breakpoint-current").show().text("Breakpoint is MD");
+        });
 
-		_attck2.default.Utils.lgOnly(function () {
-			$(".breakpoint-current").show().text("Breakpoint is LG");
-		});
+        _attck2.default.Utils.lgOnly(function () {
+            $(".breakpoint-current").show().text("Breakpoint is LG");
+        });
 
-		_attck2.default.Utils.xlOnly(function () {
-			$(".breakpoint-current").show().text("Breakpoint is XL");
-		});
-	});
+        _attck2.default.Utils.xlOnly(function () {
+            $(".breakpoint-current").show().text("Breakpoint is XL");
+        });
+    });
 }
 
 // Trigger scroll event in case anything is in a partial-state waiting
