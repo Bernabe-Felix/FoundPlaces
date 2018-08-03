@@ -4,12 +4,12 @@
   flex-direction: column;
 
   .overlapped {
-    width: 92%;
+    width: 92vw;
     height: 92vw;
     max-height: 550px;
     background-size: contain;
     background: no-repeat center;
-    transform: translate(4%, -$overlapping);
+    transform: translate(4vw, -$overlapping);
   }
 
   .paragraph {
