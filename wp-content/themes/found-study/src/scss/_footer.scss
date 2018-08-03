@@ -1,7 +1,6 @@
 .component-footer {
   padding: 18px 0 15px;
-  color: color('solitaire');
-  background: color('cutty-sark');
+  color: color('timber-green');
 
   .footer-content {
     text-align: center;
@@ -39,10 +38,10 @@
     display: inline-block;
 
     &:hover {
-      color: color('tan-hide');
+      color: color('westar');
 
       &:after {
-        background: color('tan-hide');
+        background: color('westar');
       }
     }
 
@@ -63,6 +62,8 @@
   }
 
   @include mediaquery(desktop){
+    padding-top: 60px;
+
     .footer-content {
       text-align: left;
 
@@ -76,7 +77,7 @@
     }
 
     .footer-bottom {
-      margin: 125px 4.5% 0;
+      margin: 125px 9% 0;
       justify-content: space-between;
     }
 

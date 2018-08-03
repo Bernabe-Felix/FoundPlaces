@@ -500,27 +500,27 @@ body {
 }
 
 // Link
-@mixin tan-hide-link {
-	color: color('tan-hide');
-	border-bottom: 1px solid color('tan-hide');
+@mixin timber-green-link {
+	color: color('timber-green');
+	border-bottom: 1px solid color('timber-green');
 
 	&:hover {
-		color: color('solitaire');
-		border-color: color('solitaire');
+		color: color('westar');
+		border-color: color('westar');
 	}
 }
 
-@mixin solitaire-link {
-	color: color('solitaire');
-	border-bottom: 1px solid color('solitaire');
+@mixin calypso-link {
+	color: color('calypso');
+	border-bottom: 1px solid color('calypso');
 
 	&:hover {
-		color: color('tan-hide');
-		border-color: color('tan-hide');
+		color: color('westar');
+		border-color: color('westar');
 	}
 }
 
-@mixin residences-link($color: '') {
+@mixin study-link($color: '') {
 	font-size: 20px;
 	cursor: pointer;
 
@@ -528,11 +528,11 @@ body {
 		text-decoration: none;
 	}
 
-	&.tan-hide {
-		@include tan-hide-link;
+	&.timber-green {
+		@include timber-green-link;
 	}
 
-	&.solitaire {
-		@include solitaire-link;
+	&.calypso {
+		@include calypso-link;
 	}
 }

@@ -63,6 +63,8 @@
   }
 
   @include mediaquery(desktop){
+    padding-top: 50px;
+
     .footer-content {
       text-align: left;
 
