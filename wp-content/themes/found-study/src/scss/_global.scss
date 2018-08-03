@@ -1,0 +1,1182 @@
+* {
+	// background: rgba(255, 0, 0, .1);
+}
+
+// Prevents flashing for fade me in transition
+// (js adds opacity 1 once loaded)
+*:not(.main-header), *:not(.page-footer) {
+	h1, h2, h3, h4, h5, p, span, a {
+		opacity: 0;
+
+		&.dont-fade-me-in {
+			opacity: initial;
+		}
+	}
+}
+
+.main-header, .page-footer {
+	h1, h2, h3, h4, h5, p, span, a {
+		opacity: 1;
+	}
+}
+
+body {
+	height: 100%;
+	background-color: color('white');
+	/*min-height: 100vh;*/
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'Buenard', 'Crimson Text', serif;
+
+	.content-container {
+		min-height: 40vh;
+	}
+
+	@include mediaquery(tablet-portrait) {
+		.content-container {
+			min-height: 60vh;
+		}
+	}
+
+	@include mediaquery(tablet-landscape) {
+		background-size: 100% auto;
+	}
+
+	@include mediaquery(desktop) {
+		/*min-height: 700px;*/
+		padding-top: 0;
+
+		&.home {
+			.content-container {
+				height: 100%;
+			}
+		}
+	}
+
+	//&.home {
+	//	padding-top: 0;
+	//}
+}
+
+// Used for fade-me-in transition
+// h1, h2, h3, h4, h5 {
+// We are not sure about this opacity, hides all content in pages
+//		opacity: 0;
+//	}
+// }
+
+img {
+	height: auto;
+	width: 100%;
+}
+
+main.content {
+	width: 100%;
+}
+
+//mark {
+//	background-color: transparent;
+//}
+
+//.absolute {
+//	bottom: 0;
+//	position: absolute;
+//	right: 0;
+//}
+
+//.arrow-line {
+//	&.arrow-left {
+//		&:after {
+//			content: '';
+//			display: block;
+//			border-left: 2px solid rgba(255, 255, 255, .6);
+//			height: $gap;
+//			left: -1px;
+//			@include transform(rotate(-90deg));
+//			margin-top: -($gap/2)-1;
+//			position: absolute;
+//		}
+//
+//		&:before {
+//			content: '';
+//			display: block;
+//			border-left: 2px solid rgba(255, 255, 255, .6);
+//			left: $gap;
+//			height: $gap;
+//			margin-top: -$gap;
+//			@include transform(rotate(45deg));
+//			width: $gap;
+//		}
+//
+//		&.arrow-small {
+//			&:after {
+//				content: '';
+//				display: block;
+//			}
+//
+//			&:before {
+//				content: '';
+//				display: block;
+//			}
+//		}
+//	}
+//
+//	&.arrow-right {
+//		&:after {
+//			border-left: 2px solid rgba(255, 255, 255, .6);
+//			height: $gap;
+//			left: -1px;
+//			@include transform(rotate(135deg));
+//			margin-top: -$gap;
+//			position: absolute;
+//		}
+//
+//		&:before {
+//			border-left: 2px solid rgba(255, 255, 255, .6);
+//			left: auto;
+//			height: $gap;
+//			margin-top: -$gap;
+//			right: $gap;
+//			@include transform(rotate(90deg));
+//			width: $gap;
+//		}
+//
+//		&.arrow-small {
+//			&:after {
+//
+//			}
+//
+//			&:before {
+//
+//			}
+//		}
+//	}
+//}
+
+//.background-gradient {
+//	background-color: rgba(0, 0, 0, .3);
+//	height: 100%;
+//	left: 0;
+//	position: absolute;
+//	right: 0;
+//	top: 0;
+//}
+
+//.bottom-border {
+//	border-bottom: 1px solid color('global', 'dark-border');
+//}
+//
+//.bottom-negative-margin {
+//	margin-bottom: -100px;
+//}
+
+//===
+// Clearfix: contain floats
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//	`contenteditable` attribute is included anywhere else in the document.
+//	Otherwise it causes space to appear at the top and bottom of elements
+//	that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//	`:before` to contain the top-margins of child elements.
+//
+.clearfix:before,
+.clearfix:after {
+	content: " "; // 1
+	display: table; // 2
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.component {
+	height: 100%;
+	width: 100%;
+}
+
+.component-alignment-bottom {
+	@include flexbox(flex);
+	@include flexbox-align-items(flex-end);
+}
+
+.component-alignment-center {
+	@include flexbox(flex);
+	@include flexbox-align-items(center);
+}
+
+.component-alignment-stretch {
+	@include flexbox(flex);
+	@include flexbox-align-items(stretch);
+}
+
+.component-alignment-top {
+	@include flexbox(flex);
+	@include flexbox-align-items(flex-start);
+}
+
+.component-error {
+	padding: $gap * 5 $gap;
+
+	.island {
+		display: block;
+		margin: 0 auto $gap;
+		width: 67px;
+	}
+
+	.body-text {
+		margin-bottom: $gap * 4;
+	}
+}
+
+.component-row,
+.component-row-inner {
+	background: no-repeat center center;
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.component-row-inner {
+	align-items: stretch;
+}
+.component-row {
+	@include clearRow;
+	z-index: 2;
+
+	@include mediaquery-max(desktop){
+		// reverse media query to avoid extra css
+		.row-reverse-mobile {
+			@include flexbox-direction(column-reverse);
+			@include flexbox(flex);
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	&.stickySubNav {
+		height: auto;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 65px;
+		z-index: 1000;
+
+		@include nav-break {
+			top: 0;
+		}
+	}
+
+	&.overlap-with-previous {
+		@include mediaquery(desktop) {
+			margin-top: -75px;
+		}
+	}
+}
+
+.component-row-standard {
+	margin: 0 auto;
+	max-width: $site-width;
+	padding: 0 $gap*1.25;
+	position: relative;
+	width: 100%;
+
+	.tight-padding-on-mobile & {
+		padding: 0 10px;
+
+		@include mediaquery(tablet-landscape) {
+			padding: 0 $gap*1.25;
+		}
+	}
+
+	@include mediaquery(desktop) {
+		padding: 0 $gap*2;
+	}
+
+	@include mediaquery(xl) {
+		padding: 0;
+	}
+
+	// iPhone X
+	@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+		padding: 0 40px;
+	}
+}
+
+.component-theme-white {
+	background-color: color('white');
+}
+
+.content-wrapper {
+	position: relative;
+	top: 0;
+	@include transition(top .2s);
+}
+
+.desktop-hidden,
+.hide-on-desktop {
+	display: inherit !important;
+
+	@include mediaquery(desktop) {
+		display: none !important;
+	}
+}
+
+//===
+// Hide from both screenreaders and browsers: h5bp.com/u
+//
+.fade-me-in {
+	opacity: 0;
+	@include transition(opacity 1s);
+
+	&.faded-in {
+		opacity: 1;
+		@include transition(opacity 1s);
+	}
+}
+
+.fill-image {
+	left: 0;
+	object-fit: cover;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.gallery img {
+	// Overrides wysiwyg gallery border. cannot remove all the
+	// styles programmatically without causing layout issues.
+	border: 0 !important;
+}
+
+.hideOnMobile {
+	display: none;
+
+	@include mediaquery(tablet-portrait) {
+		display: initial;
+	}
+}
+
+.hideOnTabletLandscape {
+	display: block;
+
+	@include mediaquery(tablet-landscape) {
+		display: none;
+	}
+}
+
+.hideOnTabletPortrait {
+	display: block;
+
+	@include mediaquery(tablet-portrait) {
+		display: none;
+	}
+}
+
+// NOTE: (DP) Specificity hack
+.hideOnDesktop.hideOnDesktop.hideOnDesktop {
+	display: block;
+
+	@include mediaquery(desktop) {
+		display: none;
+	}
+}
+
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+.hover-underline {
+	a {
+		background-image: linear-gradient(180deg, transparent 94%, #000 0);
+		background-repeat: no-repeat;
+		background-size: 0 100%;
+		text-decoration: none;
+		-webkit-transition: background-size 0.4s ease;
+		-moz-transition: background-size 0.4s ease;
+		transition: background-size 0.4s ease;
+
+		&:after {
+			content: " ";
+			display: block;
+			margin-bottom: inherit;
+		}
+
+		&:hover {
+			background-size: 100% 100%;
+			text-decoration: none;
+		}
+	}
+
+	&.hover-underline-white {
+		a {
+			background-image: linear-gradient(180deg, transparent 94%, #FFFFFF 0);
+		}
+	}
+}
+
+//===
+// Hide visually and from screenreaders, but maintain layout
+//
+.invisible {
+	visibility: hidden;
+}
+
+//===
+// Image replacement, for logos and such
+//
+.ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	// IE 6/7 fallback
+	//text-indent: -9999px;
+
+	&:before {
+		content: '';
+		display: block;
+		height: 150%;
+		width: 0;
+	}
+}
+
+.last-row {
+	padding-bottom: $gap*4;
+}
+
+//.left-border {
+//	border-left: 1px solid color('global', 'dark-border');
+//}
+
+.margin-top-tablet-only {
+	@include mediaquery(tablet-portrait) {
+		margin-top: 80px;
+	}
+
+	@include mediaquery(tablet-landscape) {
+		margin-top: 0px;
+	}
+}
+
+.medium-hero {
+	height: 450px;
+
+	.video-wrapper {
+		padding-bottom: 31.25%;
+		max-height: 450px;
+		min-height: 450px;
+
+		iframe, video {
+			max-height: 450px;
+			min-height: 450px;
+		}
+	}
+}
+
+.min-height-360 {
+	min-height: 360px;
+}
+
+.min-height-450 {
+	min-height: 450px;
+}
+
+.mobile-hidden {
+	display: none !important;
+
+	@include mediaquery(tablet-portrait) {
+		display: inherit !important;
+	}
+}
+
+// NOTE: (DP) Here be dragons. Thou art forewarned
+//.modal-blackout {
+//	background: color('global', 'navy');
+//	bottom: 0;
+//	display: none;
+//	left: 0;
+//	opacity: 0;
+//	position: fixed;
+//	right: 0;
+//	top: 0;
+//	z-index: 2;
+//	@include transition(opacity .5s);
+//
+//	&.visible {
+//		opacity: 1;
+//		@include transition(opacity .5s);
+//	}
+//
+//	.show-blackout-modal & {
+//		display: block;
+//	}
+//
+//	// .page-legal & {
+//		display: block;
+//		opacity: 1;
+//	// }
+//
+//	.dom-loaded & {
+//		opacity: 0;
+//	}
+//
+//	.dom-loaded.dom-has-been-loaded-for-two-seconds & {
+//		display: none;
+//	}
+//
+//	// .window-loaded.window-has-been-loaded-for-two-seconds.show-blackout-modal & {
+//	.dom-loaded.dom-has-been-loaded-for-two-seconds.show-blackout-modal & {
+//		display: block;
+//
+//		&.visible {
+//			opacity: 1;
+//		}
+//	}
+//
+//	// .page-team & {
+//	// 	display: block;
+//	// 	opacity: 1;
+//	// }
+//
+//	// .page-team.window-loaded & {
+//	// 	opacity: 0;
+//	// }
+//
+//	// .page-team.window-loaded.window-has-been-loaded-for-two-seconds & {
+//	// 	display: none;
+//	// }
+//
+//	// .page-team.window-loaded.window-has-been-loaded-for-two-seconds.show-blackout-modal & {
+//	// 	display: block;
+//
+//	// 	&.visible {
+//	// 		opacity: 1;
+//	// 	}
+//	// }
+//}
+
+//.waves-placeholder {
+//	background-size: cover;
+//	bottom: 0;
+//	display: block;
+//	left: 0;
+//	opacity: 1;
+//
+//	// !important needed to break out of .intro container
+//	position: fixed !important;
+//
+//	right: 0;
+//	top: 0;
+//
+//	// !important needed to win against .component-hero-animation>div
+//	z-index: 0 !important;
+//
+//	@include transition(opacity 2s);
+//
+//	.window-loaded & {
+//		opacity: 0;
+//	}
+//
+//	.window-loaded.window-has-been-loaded-for-two-seconds & {
+//		display: none;
+//	}
+//}
+
+//.nav-hidden {
+//	display: none !important;
+//
+//	@include nav-break {
+//		display: inherit !important;
+//	}
+//}
+
+//.new-elements {
+//	opacity: 0;
+//	@include transition(opacity .3s ease-in);
+//}
+
+//.no-margin-bottom-mobile, .mobile-hidden, .tablet-hidden, .desktop-hidden {
+//	margin-bottom: 0;
+//	padding: 0;
+//
+//	&.padding-bottom,
+//	&.padding-top,
+//	&.padding-right,
+//	&.padding-left,
+//	&.padding-bottom-small,
+//	&.padding-top-small,
+//	&.padding-right-small,
+//	&.padding-left-small,
+//	&.padding-bottom-small-tablet,
+//	&.padding-top-small-tablet,
+//	&.padding-right-small-tablet,
+//	&.padding-left-small-tablet {
+//		padding: 0;
+//	}
+//}
+
+// NOTE: (DP) Double class specificity #hack to override other
+// layout tool based padding config settings
+//.no-top-padding-on-mobile.no-top-padding-on-mobile {
+//	@include mediaquery-max(tablet-portrait) {
+//		padding-top: 0;
+//	}
+//}
+
+//.overlay {
+// TODO: (DP) This likely was incorrectly placed in global,
+// Moving it to the contact modal overlay component for now.
+// bottom: 0;
+// height: 100vh;
+// left: 0;
+// overflow: auto;
+// position: fixed;
+// right: 0;
+// top: 0;
+// z-index: 100;
+//}
+
+.padding-bottom {
+	padding-bottom: $gap * 1.5;
+
+	@include mediaquery(tablet-portrait) {
+		padding-bottom: $gap * 3;
+	}
+
+	@include mediaquery(tablet-landscape) {
+		padding-bottom: $gap * 4;
+	}
+}
+
+.padding-bottom-large {
+	padding-bottom: $gap * 4;
+}
+
+.padding-bottom-mobile {
+	@include mediaquery-max(tablet-portrait) {
+		padding-bottom: 2 * $gap;
+	}
+}
+
+.padding-bottom-mobile-small.padding-bottom-mobile-small {
+	@include mediaquery-max(tablet-portrait) {
+		padding-bottom: $gap;
+	}
+}
+
+.padding-bottom-small {
+	padding-bottom: $gap * 2;
+}
+
+.padding-left {
+	padding-left: $gap * 1.5;
+
+	@include mediaquery(tablet-portrait) {
+		padding-left: $gap * 3;
+	}
+
+	@include mediaquery(tablet-landscape) {
+		padding-left: $gap * 4;
+	}
+}
+
+.padding-left-large {
+	padding-left: $gap * 4;
+}
+
+.padding-left-small {
+	padding-left: $gap * 1.5;
+}
+
+.padding-left-small-tablet {
+	@include mediaquery(tablet-portrait) {
+		padding-left: 40px;
+	}
+}
+
+.padding-right {
+	padding-right: $gap * 1.5;
+
+	@include mediaquery(tablet-portrait) {
+		padding-right: $gap * 3;
+	}
+
+	@include mediaquery(tablet-landscape) {
+		padding-right: $gap * 4;
+	}
+}
+
+.padding-right-large {
+	padding-right: $gap * 4;
+}
+
+.padding-right-small {
+	padding-right: $gap * 1.5;
+}
+
+.padding-right-small-tablet {
+	@include mediaquery(tablet-portrait) {
+		padding-right: 40px;
+	}
+}
+
+.padding-top {
+	padding-top: $gap * 1.5;
+
+	@include mediaquery(tablet-portrait) {
+		padding-top: $gap * 3;
+	}
+
+	@include mediaquery(tablet-landscape) {
+		padding-top: $gap * 4;
+	}
+}
+
+.padding-top-large {
+	padding-top: $gap * 4;
+}
+
+.padding-top-mobile {
+	@include mediaquery-max(tablet-portrait) {
+		padding-top: 2 * $gap;
+	}
+}
+
+.padding-top-mobile-small.padding-top-mobile-small {
+	@include mediaquery-max(tablet-portrait) {
+		padding-top: $gap;
+	}
+}
+
+.padding-top-small {
+	padding-top: $gap * 2;
+}
+
+.parallax-me {
+	@include transform(translateZ(0));
+}
+
+.popup {
+	background-color: rgba(45, 41, 38, 0.88);
+	display: none;
+	height: 100vh;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 10000;
+
+	.close {
+		width: 15px;
+	}
+
+	.popup-inner {
+		background-color: $white;
+		margin-top: 60px;
+		max-height: 850px;
+		max-width: 1030px;
+		padding: $gap*2;
+		position: relative;
+		width: 100%;
+		@include shadow(0 4px 13px 0 rgba(29, 29, 29, 0.5));
+		@include mediaquery(tablet-landscape) {
+			margin-top: 0;
+		}
+	}
+}
+
+.pure-g {
+	letter-spacing: inherit;
+	@include flexbox-align-content(inherit);
+}
+
+//.responsive-image {
+//	display: block;
+//	height: auto;
+//	left: -50%;
+//	margin: 0 auto;
+//	min-height: 100%;
+//	min-width: 100%;
+//	position: absolute;
+//	right: -50%;
+//	top: 0;
+//	width: auto;
+//	z-index: 1;
+//}
+
+// set padding-bottom in individual style sheet as appropriate
+.responsive-wrapper {
+	height: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+//.right-border {
+//	border-right: 1px solid color('global', 'dark-border');
+//}
+
+// Add this class to a row and it will add a
+// dark BG that goes halfway down.
+//.row-half-backdrop {
+//	position: relative;
+//
+//	&:before {
+//		content: " ";
+//		display: block;
+//		background-color: color('ground', 'navy');
+//		height: 50%;
+//		position: absolute;
+//		width: 100%;
+//	}
+//}
+
+.showOnDesktop {
+	display: none;
+
+	@include mediaquery(desktop) {
+		display: block;
+	}
+}
+
+.showOnTabletLandscape {
+	display: none;
+
+	@include mediaquery(tablet-landscape) {
+		display: block;
+	}
+}
+
+// Image alignment for single posts
+.single {
+	.post-img {
+		margin-bottom: $gap*3;
+		max-width: 100%;
+		width: auto;
+
+		@include mediaquery(tablet-portrait) {
+			margin-left: -10%;
+			max-width: 120%;
+			width: 120%;
+		}
+
+		&.alignleft, &.post-img-left {
+			clear: left;
+			float: left;
+			margin-right: $gap*.5;
+			max-width: 100%;
+			width: auto;
+		}
+
+		&.alignright, &.post-img-right {
+			clear: right;
+			float: right;
+			margin-left: $gap*.5;
+			margin-right: -10%;
+			max-width: 100%;
+			width: auto;
+		}
+	}
+}
+
+// Apply to a row or column, and makes the component
+// overlap whatever is above it by 100px;
+.slide-up-component {
+	.component {
+		margin-top: -100px;
+	}
+}
+
+.slideIn {
+	-webkit-animation: moveUp 0.65s ease forwards;
+	animation: moveUp 0.65s ease forwards;
+	opacity: 1;
+	@include transform(translateY(200px));
+}
+
+.small-hero {
+	height: 125px;
+
+	.video-wrapper {
+		padding-bottom: 0;
+		max-height: 125px;
+		min-height: 125px;
+
+		iframe, video {
+			max-height: 125px;
+			min-height: 125px;
+		}
+	}
+
+	@include mediaquery(tablet-portrait) {
+		height: 350px;
+
+		.video-wrapper {
+			//padding-bottom: 31.25%;
+			max-height: 350px;
+			min-height: 350px;
+
+			iframe, video {
+				max-height: 350px;
+				min-height: 350px;
+			}
+		}
+	}
+}
+
+.svg-sprite {
+	height: 0;
+	overflow: hidden;
+}
+
+.tablet-hidden {
+	display: none !important;
+
+	@include mediaquery(desktop) {
+		display: inherit !important;
+	}
+}
+
+.tall-hero {
+	height: 80vh;
+	transition: all 0.1s;
+	z-index: 2;
+
+	@include mediaquery(tablet-portrait) {
+		min-height: 600px;
+	}
+
+	@include mediaquery(desktop) {
+		height: 852px;
+	}
+
+	.video-wrapper {
+		//padding-bottom: 31.25%;
+		max-height: 80vh;
+		min-height: 80vh;
+
+		iframe, video {
+			max-height: 80vh;
+			min-height: 80vh;
+		}
+	}
+}
+
+//.top-border {
+//	border-top: 1px solid color('global', 'dark-border');
+//}
+
+.top-negative-margin {
+	margin-top: -170px;
+}
+
+.video-popup {
+	background-color: rgba(color('black'), .8);
+	display: none;
+	height: 100%;
+	left: 0;
+	padding: $gap * 3 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 10000;
+
+	@include mediaquery(tablet-landscape) {
+		padding: $gap * 5 20%;
+	}
+
+	@include mediaquery-max(desktop) {
+		padding: $gap * 6 0;
+	}
+
+	&.playVideo {
+		display: block;
+
+		.close {
+			display: block;
+			right: $gap;
+			top: $gap;
+			z-index: 10;
+
+			@include mediaquery(desktop) {
+				right: 19%;
+				top: 70px;
+			}
+
+			&:before, &:after {
+				background-color: $white;
+			}
+
+			@include mediaquery-max(desktop) {
+				top: $gap * 5;
+				left: 5%;
+				right: initial;
+			}
+		}
+	}
+}
+
+.video-wrapper,
+.embed-youtube {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	width: 100%;
+
+	iframe, video {
+		bottom: 0;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+
+//===
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+//
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+//===
+// Extends the .visuallyhidden class to allow the element to be focusable
+// when navigated to via the keyboard: h5bp.com/p
+//
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+.z-index-3 {
+	z-index: 3;
+}
+
+@-webkit-keyframes moveUp {
+	0% {}
+
+	100% {
+		-webkit-transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes moveUp {
+	0% {}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+
+// Column paddings for phone
+@include mediaquery-max(phone) {
+	.padding-top-phone {
+		padding-top: 80px;
+	}
+
+	.padding-bottom-phone {
+		padding-bottom: 80px;
+	}
+}
+
+// Logo grid
+// KC: Create a component for this later
+
+div[class*="logo-container-"] {
+	margin-bottom: $gap*3;
+	text-transform: uppercase;
+
+	p.team-logo {
+		font-size: 1.2rem;
+		letter-spacing: 0.312rem;
+		line-height: 2;
+		width: 100%;
+		a {
+			display: block;
+		}
+	}
+	img {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+}
+
+.logo-container-1 {
+	img {
+		max-width: 190px;
+	}
+}
+.logo-container-2 img {
+	max-width: 190px;
+}
+.logo-container-3 img {
+	max-width: 95px;
+}
+.column.logo-container-4 {
+	margin-bottom: $gap;
+	img {
+		max-width: 130px;
+	}
+}
+
+@include mediaquery('tablet-portrait') {
+	.logo-container-1 {
+		img {
+			max-width: 250px;
+		}
+	}
+	.logo-container-2 img {
+		max-width: 330px;
+	}
+	.logo-container-3 img {
+		max-width: 150px;
+	}
+	.column.logo-container-4 img {
+		max-width: 170px;
+	}
+}
+@include mediaquery('desktop') {
+	.logo-container-1 {
+		margin-top: 0;
+	}
+	.logo-container-2 img {
+		margin-top: 2px;
+	}
+	.column {
+		&.logo-container-3 {
+			margin-bottom: 0;
+		}
+		&.logo-container-4 {
+			margin-bottom: 0;
+			img {
+				margin-top: 46px;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}

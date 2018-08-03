@@ -1,0 +1,35 @@
+body {
+  padding: 10px;
+
+  @include mediaquery(desktop){
+    padding: 15px;
+  }
+}
+
+.residences-hero-logo {
+  margin-top: 30px;
+
+  @include mediaquery(desktop){
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    img {
+      max-width: 325px;
+    }
+  }
+}
+
+.residences-hero-heading {
+  margin-top: 80px;
+
+  .text-headline {
+    @include head-line-1;
+    font-weight: bold;
+    color: color('bone');
+  }
+
+  @include mediaquery(desktop) {
+    margin-top: 150px;
+  }
+}

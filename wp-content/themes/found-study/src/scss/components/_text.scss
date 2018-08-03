@@ -1,0 +1,43 @@
+.component-text {
+
+
+	h2, h3 {
+		a {
+			letter-spacing: inherit;
+		}
+	}
+
+	h3 {
+		letter-spacing: 1.59px;
+		line-height: 2.4;
+	}
+}
+
+.component-text-custom-list {
+	margin: 55px 0;
+
+	li {
+		font-weight: bold;
+		font-size: 20px;
+		margin-bottom: 1em;
+	}
+
+	@include mediaquery(tablet-landscape) {
+		white-space: nowrap;
+
+			li {
+			font-size: 14px;
+			display: inline-block;
+
+			& + li {
+				padding-left: 15px;
+
+								&:before {
+					content: '|';
+					display: inline-block;
+										margin-right: 15px;
+				}
+			}
+		}
+	}
+}

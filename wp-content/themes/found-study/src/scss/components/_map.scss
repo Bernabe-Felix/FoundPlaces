@@ -1,0 +1,20 @@
+.component-map {
+	align-items: stretch;
+	justify-content: stretch;
+
+	.content-wrapper {
+		align-items: stretch;
+		justify-content: stretch;
+
+		#map{
+			height: 50vw;
+			width: 100%;
+
+			@include mediaquery(desktop) {
+				height: 40vw;
+				min-height: 100%;
+				width: 100%;
+			}
+		}
+	}
+}

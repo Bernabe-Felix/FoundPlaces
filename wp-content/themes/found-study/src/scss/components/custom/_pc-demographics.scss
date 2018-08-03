@@ -1,0 +1,71 @@
+//pc demographics
+.component-pc-demographics {
+	@include clearRow;
+
+	.sans-serif14 {
+		display: block;
+		line-height: 2;
+	}
+
+	.demographics-list {
+		margin-bottom: $gap;
+		@include mediaquery(tablet-landscape) {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.demographics {
+		
+		@include mediaquery(tablet-landscape) {
+			float: left;
+			margin-right: 8%;
+			width: 46%;
+		}
+	}
+
+	.demographics-map {
+		@include mediaquery(tablet-landscape) {
+			float: left;
+			width: 46%;
+		}
+	}
+
+	table {
+		width: 100%;
+
+		tr {
+			border-bottom: 1px solid color('global', 'border');
+
+			&:last-child {
+				border:0;
+			}
+		}
+
+		td {
+			font-size: 14px;
+			line-height: 1.05;
+			min-width: 15%;
+			padding: $gap*.75 0;
+			text-transform: uppercase;
+			@include sans-serif;
+		}
+	}
+
+	.mobile {
+		display: block;
+
+		@include mediaquery(tablet-landscape) {
+			display: none;
+		}
+	}
+
+	.tablet-landscape {
+		display: none;
+
+		@include mediaquery(tablet-landscape) {
+			display: block;
+		}
+	}
+
+}

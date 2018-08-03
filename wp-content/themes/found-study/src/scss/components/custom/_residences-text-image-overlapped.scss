@@ -1,0 +1,39 @@
+.text-image-overlapped {
+  $overlapping: 45px;
+  display: flex;
+  flex-direction: column;
+
+  .overlapped {
+    width: 92%;
+    height: 92vw;
+    max-height: 550px;
+    background-size: contain;
+    background: no-repeat center;
+    transform: translate(4%, -$overlapping);
+  }
+
+  .paragraph {
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 12.5px calc(#{$overlapping} + 20px);
+  }
+
+  @include mediaquery-max(desktop){
+    background-color: transparent !important;
+  }
+
+  @include mediaquery(desktop){
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    .overlapped {
+      width: 33.33%;
+    }
+
+    .paragraph {
+      padding: 0;
+      width: 33.33%;
+    }
+  }
+}
