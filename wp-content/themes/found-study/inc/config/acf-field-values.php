@@ -40,6 +40,7 @@ function acf_load_theme_choices( $field ) {
         'black' => 'Black',
         'white' => 'White',
         'casper' => 'Casper',
+        'westar' => 'Westar',
         'calypso' => 'Calypso',
         'timber-green' => 'Timber Green',
         'limued-spruce' => 'Limued Spruce',

@@ -5,11 +5,22 @@
 
   .overlapped {
     width: 92%;
-    height: 92vw;
-    max-height: 550px;
+    padding: 25px;
     background-size: contain;
     background: no-repeat center;
     transform: translate(4%, -$overlapping);
+  }
+
+  .overlapped-list {
+    .list-title,
+    .list-item {
+      font-weight: bold;
+      @include head-line-2;
+    }
+
+    &:nth-of-type(n + 2) {
+      margin-top: 25px;
+    }
   }
 
   .paragraph {
@@ -29,6 +40,13 @@
 
     .overlapped {
       width: 33.33%;
+      padding: 100px 75px 70px;
+    }
+
+    .overlapped-list {
+      &:nth-of-type(n + 2) {
+        margin-top: 55px;
+      }
     }
 
     .paragraph {
