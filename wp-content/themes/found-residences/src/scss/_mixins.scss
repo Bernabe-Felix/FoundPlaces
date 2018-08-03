@@ -466,6 +466,7 @@ body {
 	font-size: 30px;
 	line-height: 39px;
 	letter-spacing: 1px;
+	font-family: 'Buenard';
 
 	@include mediaquery(desktop){
 		font-size: 35px;
@@ -477,6 +478,7 @@ body {
 	font-size: 20px;
 	line-height: 26px;
 	letter-spacing: 0;
+	font-family: 'Buenard';
 
 	@include mediaquery(desktop){
 		font-size: 24px;
@@ -489,6 +491,7 @@ body {
 	font-size: 20px;
 	line-height: 24px;
 	letter-spacing: 0;
+	font-family: 'Buenard';
 
 	@include mediaquery(desktop){
 		font-size: 24px;
