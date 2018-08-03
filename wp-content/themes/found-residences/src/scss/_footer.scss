@@ -38,6 +38,14 @@
     position: relative;
     display: inline-block;
 
+    &:hover {
+      color: color('tan-hide');
+
+      &:after {
+        background: color('tan-hide');
+      }
+    }
+
     &:nth-of-type(n + 2) {
       margin-left: 10px;
     }

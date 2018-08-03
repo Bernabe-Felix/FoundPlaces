@@ -511,12 +511,12 @@ body {
 }
 
 @mixin solitaire-link {
-	color: color('timber-green');
-	border-bottom: 1px solid color('timber-green');
+	color: color('solitaire');
+	border-bottom: 1px solid color('solitaire');
 
 	&:hover {
-		color: color('desert');
-		border-color: color('desert');
+		color: color('tan-hide');
+		border-color: color('tan-hide');
 	}
 }
 
