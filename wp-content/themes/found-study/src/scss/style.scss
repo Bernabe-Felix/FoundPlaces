@@ -9,7 +9,7 @@
 
 // // Global elements
 @import 'global';
-@import 'residences-global';
+@import 'study-global';
 @import 'typography';
 @import 'iconography';
 @import 'forms';
@@ -23,8 +23,7 @@
 @import 'components/map';
 
 // // Custom components
-@import 'components/custom/residences_cities_banner';
-@import 'components/custom/residences-text-image-overlapped';
+@import 'components/custom/study-text-image-overlapped';
 
 // // Routes
 @import 'routes/home';

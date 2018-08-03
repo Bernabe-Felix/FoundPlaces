@@ -39,10 +39,10 @@ function acf_load_theme_choices( $field ) {
         'bone' => 'Bone',
         'black' => 'Black',
         'white' => 'White',
-        'tan-hide' => 'Tan Hide',
-        'solitaire' => 'Solitaire',
-        'foggy-gray' => 'Foggy Gray',
-        'cutty-sark' => 'Cutty Sark'
+        'casper' => 'Casper',
+        'calypso' => 'Calypso',
+        'timber-green' => 'Timber Green',
+        'limued-spruce' => 'Limued Spruce',
     );
 
     return $field;

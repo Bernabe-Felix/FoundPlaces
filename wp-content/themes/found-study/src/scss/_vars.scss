@@ -104,11 +104,10 @@ $brand-colors: (
 	'bone': 			#E4D5C5,
 	'black': 			$black,
 	'white': 			$white,
-	'tan-hide': 		#F8905E,
-	'solitaire': 		#FEF4E4,
-	'foggy-gray': 		#CCC5B6,
-	'cutty-sark': 		#436966,
-	'timber-green': 	#172A30
+	'casper': 			#A3BFCC,
+	'calypso': 			#34658A,
+	'timber-green':		#172A30,
+	'limued-spruce':	#323E48,
 );
 
 //
@@ -133,7 +132,7 @@ $brand-colors: (
 @each $key, $map in $brand-colors {
 	@each $color in $map {
 		.component-theme-#{$key} {
-			background-color: #{$color};
+			background-color: #{$color} !important;
 		}
 
 		.row-text-#{$key} {

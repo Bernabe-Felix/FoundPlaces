@@ -464,25 +464,25 @@ body {
 // Headlines
 @mixin head-line-1 {
 	font-size: 30px;
-	line-height: 39px;
-	letter-spacing: 1px;
-	font-family: 'Buenard';
-
-	@include mediaquery(desktop){
-		font-size: 35px;
-		line-height: 45px;
-	}
-}
-
-@mixin head-line-2 {
-	font-size: 20px;
 	line-height: 26px;
 	letter-spacing: 0;
 	font-family: 'Buenard';
 
 	@include mediaquery(desktop){
-		font-size: 24px;
-		line-height: 31px;
+		font-size: 40px;
+		line-height: 45px;
+	}
+}
+
+@mixin head-line-2 {
+	font-size: 14px;
+	line-height: 23px;
+	letter-spacing: 1px;
+	font-family: 'Buenard';
+
+	@include mediaquery(desktop){
+		font-size: 20px;
+		line-height: 23px;
 	}
 }
 
