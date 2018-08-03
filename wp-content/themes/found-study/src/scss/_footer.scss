@@ -23,6 +23,10 @@
 
   .contact-link {
     display: inline-block;
+
+    a {
+      font-weight: bold;
+    }
   }
 
   .copyright {
@@ -31,13 +35,10 @@
     font-weight: bold;
   }
 
-  .residences-link.tan-hide {
-    font-weight: bold;
-  }
-
   .menu-item {
     line-height: 1;
     max-width: 45px;
+    font-weight: bold;
     position: relative;
     display: inline-block;
 

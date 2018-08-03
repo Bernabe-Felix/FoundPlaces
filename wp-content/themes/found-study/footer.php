@@ -5,22 +5,22 @@
         <!--    Offset    -->
         <div class="pure-u-sm-1-12 pure-u-lg-2-24"> </div>
 		<div class="pure-u-sm-10-12 pure-u-lg-6-24 text headline2">
-            We’re working on adding more information to this site. Please check back soon.
+            <?= the_field('left_text', 'options') ?>
 		</div>
         <div class="pure-u-sm-1-12 pure-u-lg-2-24"> </div>
 
         <!--    Offset    -->
         <div class="pure-u-sm-1-12 pure-u-lg-5-24"> </div>
         <div class="pure-u-sm-10-12 pure-u-lg-8-24 text headline2">
-            If you’d like to learn more about us, please email
+            <?= the_field('right_text', 'options') ?>
             <div class="contact-link">
-                <a class="study-link calypso" href="mailto:info@foundresidences.com">info@foundresidences.com</a>
+                <a class="study-link calypso" href="mailto:<?= the_field('contact_email', 'options'); ?>"><?= the_field('contact_email', 'options'); ?></a>
             </div>
         </div>
 	</div>
 
     <div class="footer-bottom">
-        <span class="study-link timber-green copyright">© 2018 FOUND Residences</span>
+        <span class="study-link timber-green copyright">© <?= the_field('copyright_label', 'options') ?></span>
 
         <div class="footer-menu">
             <?php
