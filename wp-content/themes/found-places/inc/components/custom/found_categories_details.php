@@ -1,4 +1,6 @@
-<div class="found-categories-details">
+<div class="component found-categories-details show-scroll-left" data-component-name="ScrollIndicator">
+    <div class="scroll-indicator"></div>
+
     <?php
     $categories = $globalColumn['found_categories'];
 
@@ -10,9 +12,12 @@
         $learnMoreLink = $category['learn_more_link'];
         $locationsLists = $category['locations_lists'];
         $backgroundColor = $category['background_color'];
+        $scrollIndicatorColor = $category['scroll_indicator_color'];
         ?>
 
-        <div class="grid pure-g category-detail" style="background-color: <?= $backgroundColor ?>">
+        <div class="grid pure-g category-detail"
+             style="background-color: <?= $backgroundColor ?>"
+             data-scroll-color="<?= $scrollIndicatorColor; ?>">
             <div class="pure-u-lg-6-12 image-side">
                 <div class="title-wrapper">
                     <p class="number">0<?= $key + 1; ?></p>

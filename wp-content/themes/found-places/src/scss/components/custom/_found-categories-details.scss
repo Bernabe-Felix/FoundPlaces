@@ -1,5 +1,30 @@
 .found-categories-details {
-  padding: 0 15px 25px 20px;
+  $leftSpace: 20px;
+  $bottomSpace: 25px;
+  padding: 0 15px $bottomSpace $leftSpace;
+
+  // Draw line
+  &.show-scroll-left:before {
+    content: ' ';
+    width: 1px;
+    height: calc(100% - #{$bottomSpace});
+    position: absolute;
+    background: color('timber-green');
+  }
+
+  // Draw rectangle
+  .scroll-indicator {
+    $width: 28px;
+    width: $width;
+    height: 140px;
+    position: absolute;
+    background: color('clam-shell');
+    transform: translateX(-$width/2);
+
+    &.lock {
+      position: fixed;
+    }
+  }
 
   @include mediaquery(desktop){
     padding: 0 50px 60px 80px;

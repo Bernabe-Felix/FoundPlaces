@@ -12,6 +12,7 @@ import Parallax from './components/parallax';
 import QBTwentyBroadCarousel from './components/QB-twenty-broad-carousel';
 import QBTwentyBroadNeighborhoodCarousel from './components/QB-twenty-broad-neighborhood-carousel';
 import CustomMap from './components/custom-map'
+import ScrollIndicator from "./components/scroll-indicator";
 
 // Add your components here so they get loaded.
 // Make sure to import them above first.
@@ -21,6 +22,7 @@ ATTCK.Components = {
 	// 'Map': Map,
 	'Nav': Nav,
 	'CustomMap': CustomMap,
+	'ScrollIndicator': ScrollIndicator,
 	// 'Parallax': Parallax,
 	// 'QBTwentyBroadCarousel': QBTwentyBroadCarousel,
 	// 'QBTwentyBroadNeighborhoodCarousel': QBTwentyBroadNeighborhoodCarousel,
