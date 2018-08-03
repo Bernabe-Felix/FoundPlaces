@@ -1881,20 +1881,31 @@ Object.defineProperty(exports, "__esModule", {
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function ScrollIndicator($el) {
+    var _this = this;
+
     this.createAreas = function (areasDOM) {
         var height = 0,
             top = 0;
 
         return areasDOM.map(function (area) {
-            height = areasDOM.clientHeight;
-            top = $(area).offset();
+            height = area.clientHeight;
+            top = $(area).offset().top;
 
-            return { minLimit: top, maxLimit: top + height };
+            return { minLimit: top, maxLimit: top + height, scrollColor: area.dataset.scrollColor };
         });
     };
 
-    // move with scroll
     // check in zone
+    this.isInArea = function ($scroller, areas) {
+        var scrollerTop = $scroller.offset().top;
+        var areaIn = areas.findIndex(function (area) {
+            return scrollerTop >= area.minLimit && scrollerTop < area.maxLimit;
+        });
+
+        if (areaIn < 0) return false;
+
+        $scroller.css('background', areas[areaIn].scrollColor);
+    };
 
     this.scrolled = function (scroller, scrollerTop, bounds, areas) {
         return function () {
@@ -1908,9 +1919,13 @@ function ScrollIndicator($el) {
             console.log(scrollDistance);
 
             if (scrollDistance + 100 >= scrollerTop) {
-                $scroller.addClass('lock');
-                scroller.style.top = top + 'px';
-                scroller.style.left = left + $scroller.width() / 2 + 'px';
+                if (!$scroller.hasClass('lock')) {
+                    $scroller.addClass('lock');
+                    scroller.style.top = top + 'px';
+                    scroller.style.left = left + $scroller.width() / 2 + 'px';
+                }
+
+                _this.isInArea($scroller, areas);
             } else {
                 $scroller.removeClass('lock');
             }

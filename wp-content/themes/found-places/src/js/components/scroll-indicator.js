@@ -3,15 +3,24 @@ function ScrollIndicator ($el) {
         let height = 0, top = 0
 
         return areasDOM.map(area => {
-            height = areasDOM.clientHeight
-            top = $(area).offset()
+            height = area.clientHeight
+            top = $(area).offset().top
 
-            return { minLimit: top, maxLimit: top + height }
+            return { minLimit: top, maxLimit: top + height, scrollColor: area.dataset.scrollColor }
         })
     }
 
-    // move with scroll
     // check in zone
+    this.isInArea = ($scroller, areas) => {
+        const scrollerTop = $scroller.offset().top
+        const areaIn = areas.findIndex(area => {
+            return scrollerTop >= area.minLimit && scrollerTop < area.maxLimit
+        })
+
+        if(areaIn < 0) return false
+
+        $scroller.css('background', areas[areaIn].scrollColor)
+    }
 
     this.scrolled = (scroller, scrollerTop, bounds, areas) => () => {
         const $scroller = $(scroller)
@@ -23,9 +32,13 @@ function ScrollIndicator ($el) {
         console.log(scrollDistance)
 
         if(scrollDistance + 100 >= scrollerTop) {
-            $scroller.addClass('lock')
-            scroller.style.top = `${top}px`
-            scroller.style.left = `${left + ($scroller.width() / 2)}px`
+            if(!$scroller.hasClass('lock')){
+                $scroller.addClass('lock')
+                scroller.style.top = `${top}px`
+                scroller.style.left = `${left + ($scroller.width() / 2)}px`
+            }
+
+            this.isInArea($scroller, areas)
         } else {
             $scroller.removeClass('lock')
         }

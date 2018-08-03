@@ -18,6 +18,7 @@
     width: $width;
     height: 140px;
     position: absolute;
+    transition: all 1s ease;
     background: color('clam-shell');
     transform: translateX(-$width/2);
 
