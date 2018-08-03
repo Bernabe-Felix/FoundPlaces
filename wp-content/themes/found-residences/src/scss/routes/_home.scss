@@ -1,3 +1,7 @@
 .residences-hero {
   padding-bottom: 135px;
+
+  @include mediaquery(desktop){
+    padding-bottom: 270px;
+  }
 }
