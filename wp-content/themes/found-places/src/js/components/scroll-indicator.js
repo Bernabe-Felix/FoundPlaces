@@ -25,16 +25,19 @@ function ScrollIndicator ($el) {
     this.scrolled = (scroller, scrollerTop, bounds, areas) => () => {
         const $scroller = $(scroller)
         const scrollDistance = $(window).scrollTop()
-        const { top, left } = bounds
-
-
-        console.log(scrollerTop)
-        console.log(scrollDistance)
+        const { left } = bounds
 
         if(scrollDistance + 100 >= scrollerTop) {
             if(!$scroller.hasClass('lock')){
+                let newTop = scrollerTop - scrollDistance
+                if(newTop > areas[0].minLimit)
+                    newTop = areas[0].minLimit
+
+                if(newTop + $scroller.height() > areas[areas.length - 1].maxLimit)
+                    newTop = areas[areas.length - 1].maxLimit - $scroller.height()
+
                 $scroller.addClass('lock')
-                scroller.style.top = `${top}px`
+                scroller.style.top = `${newTop }px`
                 scroller.style.left = `${left + ($scroller.width() / 2)}px`
             }
 

@@ -29,7 +29,7 @@
 
   @include mediaquery(desktop){
     $bottomSpace: 60px;
-    padding: 0 50px $bottomSpace 80px;
+    padding: 0 80px $bottomSpace;
 
     .category-detail {
       margin-top: 30px;
@@ -41,7 +41,7 @@
     }
 
     &.show-scroll-left:before {
-      height: calc(100% - #{$bottomSpace});
+      height: calc(100% - #{$bottomSpace} - 20px);
     }
   }
 

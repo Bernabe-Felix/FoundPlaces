@@ -1911,17 +1911,18 @@ function ScrollIndicator($el) {
         return function () {
             var $scroller = $(scroller);
             var scrollDistance = $(window).scrollTop();
-            var top = bounds.top,
-                left = bounds.left;
+            var left = bounds.left;
 
-
-            console.log(scrollerTop);
-            console.log(scrollDistance);
 
             if (scrollDistance + 100 >= scrollerTop) {
                 if (!$scroller.hasClass('lock')) {
+                    var newTop = scrollerTop - scrollDistance;
+                    if (newTop > areas[0].minLimit) newTop = areas[0].minLimit;
+
+                    if (newTop + $scroller.height() > areas[areas.length - 1].maxLimit) newTop = areas[areas.length - 1].maxLimit - $scroller.height();
+
                     $scroller.addClass('lock');
-                    scroller.style.top = top + 'px';
+                    scroller.style.top = newTop + 'px';
                     scroller.style.left = left + $scroller.width() / 2 + 'px';
                 }
 
