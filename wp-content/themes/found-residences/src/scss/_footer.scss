@@ -28,6 +28,10 @@
     font-weight: bold;
   }
 
+  .residences-link.tan-hide {
+    font-weight: bold;
+  }
+
   .menu-item {
     line-height: 1;
     max-width: 45px;
@@ -54,11 +58,6 @@
     .footer-content {
       text-align: left;
 
-      .found-link,
-      .text {
-        font-size: 20px;
-      }
-
       .text:last-of-type {
         margin-top: 0;
       }
@@ -69,8 +68,12 @@
     }
 
     .footer-bottom {
-      margin: 125px 9% 0;
+      margin: 125px 4.5% 0;
       justify-content: space-between;
+    }
+
+    .residences-link.tan-hide {
+      font-size: 24px;
     }
 
     .copyright,

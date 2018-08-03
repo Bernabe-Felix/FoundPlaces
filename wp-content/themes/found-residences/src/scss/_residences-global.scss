@@ -1,3 +1,11 @@
+.body {
+  padding: 10px;
+
+  @include mediaquery(desktop){
+    padding: 15px;
+  }
+}
+
 .residences-hero-logo {
   margin-top: 30px;
 
