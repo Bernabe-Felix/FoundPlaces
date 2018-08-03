@@ -1,9 +1,7 @@
 .headline1,
 .headline2,
-.headline3,
-.headline4,
 .paragraph,
-.found-link,
+.residences-link,
 .found-underline-link {
 	font-family: 'Buenard';
 }
@@ -33,8 +31,8 @@
 	}
 }
 
-.found-link {
-	@include found-link;
+.residences-link {
+	@include residences-link;
 }
 
 .text-left-desktop {

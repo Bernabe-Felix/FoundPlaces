@@ -497,17 +497,17 @@ body {
 }
 
 // Link
-@mixin desert-link {
-	color: color('desert');
-	border-bottom: 1px solid color('desert');
+@mixin tan-hide-link {
+	color: color('tan-hide');
+	border-bottom: 1px solid color('tan-hide');
 
 	&:hover {
-		color: color('timber-green');
-		border-color: color('timber-green');
+		color: color('solitaire');
+		border-color: color('solitaire');
 	}
 }
 
-@mixin timber-green-link {
+@mixin solitaire-link {
 	color: color('timber-green');
 	border-bottom: 1px solid color('timber-green');
 
@@ -517,19 +517,19 @@ body {
 	}
 }
 
-@mixin found-link($color: '') {
-	font-size: 14px;
+@mixin residences-link($color: '') {
+	font-size: 20px;
 	cursor: pointer;
 
 	&:hover {
 		text-decoration: none;
 	}
 
-	&.desert {
-		@include desert-link;
+	&.tan-hide {
+		@include tan-hide-link;
 	}
 
-	&.timber-green {
-		@include timber-green-link;
+	&.solitaire {
+		@include solitaire-link;
 	}
 }
