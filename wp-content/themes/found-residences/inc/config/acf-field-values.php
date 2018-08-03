@@ -41,6 +41,7 @@ function acf_load_theme_choices( $field ) {
         'white' => 'White',
         'tan-hide' => 'Tan Hide',
         'solitaire' => 'Solitaire',
+        'foggy-gray' => 'Foggy Gray',
         'cutty-sark' => 'Cutty Sark'
     );
 

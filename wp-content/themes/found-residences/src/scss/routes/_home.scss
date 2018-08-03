@@ -5,27 +5,3 @@
     padding-bottom: 270px;
   }
 }
-
-.cities-banner {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  padding: 0 20px 20px;
-  flex-direction: column;
-  justify-content: center;
-
-  .banner-item {
-    margin-top: 20px;
-
-    .text-headline,
-    .text-subhead {
-      font-weight: bold;
-      @include head-line-2;
-    }
-  }
-
-  @include mediaquery(desktop){
-    flex-direction: row;
-    justify-content: space-around;
-  }
-}
