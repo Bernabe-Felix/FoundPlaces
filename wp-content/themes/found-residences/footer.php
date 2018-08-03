@@ -7,7 +7,7 @@
 		<div class="pure-u-sm-10-12 pure-u-lg-6-24 text headline2">
             We’re working on adding more information to this site. Please check back soon.
 		</div>
-        <div class="pure-u-sm-1-12 pure-u-lg-3-24"> </div>
+        <div class="pure-u-sm-1-12 pure-u-lg-2-24"> </div>
 
         <!--    Offset    -->
         <div class="pure-u-sm-1-12 pure-u-lg-6-24"> </div>
