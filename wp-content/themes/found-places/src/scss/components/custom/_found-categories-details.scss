@@ -79,8 +79,10 @@
         margin-bottom: 20px;
       }
 
-      .body {
+      .body span {
+        @include paragraph;
         text-align: left;
+        display: inline-block;
         margin: 0 10px 20px 20px;
       }
 
@@ -117,7 +119,7 @@
           margin-bottom: 30px;
         }
 
-        .body {
+        .body span {
           text-align: center;
           margin: 0 65px 15px;
         }
