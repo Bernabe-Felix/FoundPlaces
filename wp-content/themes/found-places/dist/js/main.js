@@ -208,7 +208,7 @@ var _attck = __webpack_require__(1);
 
 var _attck2 = _interopRequireDefault(_attck);
 
-var _config = __webpack_require__(13);
+var _config = __webpack_require__(14);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -220,11 +220,11 @@ var _analytics = __webpack_require__(8);
 
 var _analytics2 = _interopRequireDefault(_analytics);
 
-var _fadeInElements = __webpack_require__(9);
+var _fadeInElements = __webpack_require__(10);
 
 var _fadeInElements2 = _interopRequireDefault(_fadeInElements);
 
-var _formEvents = __webpack_require__(10);
+var _formEvents = __webpack_require__(11);
 
 var _formEvents2 = _interopRequireDefault(_formEvents);
 
@@ -232,11 +232,11 @@ var _Map = __webpack_require__(5);
 
 var _Map2 = _interopRequireDefault(_Map);
 
-var _nav = __webpack_require__(11);
+var _nav = __webpack_require__(12);
 
 var _nav2 = _interopRequireDefault(_nav);
 
-var _parallax = __webpack_require__(12);
+var _parallax = __webpack_require__(13);
 
 var _parallax2 = _interopRequireDefault(_parallax);
 
@@ -248,22 +248,27 @@ var _QBTwentyBroadNeighborhoodCarousel = __webpack_require__(7);
 
 var _QBTwentyBroadNeighborhoodCarousel2 = _interopRequireDefault(_QBTwentyBroadNeighborhoodCarousel);
 
+var _customMap = __webpack_require__(9);
+
+var _customMap2 = _interopRequireDefault(_customMap);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Add your components here so they get loaded.
 // Make sure to import them above first.
+
+
+// Import all JS components explicitly.
 _attck2.default.Components = {
 	// 'Analytics': Analytics,
 	'FadeInElements': _fadeInElements2.default,
 	// 'Map': Map,
-	'Nav': _nav2.default
+	'Nav': _nav2.default,
+	'CustomMap': _customMap2.default
 	// 'Parallax': Parallax,
 	// 'QBTwentyBroadCarousel': QBTwentyBroadCarousel,
 	// 'QBTwentyBroadNeighborhoodCarousel': QBTwentyBroadNeighborhoodCarousel,
 };
-
-// Import all JS components explicitly.
-
 
 _attck2.default.Utils = {};
 
@@ -1347,6 +1352,39 @@ exports.default = Analytics;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function CustomMap($el) {
+    this.positionAndStyleMarker = function (marker) {
+        console.log(marker.dataset);
+    };
+
+    this.init = function ($el) {
+        var _this = this;
+
+        var map = document.querySelector('.map-wrapper');
+        var markers = document.querySelectorAll('.map-marker');
+
+        markers.forEach(function (marker) {
+            return _this.positionAndStyleMarker(marker, map.dataset);
+        });
+
+        return this;
+    };
+
+    return this.init($el);
+}
+
+exports.default = CustomMap;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1475,7 +1513,7 @@ exports.default = FadeInElements;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1548,7 +1586,7 @@ exports.default = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1648,7 +1686,7 @@ exports.default = Nav;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1825,7 +1863,7 @@ exports.default = Parallax;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
