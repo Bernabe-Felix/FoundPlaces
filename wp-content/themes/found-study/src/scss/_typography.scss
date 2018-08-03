@@ -1,8 +1,7 @@
 .headline1,
 .headline2,
 .paragraph,
-.residences-link,
-.found-underline-link {
+.study-link {
 	font-family: 'Buenard';
 }
 
@@ -16,19 +15,6 @@
 
 .paragraph {
 	@include paragraph;
-}
-
-.found-underline-link {
-	font-size: 14px;
-
-	&.desert {
-		color: color('desert');
-		text-decoration: underline;
-
-		&:hover {
-			color: color('timber-green');
-		}
-	}
 }
 
 .study-link {

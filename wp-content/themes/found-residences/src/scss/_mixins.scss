@@ -521,7 +521,7 @@ body {
 }
 
 @mixin residences-link($color: '') {
-	font-size: 20px;
+	font-size: 14px;
 	cursor: pointer;
 
 	&:hover {
@@ -533,6 +533,10 @@ body {
 	}
 
 	&.solitaire {
+		@include solitaire-link;
+	}
+
+	@if($color == 'solitaire'){
 		@include solitaire-link;
 	}
 }

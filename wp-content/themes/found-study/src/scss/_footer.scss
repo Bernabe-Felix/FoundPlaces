@@ -21,6 +21,10 @@
     justify-content: space-around;
   }
 
+  .contact-link {
+    display: inline-block;
+  }
+
   .copyright {
     font-size: 8px;
     line-height: 10px;
@@ -57,7 +61,7 @@
       height: 1px;
       position: absolute;
       transform: translateY(-50%);
-      background: color('solitaire');
+      background: color('timber-green');
     }
   }
 
@@ -72,8 +76,8 @@
       }
     }
 
-    .contact-link {
-      display: inline-block;
+    .contact-link a {
+      font-size: 20px;
     }
 
     .footer-bottom {
@@ -83,6 +87,15 @@
 
     .residences-link.tan-hide {
       font-size: 24px;
+    }
+
+    .menu-item {
+      @include study-link('timber-green');
+      max-width: none;
+
+      &:after {
+        display: none;
+      }
     }
 
     .copyright,
