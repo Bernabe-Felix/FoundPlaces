@@ -1,3 +1,5 @@
+import Popper from 'popper.js'
+
 function CustomMap ($el) {
     this.getImage = (type) => {
         switch (type){
@@ -13,11 +15,19 @@ function CustomMap ($el) {
     }
 
     this.initMarkerPopUp = function(marker){
-        marker.onclick = function(){
-            const popup = this.querySelector('.marker-popup')
+        var popper = document.querySelector('.marker-popup');
 
-            if(popup) {
-                popup.classList.toggle("show");
+        new Popper(
+            marker,
+            popper,
+            {
+                placement: 'top'
+            }
+        );
+
+        marker.onclick = function(){
+            if(popper) {
+                popper.classList.toggle("show");
             }
         }
     }

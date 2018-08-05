@@ -10,17 +10,18 @@
                 data-type="hotel"
                 data-x="100"
                 data-y="150">
-            <?php
-                $title = "Chicago";
-                $body = "613 N Wells St, Chicago, IL 60654";
-                $phone = "(224) 243-6863";
-            ?>
-            <div class="marker-popup">
-                <h3><?= $title; ?></h3>
-                <h3><?= $body; ?></h3>
-                <h3><?= $phone; ?></h3>
-            </div>
+
         </button>
+        <?php
+            $title = "Chicago";
+            $body = "613 N Wells St, Chicago, IL 60654";
+            $phone = "(224) 243-6863";
+        ?>
+        <div class="marker-popup">
+            <p class="marker-title"><?= $title; ?></p>
+            <p class="marker-body"><?= $body; ?></p>
+            <p class="marker-phone"><?= $phone; ?></p>
+        </div>
         <button
                 class="map-marker"
                 data-type="residence"
