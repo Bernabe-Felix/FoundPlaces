@@ -1357,7 +1357,7 @@ exports.default = Analytics;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1385,9 +1385,18 @@ function CustomMap($el) {
 
     this.initMarkerPopUp = function (marker) {
         var popper = document.querySelector('.marker-popup');
+        var container = document.querySelector('.image-wrapper');
 
         new _popper2.default(marker, popper, {
-            placement: 'top'
+            placement: 'top',
+            modifiers: {
+                flip: {
+                    behavior: ['bottom', 'top']
+                },
+                preventOverflow: {
+                    boundariesElement: container
+                }
+            }
         });
 
         marker.onclick = function () {
@@ -1401,16 +1410,15 @@ function CustomMap($el) {
         var _marker$dataset = marker.dataset,
             x = _marker$dataset.x,
             y = _marker$dataset.y;
-        var _map$dataset = map.dataset,
-            originalWidth = _map$dataset.originalWidth,
-            originalHeight = _map$dataset.originalHeight;
+        var naturalWidth = map.naturalWidth,
+            naturalHeight = map.naturalHeight;
 
 
         var currentWidth = map.clientWidth;
         var currentHeight = map.clientHeight;
 
-        var xRatio = currentWidth / originalWidth;
-        var yRatio = currentHeight / originalHeight;
+        var xRatio = currentWidth / naturalWidth;
+        var yRatio = currentHeight / naturalHeight;
 
         marker.style.left = x * xRatio + 'px';
         marker.style.bottom = y * yRatio + 'px';
@@ -1434,15 +1442,17 @@ function CustomMap($el) {
     this.init = function () {
         var _this2 = this;
 
-        var map = document.querySelector('.map-wrapper');
-        var markers = document.querySelectorAll('.map-marker');
+        $('document').ready(function () {
+            var map = document.querySelector('.map-wrapper');
+            var markers = document.querySelectorAll('.map-marker');
 
-        this.updateMarkers(map, markers);
-        window.onresize = function (map, markers) {
-            return function () {
-                return _this2.updateMarkers(map, markers);
-            };
-        }(map, markers);
+            _this2.updateMarkers(map, markers);
+            window.onresize = function (map, markers) {
+                return function () {
+                    return _this2.updateMarkers(map, markers);
+                };
+            }(map, markers);
+        });
 
         return this;
     };
@@ -1451,6 +1461,7 @@ function CustomMap($el) {
 }
 
 exports.default = CustomMap;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 10 */

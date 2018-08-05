@@ -2,9 +2,7 @@
     <div class="image-wrapper">
         <img
                 class="map-wrapper"
-                src="http://found.test/wp-content/uploads/2018/08/map_placeholder.svg"
-                data-original-width="843"
-                data-original-height="536">
+                src="http://found.test/wp-content/uploads/2018/08/map_placeholder.svg" >
         <button
                 class="map-marker"
                 data-type="hotel"

@@ -15,13 +15,22 @@ function CustomMap ($el) {
     }
 
     this.initMarkerPopUp = function(marker){
-        var popper = document.querySelector('.marker-popup');
+        const popper = document.querySelector('.marker-popup')
+        const container = document.querySelector('.image-wrapper')
 
         new Popper(
             marker,
             popper,
             {
-                placement: 'top'
+                placement: 'top',
+                modifiers: {
+                    flip: {
+                        behavior: ['bottom', 'top']
+                    },
+                    preventOverflow: {
+                        boundariesElement: container,
+                    },
+                },
             }
         );
 
@@ -34,13 +43,13 @@ function CustomMap ($el) {
 
     this.updateMarkerPosition = function(marker, map){
         const { x, y } = marker.dataset
-        const { originalWidth, originalHeight } = map.dataset
+        const { naturalWidth, naturalHeight } = map
 
         const currentWidth = map.clientWidth
         const currentHeight = map.clientHeight
 
-        const xRatio = currentWidth / originalWidth
-        const yRatio = currentHeight / originalHeight
+        const xRatio = currentWidth / naturalWidth
+        const yRatio = currentHeight / naturalHeight
 
         marker.style.left = `${x * xRatio}px`;
         marker.style.bottom = `${y * yRatio}px`;
@@ -60,11 +69,13 @@ function CustomMap ($el) {
     }
 
     this.init = function() {
-        const map = document.querySelector('.map-wrapper')
-        const markers = document.querySelectorAll('.map-marker')
+        $('document').ready(() => {
+            const map = document.querySelector('.map-wrapper')
+            const markers = document.querySelectorAll('.map-marker')
 
-        this.updateMarkers(map, markers)
-        window.onresize = ((map, markers) => () => this.updateMarkers(map, markers))(map, markers)
+            this.updateMarkers(map, markers)
+            window.onresize = ((map, markers) => () => this.updateMarkers(map, markers))(map, markers)
+        });
 
         return this;
     }
