@@ -1376,6 +1376,16 @@ function CustomMap($el) {
         }
     };
 
+    this.initMarkerPopUp = function (marker) {
+        marker.onclick = function () {
+            var popup = this.querySelector('.marker-popup');
+
+            if (popup) {
+                popup.classList.toggle("show");
+            }
+        };
+    };
+
     this.updateMarkerPosition = function (marker, map) {
         var _marker$dataset = marker.dataset,
             x = _marker$dataset.x,
@@ -1404,6 +1414,7 @@ function CustomMap($el) {
         var _this = this;
 
         markers.forEach(function (marker) {
+            _this.initMarkerPopUp(marker);
             _this.updateMarkerPosition(marker, map);
             _this.updateMarkerStyle(marker);
         });

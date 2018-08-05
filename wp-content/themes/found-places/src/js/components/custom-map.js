@@ -12,6 +12,16 @@ function CustomMap ($el) {
         }
     }
 
+    this.initMarkerPopUp = function(marker){
+        marker.onclick = function(){
+            const popup = this.querySelector('.marker-popup')
+
+            if(popup) {
+                popup.classList.toggle("show");
+            }
+        }
+    }
+
     this.updateMarkerPosition = function(marker, map){
         const { x, y } = marker.dataset
         const { originalWidth, originalHeight } = map.dataset
@@ -33,6 +43,7 @@ function CustomMap ($el) {
 
     this.updateMarkers = function(map, markers){
         markers.forEach(marker => {
+            this.initMarkerPopUp(marker)
             this.updateMarkerPosition(marker, map)
             this.updateMarkerStyle(marker)
         })
