@@ -12,8 +12,8 @@ function CustomMap ($el) {
         }
     }
 
-    this.positionAndStyleMarker = function(marker, map){
-        const { x, y, type } = marker.dataset
+    this.updateMarkerPosition = function(marker, map){
+        const { x, y } = marker.dataset
         const { originalWidth, originalHeight } = map.dataset
 
         const currentWidth = map.clientWidth
@@ -24,20 +24,31 @@ function CustomMap ($el) {
 
         marker.style.left = `${x * xRatio}px`;
         marker.style.bottom = `${y * yRatio}px`;
-        marker.style['background-image'] = `url('${this.getImage(type)}')`
+    }
+
+    this.updateMarkerStyle = function(marker){
+        marker.style['background-image'] = `url('${this.getImage(marker.dataset.type)}')`
         marker.style.display = 'block';
     }
 
-    this.init = function($el) {
+    this.updateMarkers = function(map, markers){
+        markers.forEach(marker => {
+            this.updateMarkerPosition(marker, map)
+            this.updateMarkerStyle(marker)
+        })
+    }
+
+    this.init = function() {
         const map = document.querySelector('.map-wrapper')
         const markers = document.querySelectorAll('.map-marker')
 
-        markers.forEach(marker => this.positionAndStyleMarker(marker, map))
+        this.updateMarkers(map, markers)
+        window.onresize = ((map, markers) => () => this.updateMarkers(map, markers))(map, markers)
 
         return this;
     }
 
-    return this.init($el);
+    return this.init();
 }
 
 export default CustomMap;

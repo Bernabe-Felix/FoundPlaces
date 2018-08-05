@@ -1376,11 +1376,10 @@ function CustomMap($el) {
         }
     };
 
-    this.positionAndStyleMarker = function (marker, map) {
+    this.updateMarkerPosition = function (marker, map) {
         var _marker$dataset = marker.dataset,
             x = _marker$dataset.x,
-            y = _marker$dataset.y,
-            type = _marker$dataset.type;
+            y = _marker$dataset.y;
         var _map$dataset = map.dataset,
             originalWidth = _map$dataset.originalWidth,
             originalHeight = _map$dataset.originalHeight;
@@ -1394,24 +1393,39 @@ function CustomMap($el) {
 
         marker.style.left = x * xRatio + 'px';
         marker.style.bottom = y * yRatio + 'px';
-        marker.style['background-image'] = 'url(\'' + this.getImage(type) + '\')';
+    };
+
+    this.updateMarkerStyle = function (marker) {
+        marker.style['background-image'] = 'url(\'' + this.getImage(marker.dataset.type) + '\')';
         marker.style.display = 'block';
     };
 
-    this.init = function ($el) {
+    this.updateMarkers = function (map, markers) {
         var _this = this;
+
+        markers.forEach(function (marker) {
+            _this.updateMarkerPosition(marker, map);
+            _this.updateMarkerStyle(marker);
+        });
+    };
+
+    this.init = function () {
+        var _this2 = this;
 
         var map = document.querySelector('.map-wrapper');
         var markers = document.querySelectorAll('.map-marker');
 
-        markers.forEach(function (marker) {
-            return _this.positionAndStyleMarker(marker, map);
-        });
+        this.updateMarkers(map, markers);
+        window.onresize = function (map, markers) {
+            return function () {
+                return _this2.updateMarkers(map, markers);
+            };
+        }(map, markers);
 
         return this;
     };
 
-    return this.init($el);
+    return this.init();
 }
 
 exports.default = CustomMap;
