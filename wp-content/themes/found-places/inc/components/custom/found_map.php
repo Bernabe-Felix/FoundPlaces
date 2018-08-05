@@ -1,8 +1,20 @@
 <div class="component component-custom-map" data-component-name="CustomMap">
+    <?php
+
+//        $mapImage = $globalColumn['map_image'];
+        $mapImage = 'http://found.test/wp-content/uploads/2018/08/map_placeholder.svg';
+//        $mapText = $globalColumn['map_text'];
+        $mapText = 'FOUND Locations';
+//        $mapTextColor = $globalColumn['map_text_color'];
+        $mapTextColor = '#B36A20';
+    ?>
+    <h2 class="headline2 map-text" style="color: <?= $mapTextColor; ?>"><?= $mapText; ?> </h2>
+
     <div class="image-wrapper">
         <img
                 class="map-wrapper"
-                src="http://found.test/wp-content/uploads/2018/08/map_placeholder.svg" >
+                src="<?= $mapImage; ?>" >
+
         <button
                 class="map-marker"
                 data-type="hotel"

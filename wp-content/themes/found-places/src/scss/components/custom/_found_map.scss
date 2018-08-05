@@ -1,10 +1,17 @@
 .component-custom-map {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 
   .image-wrapper {
     position: relative;
+  }
+
+  .map-text {
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
   }
 
   .map-marker {
@@ -19,7 +26,10 @@
   }
 
   @include mediaquery(desktop){
-
+    .map-text {
+      margin: 0;
+      position: absolute;
+    }
   }
 }
 
