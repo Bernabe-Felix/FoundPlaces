@@ -12,11 +12,18 @@ function CustomMap ($el) {
         }
     }
 
-    this.positionAndStyleMarker = function(marker, mapDataset){
+    this.positionAndStyleMarker = function(marker, map){
         const { x, y, type } = marker.dataset
+        const { originalWidth, originalHeight } = map.dataset
 
-        marker.style.left = `${x}px`;
-        marker.style.bottom = `${y}px`;
+        const currentWidth = map.clientWidth
+        const currentHeight = map.clientHeight
+
+        const xRatio = currentWidth / originalWidth
+        const yRatio = currentHeight / originalHeight
+
+        marker.style.left = `${x * xRatio}px`;
+        marker.style.bottom = `${y * yRatio}px`;
         marker.style['background-image'] = `url('${this.getImage(type)}')`
         marker.style.display = 'block';
     }
@@ -25,7 +32,7 @@ function CustomMap ($el) {
         const map = document.querySelector('.map-wrapper')
         const markers = document.querySelectorAll('.map-marker')
 
-        markers.forEach(marker => this.positionAndStyleMarker(marker, map.dataset))
+        markers.forEach(marker => this.positionAndStyleMarker(marker, map))
 
         return this;
     }

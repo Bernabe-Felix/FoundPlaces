@@ -1376,15 +1376,24 @@ function CustomMap($el) {
         }
     };
 
-    this.positionAndStyleMarker = function (marker, mapDataset) {
+    this.positionAndStyleMarker = function (marker, map) {
         var _marker$dataset = marker.dataset,
             x = _marker$dataset.x,
             y = _marker$dataset.y,
             type = _marker$dataset.type;
+        var _map$dataset = map.dataset,
+            originalWidth = _map$dataset.originalWidth,
+            originalHeight = _map$dataset.originalHeight;
 
 
-        marker.style.left = x + 'px';
-        marker.style.bottom = y + 'px';
+        var currentWidth = map.clientWidth;
+        var currentHeight = map.clientHeight;
+
+        var xRatio = currentWidth / originalWidth;
+        var yRatio = currentHeight / originalHeight;
+
+        marker.style.left = x * xRatio + 'px';
+        marker.style.bottom = y * yRatio + 'px';
         marker.style['background-image'] = 'url(\'' + this.getImage(type) + '\')';
         marker.style.display = 'block';
     };
@@ -1396,7 +1405,7 @@ function CustomMap($el) {
         var markers = document.querySelectorAll('.map-marker');
 
         markers.forEach(function (marker) {
-            return _this.positionAndStyleMarker(marker, map.dataset);
+            return _this.positionAndStyleMarker(marker, map);
         });
 
         return this;
