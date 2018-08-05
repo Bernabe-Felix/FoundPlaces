@@ -72,6 +72,21 @@
     animation: fadeIn 1s;
   }
 
+  .popup-close {
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
+    line-height: 0.5;
+    position: absolute;
+    color: color('desert');
+  }
+
+  .marker-title,
+  .marker-body,
+  .marker-phone {
+    font-family: Buenard;
+  }
+
   .marker-title {
     font-size: 14px;
     font-weight: bold;
@@ -94,6 +109,12 @@
     .marker-body,
     .marker-phone {
       font-size: 14px;
+    }
+
+    .popup-close {
+      top: 8px;
+      right: 8px;
+      font-size: 30px;
     }
   }
 }
