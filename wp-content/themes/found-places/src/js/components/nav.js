@@ -6,30 +6,26 @@ function Nav($el) {
 		$('.main-header').toggleClass('open');
 	}
 
-	// function scrolledNav($el) {
-	// 	// Bind to scroll
-	// 	$(document.body).bind('ATTCK.scroll', function (e, data) {
-	// 		// Show/hide nav bar background color
-	// 			var scroll = data.currentScrollTop;
-    //
-	// 			// Hide nav entirely once scrolled past a certain distance
-	// 			if (scroll >= 450) {
-	// 				if (!$('body').hasClass('hideNav')) {
-	// 					$('body').addClass('hideNav');
-    //
-	// 					// Also close previously opened nav
-	// 					if ($('body').hasClass('navOpen')) {
-	// 						$('.hamburger').trigger('click');
-	// 					}
-	// 				}
-	// 			}
-    //
-	// 			// Show again as soon as they start scrolling back up
-	// 			if (data.scrollDirection === 'up') {
-	// 				$('body').removeClass('hideNav');
-	// 			}
-	// 	});
-	// }
+	function scrolledNav($el) {
+		// Bind to scroll
+		$(document.body).bind('ATTCK.scroll', function (e, data) {
+			// Show/hide nav bar background color
+				const distance = 100;
+				var scroll = data.currentScrollTop;
+
+				// Hide nav entirely once scrolled past a certain distance
+				if (scroll >= distance) {
+					if (!$('.main-header').hasClass('hide-nav')) {
+						$('.main-header').addClass('hide-nav');
+					}
+				}
+
+				// Show again as soon as they start scrolling back up
+				if (data.scrollDirection === 'up' && scroll <= distance) {
+					$('.main-header').removeClass('hide-nav');
+				}
+		});
+	}
 
 	// function resizeFrame(e) {
 	// 	const $el = $('.page-footer');
@@ -56,7 +52,7 @@ function Nav($el) {
 		$el.find('.hamburger-container').on('click', navToggle);
 		$el.find('.close-container').on('click', navToggle);
 
-		// scrolledNav();
+		scrolledNav();
 		// resizeFrame();
 
 		// If we're clicking outside the nav, close the nav.
