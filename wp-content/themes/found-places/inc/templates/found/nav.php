@@ -8,7 +8,7 @@
     </div>
 
     <div class="mobile-menu">
-        <img class="custom_logo" src="http://found.test/wp-content/uploads/2018/07/logo_desktop.png" alt="">
+        <img class="custom_logo" src="<?= the_field('nav_mobile_image', 'options') ?>" alt="">
 
         <?php
         if (has_nav_menu('primary')) {
