@@ -1997,12 +1997,14 @@ function ScrollIndicator($el) {
             var left = bounds.left;
 
 
-            if (scrollDistance + 100 >= scrollerTop) {
+            if (scrollDistance + 40 >= scrollerTop) {
                 if (!$scroller.hasClass('lock')) {
                     var newTop = scrollerTop - scrollDistance;
-                    if (newTop > areas[0].minLimit) newTop = areas[0].minLimit;
+                    // if(newTop > areas[0].minLimit)
+                    //     newTop = areas[0].minLimit
 
-                    if (newTop + $scroller.height() > areas[areas.length - 1].maxLimit) newTop = areas[areas.length - 1].maxLimit - $scroller.height();
+                    // if(newTop + $scroller.height() > areas[areas.length - 1].maxLimit)
+                    //     newTop = areas[areas.length - 1].maxLimit - $scroller.height()
 
                     $scroller.addClass('lock');
                     scroller.style.top = newTop + 'px';
