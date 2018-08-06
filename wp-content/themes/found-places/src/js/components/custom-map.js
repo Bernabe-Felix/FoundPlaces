@@ -1,22 +1,8 @@
 import Popper from 'popper.js'
 
 function CustomMap ($el) {
-    this.getImage = (type) => {
-        switch (type){
-            case 'hotel':
-                return 'http://placebear.com/15/15'
-            case 'residence':
-                return 'http://placebear.com/20/15'
-            case 'study':
-                return 'http://placebear.com/15/10'
-            default:
-                return 'http://placebear.com/10/15'
-        }
-    }
-
-    this.initMarkerPopUp = function(marker){
+    this.initMarkerPopUp = function(marker, map){
         const popper = document.querySelector('.marker-popup')
-        const container = document.querySelector('.image-wrapper')
 
         new Popper(
             marker,
@@ -28,7 +14,7 @@ function CustomMap ($el) {
                         behavior: ['bottom', 'top']
                     },
                     preventOverflow: {
-                        boundariesElement: container,
+                        boundariesElement: map,
                     },
                 },
             }
@@ -48,23 +34,20 @@ function CustomMap ($el) {
         const currentWidth = map.clientWidth
         const currentHeight = map.clientHeight
 
+        const markerWidth = marker.clientWidth
+        const markerHeight  = marker.clientHeight
+
         const xRatio = currentWidth / naturalWidth
         const yRatio = currentHeight / naturalHeight
 
-        marker.style.left = `${x * xRatio}px`;
-        marker.style.bottom = `${y * yRatio}px`;
-    }
-
-    this.updateMarkerStyle = function(marker){
-        marker.style['background-image'] = `url('${this.getImage(marker.dataset.type)}')`
-        marker.style.display = 'block';
+        marker.style.left = `${ x * xRatio - (markerWidth / 2 ) }px`;
+        marker.style.top = `${ y * yRatio - (markerHeight / 2 ) }px`;
     }
 
     this.updateMarkers = function(map, markers){
         markers.forEach(marker => {
-            this.initMarkerPopUp(marker)
+            this.initMarkerPopUp(marker, map)
             this.updateMarkerPosition(marker, map)
-            this.updateMarkerStyle(marker)
         })
     }
 

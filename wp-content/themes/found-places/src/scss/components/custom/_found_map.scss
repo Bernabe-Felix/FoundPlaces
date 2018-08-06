@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
 
-  .image-wrapper {
+  .map-image-wrapper {
     position: relative;
   }
 
@@ -14,15 +14,24 @@
     text-align: center;
   }
 
+  .marker-wrapper {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
   .map-marker {
     padding: 0;
     width: 15px;
     height: auto;
     border: none;
-    display: none;
+    display: block;
     min-height: 30px;
     position: absolute;
     background: transparent no-repeat center;
+    background-size: contain;
   }
 
   @include mediaquery(desktop){

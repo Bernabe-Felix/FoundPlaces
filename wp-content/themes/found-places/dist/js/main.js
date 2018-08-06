@@ -1370,22 +1370,8 @@ var _popper2 = _interopRequireDefault(_popper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function CustomMap($el) {
-    this.getImage = function (type) {
-        switch (type) {
-            case 'hotel':
-                return 'http://placebear.com/15/15';
-            case 'residence':
-                return 'http://placebear.com/20/15';
-            case 'study':
-                return 'http://placebear.com/15/10';
-            default:
-                return 'http://placebear.com/10/15';
-        }
-    };
-
-    this.initMarkerPopUp = function (marker) {
+    this.initMarkerPopUp = function (marker, map) {
         var popper = document.querySelector('.marker-popup');
-        var container = document.querySelector('.image-wrapper');
 
         new _popper2.default(marker, popper, {
             placement: 'top',
@@ -1394,7 +1380,7 @@ function CustomMap($el) {
                     behavior: ['bottom', 'top']
                 },
                 preventOverflow: {
-                    boundariesElement: container
+                    boundariesElement: map
                 }
             }
         });
@@ -1417,25 +1403,22 @@ function CustomMap($el) {
         var currentWidth = map.clientWidth;
         var currentHeight = map.clientHeight;
 
+        var markerWidth = marker.clientWidth;
+        var markerHeight = marker.clientHeight;
+
         var xRatio = currentWidth / naturalWidth;
         var yRatio = currentHeight / naturalHeight;
 
-        marker.style.left = x * xRatio + 'px';
-        marker.style.bottom = y * yRatio + 'px';
-    };
-
-    this.updateMarkerStyle = function (marker) {
-        marker.style['background-image'] = 'url(\'' + this.getImage(marker.dataset.type) + '\')';
-        marker.style.display = 'block';
+        marker.style.left = x * xRatio - markerWidth / 2 + 'px';
+        marker.style.top = y * yRatio - markerHeight / 2 + 'px';
     };
 
     this.updateMarkers = function (map, markers) {
         var _this = this;
 
         markers.forEach(function (marker) {
-            _this.initMarkerPopUp(marker);
+            _this.initMarkerPopUp(marker, map);
             _this.updateMarkerPosition(marker, map);
-            _this.updateMarkerStyle(marker);
         });
     };
 
