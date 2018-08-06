@@ -4,6 +4,13 @@ function CustomMap ($el) {
     this.initMarkerPopUp = function(marker, map){
         const { x, y } = marker.dataset
         const popper = document.querySelector(`.marker-popup.coords-${x}-${y}`)
+        const closeButton = popper.querySelector('.popup-close')
+
+        const togglePopover = function(){
+            if(popper) {
+                popper.classList.toggle("show");
+            }
+        }
 
         new Popper(
             marker,
@@ -32,11 +39,8 @@ function CustomMap ($el) {
             }
         );
 
-        marker.onclick = function(){
-            if(popper) {
-                popper.classList.toggle("show");
-            }
-        }
+        marker.onclick = togglePopover
+        closeButton.onclick = togglePopover
     }
 
     this.updateMarkerPosition = function(marker, map){

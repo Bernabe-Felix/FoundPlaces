@@ -1376,6 +1376,13 @@ function CustomMap($el) {
             y = _marker$dataset.y;
 
         var popper = document.querySelector('.marker-popup.coords-' + x + '-' + y);
+        var closeButton = popper.querySelector('.popup-close');
+
+        var togglePopover = function togglePopover() {
+            if (popper) {
+                popper.classList.toggle("show");
+            }
+        };
 
         new _popper2.default(marker, popper, {
             placement: 'top',
@@ -1400,11 +1407,8 @@ function CustomMap($el) {
             }
         });
 
-        marker.onclick = function () {
-            if (popper) {
-                popper.classList.toggle("show");
-            }
-        };
+        marker.onclick = togglePopover;
+        closeButton.onclick = togglePopover;
     };
 
     this.updateMarkerPosition = function (marker, map) {
