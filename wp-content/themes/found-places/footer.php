@@ -1,6 +1,6 @@
 </main>
 </div>
-<footer class="component-footer component-theme-merino fade-me-in">
+<footer class="component-footer component-theme-merino">
 	<div class="pure-g footer-content">
         <!--    Offset    -->
         <div class="pure-u-sm-1-12  "> </div>
