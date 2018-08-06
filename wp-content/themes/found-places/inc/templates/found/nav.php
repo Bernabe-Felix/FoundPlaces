@@ -1,10 +1,10 @@
 <header class="main-header component" data-component-name="Nav">
     <div class="hamburger-container">
-        <img class="menu-icon" src="<?php bloginfo('template_directory')?>/src/images/hamburguer.png" alt="">
+        <img class="menu-icon" src="<?php bloginfo('template_directory')?>/src/images/hamburguer.svg" alt="">
     </div>
 
     <div class="close-container">
-        <img class="menu-icon" src="<?php bloginfo('template_directory')?>/src/images/close_icon.png" alt="">
+        <img class="menu-icon" src="<?php bloginfo('template_directory')?>/src/images/close_icon.svg" alt="">
     </div>
 
     <div class="mobile-menu">
