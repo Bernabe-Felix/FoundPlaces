@@ -53,11 +53,10 @@
       font-family: Buenard;
       color: color('desert');
 
-      &:hover {
-        a {
-          text-decoration: none;
-          border-bottom: 1px solid color('desert');
-        }
+      a.active,
+      a:hover {
+        text-decoration: none;
+        border-bottom: 1px solid color('desert');
       }
     }
   }
@@ -83,8 +82,8 @@
       color: color('timber-green');
       font: bold 16px "Crimson Text";
 
-      &:hover {
-        text-decoration: none;
+      a.active,
+      a:hover {
         border-bottom: 1px solid color('timber-green');
       }
 

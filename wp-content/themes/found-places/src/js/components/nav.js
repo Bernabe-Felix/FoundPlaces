@@ -6,6 +6,10 @@ function Nav($el) {
 		$('.main-header').toggleClass('open');
 	}
 
+	function addActive(){
+        $(`.main-header a[href='${window.location.href}']`).addClass('active')
+	}
+
 	function scrolledNav($el) {
 		// Bind to scroll
 		$(document.body).bind('ATTCK.scroll', function (e, data) {
@@ -53,6 +57,7 @@ function Nav($el) {
 		$el.find('.close-container').on('click', navToggle);
 
 		scrolledNav();
+		addActive();
 		// resizeFrame();
 
 		// If we're clicking outside the nav, close the nav.
