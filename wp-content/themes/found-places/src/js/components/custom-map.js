@@ -74,8 +74,8 @@ function CustomMap ($el) {
             const map = document.querySelector('.map-wrapper')
             const markers = document.querySelectorAll('.map-marker')
 
-            this.updateMarkers(map, markers)
-            window.onresize = ((map, markers) => () => this.updateMarkers(map, markers))(map, markers)
+            this.updateMarkers(map, [...markers])
+            window.onresize = ((map, markers) => () => this.updateMarkers(map, [...markers]))(map, markers)
         });
 
         return this;

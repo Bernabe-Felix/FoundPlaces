@@ -1369,6 +1369,8 @@ var _popper2 = _interopRequireDefault(_popper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function CustomMap($el) {
     this.initMarkerPopUp = function (marker, map) {
         var _marker$dataset = marker.dataset,
@@ -1450,10 +1452,10 @@ function CustomMap($el) {
             var map = document.querySelector('.map-wrapper');
             var markers = document.querySelectorAll('.map-marker');
 
-            _this2.updateMarkers(map, markers);
+            _this2.updateMarkers(map, [].concat(_toConsumableArray(markers)));
             window.onresize = function (map, markers) {
                 return function () {
-                    return _this2.updateMarkers(map, markers);
+                    return _this2.updateMarkers(map, [].concat(_toConsumableArray(markers)));
                 };
             }(map, markers);
         });
