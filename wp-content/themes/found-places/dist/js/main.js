@@ -1371,11 +1371,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function CustomMap($el) {
     this.initMarkerPopUp = function (marker, map) {
-        var popper = document.querySelector('.marker-popup');
+        var _marker$dataset = marker.dataset,
+            x = _marker$dataset.x,
+            y = _marker$dataset.y;
+
+        var popper = document.querySelector('.marker-popup.coords-' + x + '-' + y);
 
         new _popper2.default(marker, popper, {
             placement: 'top',
             modifiers: {
+                offset: {
+                    fn: function fn(data) {
+                        if (data.placement === 'top') {
+                            data.offsets.popper.top -= 10;
+                        } else if (data.placement === 'bottom') {
+                            data.offsets.popper.top += 10;
+                        }
+
+                        return data;
+                    }
+                },
                 flip: {
                     behavior: ['bottom', 'top']
                 },
@@ -1393,9 +1408,9 @@ function CustomMap($el) {
     };
 
     this.updateMarkerPosition = function (marker, map) {
-        var _marker$dataset = marker.dataset,
-            x = _marker$dataset.x,
-            y = _marker$dataset.y;
+        var _marker$dataset2 = marker.dataset,
+            x = _marker$dataset2.x,
+            y = _marker$dataset2.y;
         var naturalWidth = map.naturalWidth,
             naturalHeight = map.naturalHeight;
 
@@ -1409,6 +1424,8 @@ function CustomMap($el) {
         var xRatio = currentWidth / naturalWidth;
         var yRatio = currentHeight / naturalHeight;
 
+        // Calculate width/height based on current map size
+        // center the icon to the location (/2)
         marker.style.left = x * xRatio - markerWidth / 2 + 'px';
         marker.style.top = y * yRatio - markerHeight / 2 + 'px';
     };

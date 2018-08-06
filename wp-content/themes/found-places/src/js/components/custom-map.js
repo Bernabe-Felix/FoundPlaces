@@ -2,7 +2,8 @@ import Popper from 'popper.js'
 
 function CustomMap ($el) {
     this.initMarkerPopUp = function(marker, map){
-        const popper = document.querySelector('.marker-popup')
+        const { x, y } = marker.dataset
+        const popper = document.querySelector(`.marker-popup.coords-${x}-${y}`)
 
         new Popper(
             marker,
@@ -10,8 +11,19 @@ function CustomMap ($el) {
             {
                 placement: 'top',
                 modifiers: {
+                    offset: {
+                        fn: (data)=>{
+                            if(data.placement === 'top'){
+                                data.offsets.popper.top -= 10;
+                            } else if(data.placement === 'bottom'){
+                                data.offsets.popper.top += 10;
+                            }
+
+                            return data
+                        }
+                    },
                     flip: {
-                        behavior: ['bottom', 'top']
+                        behavior: ['bottom', 'top'],
                     },
                     preventOverflow: {
                         boundariesElement: map,
@@ -40,6 +52,8 @@ function CustomMap ($el) {
         const xRatio = currentWidth / naturalWidth
         const yRatio = currentHeight / naturalHeight
 
+        // Calculate width/height based on current map size
+        // center the icon to the location (/2)
         marker.style.left = `${ x * xRatio - (markerWidth / 2 ) }px`;
         marker.style.top = `${ y * yRatio - (markerHeight / 2 ) }px`;
     }

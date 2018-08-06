@@ -49,7 +49,7 @@
 
                 </button>
 
-                <div class="marker-popup">
+                <div class="marker-popup coords-<?= $markerX; ?>-<?= $markerY; ?>">
                     <span class="popup-close">×</span>
                     <p class="marker-title"><?= $markerTitle; ?></p>
                     <p class="marker-body"><?= $markerAddress; ?></p>
