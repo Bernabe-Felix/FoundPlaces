@@ -1,6 +1,7 @@
 .found-categories-details {
   $leftSpace: 20px;
   $bottomSpace: 25px;
+  position: relative;
   padding: 0 15px $bottomSpace $leftSpace;
 
   // Draw line
@@ -19,7 +20,7 @@
     width: $width;
     height: 140px;
     position: absolute;
-    transition: all 1s ease;
+    transition: background 1s ease;
     background: color('clam-shell');
     transform: translateX(-$width/2);
 

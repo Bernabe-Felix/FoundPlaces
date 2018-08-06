@@ -1965,6 +1965,26 @@ Object.defineProperty(exports, "__esModule", {
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this,
+            args = arguments;
+        var later = function later() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
 function ScrollIndicator($el) {
     var _this = this;
 
@@ -2002,11 +2022,6 @@ function ScrollIndicator($el) {
             if (scrollDistance + 40 >= scrollerTop) {
                 if (!$scroller.hasClass('lock')) {
                     var newTop = scrollerTop - scrollDistance;
-                    // if(newTop > areas[0].minLimit)
-                    //     newTop = areas[0].minLimit
-
-                    // if(newTop + $scroller.height() > areas[areas.length - 1].maxLimit)
-                    //     newTop = areas[areas.length - 1].maxLimit - $scroller.height()
 
                     $scroller.addClass('lock');
                     scroller.style.top = newTop + 'px';
@@ -2015,12 +2030,15 @@ function ScrollIndicator($el) {
 
                 _this.isInArea($scroller, areas);
             } else {
+                scroller.style.top = '40px';
                 $scroller.removeClass('lock');
             }
         };
     };
 
     this.init = function ($el) {
+        var _this2 = this;
+
         var scroller = document.querySelector('.scroll-indicator');
         var areas = document.querySelectorAll('.category-detail');
 
@@ -2028,7 +2046,9 @@ function ScrollIndicator($el) {
 
         areas = this.createAreas([].concat(_toConsumableArray(areas)));
 
-        document.onscroll = this.scrolled(scroller, $(scroller).offset().top, scroller.getBoundingClientRect(), areas);
+        $(document).ready(function () {
+            document.onscroll = _this2.scrolled(scroller, $(scroller).offset().top, scroller.getBoundingClientRect(), areas);
+        });
 
         return this;
     };

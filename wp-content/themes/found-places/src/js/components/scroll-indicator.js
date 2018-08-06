@@ -1,3 +1,22 @@
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
 function ScrollIndicator ($el) {
     this.createAreas = (areasDOM) => {
         let height = 0, top = 0
@@ -29,20 +48,16 @@ function ScrollIndicator ($el) {
 
         if(scrollDistance + 40 >= scrollerTop) {
             if(!$scroller.hasClass('lock')){
-                let newTop = scrollerTop - scrollDistance
-                // if(newTop > areas[0].minLimit)
-                //     newTop = areas[0].minLimit
-
-                // if(newTop + $scroller.height() > areas[areas.length - 1].maxLimit)
-                //     newTop = areas[areas.length - 1].maxLimit - $scroller.height()
+                const newTop = scrollerTop - scrollDistance
 
                 $scroller.addClass('lock')
-                scroller.style.top = `${newTop }px`
+                scroller.style.top = `${newTop}px`
                 scroller.style.left = `${left + ($scroller.width() / 2)}px`
             }
 
             this.isInArea($scroller, areas)
         } else {
+            scroller.style.top = `40px`
             $scroller.removeClass('lock')
         }
     }
@@ -55,11 +70,13 @@ function ScrollIndicator ($el) {
 
         areas = this.createAreas([...areas])
 
-        document.onscroll = this.scrolled(
-            scroller,
-            $(scroller).offset().top,
-            scroller.getBoundingClientRect(),
-            areas)
+        $(document).ready(() => {
+            document.onscroll = this.scrolled(
+                scroller,
+                $(scroller).offset().top,
+                scroller.getBoundingClientRect(),
+                areas)
+        })
 
         return this;
     }
