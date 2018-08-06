@@ -1,5 +1,8 @@
 <div class="component" id="locations">
-    <p class="headline2 locations-body">
+    <?php
+        $textColor = $globalColumn['location_text_color'];
+    ?>
+    <p class="headline2 locations-body" style="color: <?= $textColor; ?>">
         <?= $globalColumn['text_body'] ?>
     </p>
 
@@ -11,8 +14,12 @@
         <li class="locations-list-item">
             <img class="item-icon" src="<?= $list['icon'] ?>" alt="bear icon">
             <div class="text headline3">
-                <span class="title"><?= $list['location_title'] ?></span>
-                <span class="total-locations"><?= $list['location_subheader'] ?></span>
+                <span class="title" style="color: <?= $textColor; ?>">
+                    <?= $list['location_title'] ?>
+                </span>
+                <span class="total-locations" style="color: <?= $textColor; ?>">
+                    <?= $list['location_subheader'] ?>
+                </span>
             </div>
         </li>
         <?php } ?>
