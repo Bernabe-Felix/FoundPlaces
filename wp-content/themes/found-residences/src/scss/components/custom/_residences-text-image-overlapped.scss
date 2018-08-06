@@ -4,12 +4,14 @@
   flex-direction: column;
 
   .overlapped {
-    width: 92vw;
+    $overlappedWidth: 85vw;
+    width: $overlappedWidth;
     height: 92vw;
     max-height: 550px;
-    background-size: contain;
     background: no-repeat center;
-    transform: translate(4vw, -$overlapping);
+    background-size: contain;
+    // this `10px` is because body padding
+    transform: translate(calc((100vw - #{$overlappedWidth}) / 2 - 10px ), -$overlapping);
   }
 
   .paragraph {
@@ -29,6 +31,7 @@
 
     .overlapped {
       width: 33.33%;
+      transform: translateY(-$overlapping);
     }
 
     .paragraph {
