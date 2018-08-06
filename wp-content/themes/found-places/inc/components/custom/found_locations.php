@@ -11,7 +11,7 @@
             foreach ($globalColumn['locations_list'] as $list){
         ?>
 
-        <li class="locations-list-item">
+        <li class="locations-list-item fade-me-in">
             <img class="item-icon" src="<?= $list['icon'] ?>" alt="bear icon">
             <div class="text headline3">
                 <span class="title" style="color: <?= $textColor; ?>">

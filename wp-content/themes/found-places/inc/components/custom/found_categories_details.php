@@ -1,4 +1,4 @@
-<div class="component found-categories-details show-scroll-left" data-component-name="ScrollIndicator">
+<div class="component found-categories-details show-scroll-left fade-me-in" data-component-name="ScrollIndicator">
     <div class="scroll-indicator"></div>
 
     <?php
@@ -42,7 +42,7 @@
                     <?= $body; ?>
                 </div>
 
-                <div class="locations-lists pure-g">
+                <div class="locations-lists fade-me-in pure-g">
 
                     <?php
                     foreach ($locationsLists as $list) {
