@@ -30,6 +30,8 @@
   }
 
   .copyright {
+    // remove fade-in
+    opacity: 1;
     font-size: 8px;
     line-height: 10px;
     font-weight: bold;
@@ -41,6 +43,11 @@
     font-weight: bold;
     position: relative;
     display: inline-block;
+
+    a {
+      // remove fade-in
+      opacity: 1;
+    }
 
     &:hover {
       color: color('westar');
