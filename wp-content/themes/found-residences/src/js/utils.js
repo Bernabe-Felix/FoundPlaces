@@ -11,12 +11,14 @@ import Nav from './components/nav';
 import Parallax from './components/parallax';
 import QBTwentyBroadCarousel from './components/QB-twenty-broad-carousel';
 import QBTwentyBroadNeighborhoodCarousel from './components/QB-twenty-broad-neighborhood-carousel';
+import ResidencesFooter from "./components/ResidencesFooter";
 
 // Add your components here so they get loaded.
 // Make sure to import them above first.
 ATTCK.Components = {
+    FadeInElements,
+    ResidencesFooter,
     // 'Analytics': Analytics,
-    'FadeInElements': FadeInElements,
     // 'Map': Map,
     // 'Nav': Nav,
     // 'Parallax': Parallax,
@@ -32,10 +34,13 @@ ATTCK.Utils.loadComponents = function () {
     var self = this;
 
     $('.component').each(function () {
+        console.log(this)
         // Gracefully fail if no component name has been defined
         if (!$(this).attr('data-component-name')) {
             return;
         }
+
+        console.log('passed')
 
         var $this = $(this);
         var componentNames = $this.attr('data-component-name').split(',');

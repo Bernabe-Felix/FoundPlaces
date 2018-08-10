@@ -1,6 +1,6 @@
 </main>
 </div>
-<footer class="component-footer component-theme-merino fade-me-in">
+<footer class="component component-footer component-theme-merino fade-me-in" data-component-name="ResidencesFooter">
 	<div class="pure-g footer-content">
         <!--    Offset    -->
         <div class="pure-u-sm-1-12 pure-u-lg-1-24"> </div>
@@ -20,7 +20,7 @@
 	</div>
 
     <div class="footer-bottom">
-        <span class="residences-link solitaire copyright">© <?= the_field('copyright_label', 'options') ?></span>
+        <span class="copyright">© <?= the_field('copyright_label', 'options') ?></span>
 
         <div class="footer-menu">
             <?php

@@ -1,6 +1,7 @@
 .found-categories-details {
   $leftSpace: 20px;
   $bottomSpace: 25px;
+  $categoryMarginTop: 20px;
   position: relative;
   padding: 0 15px $bottomSpace $leftSpace;
 
@@ -8,9 +9,9 @@
   &.show-scroll-left:before {
     content: ' ';
     width: 1px;
-    height: calc(100% - #{$bottomSpace});
     position: absolute;
     background: color('timber-green');
+    height: calc(100% - #{$bottomSpace} - #{$categoryMarginTop});
   }
 
   // Draw rectangle
@@ -31,10 +32,11 @@
 
   @include mediaquery(desktop){
     $bottomSpace: 60px;
+    $categoryMarginTop: 20px;
     padding: 0 80px $bottomSpace;
 
     .category-detail {
-      margin-top: 30px;
+      margin-top: $categoryMarginTop;
     }
 
     &.show-scroll-left:before,
@@ -43,12 +45,12 @@
     }
 
     &.show-scroll-left:before {
-      height: calc(100% - #{$bottomSpace} - 20px);
+      height: calc(100% - #{$bottomSpace} - #{$categoryMarginTop});
     }
   }
 
   .category-detail {
-    margin-top: 20px;
+    margin-top: $categoryMarginTop;
 
     &.reverse {
       .title-wrapper {

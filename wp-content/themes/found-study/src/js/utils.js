@@ -11,12 +11,14 @@ import Nav from './components/nav';
 import Parallax from './components/parallax';
 import QBTwentyBroadCarousel from './components/QB-twenty-broad-carousel';
 import QBTwentyBroadNeighborhoodCarousel from './components/QB-twenty-broad-neighborhood-carousel';
+import StudyFooter from "./components/StudyFooter";
 
 // Add your components here so they get loaded.
 // Make sure to import them above first.
 ATTCK.Components = {
+    StudyFooter,
     // 'Analytics': Analytics,
-    'FadeInElements': FadeInElements,
+    FadeInElements,
     // 'Map': Map,
     // 'Nav': Nav,
     // 'Parallax': Parallax,

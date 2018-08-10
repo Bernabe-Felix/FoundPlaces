@@ -1,6 +1,6 @@
 </main>
 </div>
-<footer class="component-footer component-theme-casper fade-me-in">
+<footer class="component component-footer component-theme-casper fade-me-in" data-component-name="StudyFooter">
 	<div class="pure-g footer-content">
         <!--    Offset    -->
         <div class="pure-u-sm-1-12 pure-u-lg-2-24"> </div>
@@ -20,7 +20,7 @@
 	</div>
 
     <div class="footer-bottom">
-        <span class="study-link timber-green copyright">© <?= the_field('copyright_label', 'options') ?></span>
+        <span class="copyright">© <?= the_field('copyright_label', 'options') ?></span>
 
         <div class="footer-menu">
             <?php

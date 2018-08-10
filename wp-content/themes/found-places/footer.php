@@ -19,7 +19,7 @@
 	</div>
 
     <div class="footer-bottom">
-        <span class="found-link timber-green copyright">© <?= the_field('copyright_label', 'options') ?></span>
+        <span class="copyright">© <?= the_field('copyright_label', 'options') ?></span>
 
         <div class="footer-menu">
             <?php
